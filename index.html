@@ -750,6 +750,29 @@
 
     .form__textarea { resize: vertical; min-height: 130px; }
 
+    .form__success {
+      display: none;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      padding: 2rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+    }
+    .form__success.visible { display: flex; }
+    .form__success-icon {
+      width: 48px; height: 48px;
+      background: oklch(55% 0.18 145 / 0.12);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+    }
+    .form__success-icon svg { color: oklch(55% 0.18 145); }
+    .form__success h3 { font-size: 1.15rem; font-weight: 600; margin: 0; }
+    .form__success p { color: var(--ink-muted); font-size: 0.9rem; margin: 0; line-height: 1.6; }
+
+    .form__btn-loading { opacity: 0.7; pointer-events: none; cursor: wait; }
+
     /* ─────────────────────────────────────────
        FOOTER
     ───────────────────────────────────────── */
@@ -1804,8 +1827,10 @@
             </div>
           </div>
 
-          <form class="form reveal reveal-d1" action="#" novalidate
+          <form id="contact-form" class="form reveal reveal-d1" novalidate
             aria-label="Kontaktformular">
+            <input type="hidden" name="_subject" value="Neue Anfrage über beekenwebengineering.com">
+            <input type="hidden" name="_language" value="de">
             <div class="form__row">
               <div class="form__field">
                 <label for="f-name" class="form__label">Name *</label>
@@ -1846,7 +1871,7 @@
                 required aria-required="true"
               ></textarea>
             </div>
-            <button type="submit" class="btn btn-primary" style="align-self:flex-start">
+            <button type="submit" id="contact-submit" class="btn btn-primary" style="align-self:flex-start">
               Nachricht senden
               <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
                 <path d="M2.5 7.5h10M9 4l3.5 3.5L9 11" stroke="currentColor"
@@ -1854,6 +1879,17 @@
               </svg>
             </button>
           </form>
+
+          <div class="form__success" id="contact-success" role="status" aria-live="polite">
+            <div class="form__success-icon" aria-hidden="true">
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
+                <path d="M4 11l5 5 9-9" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <h3>Nachricht gesendet!</h3>
+            <p>Vielen Dank für Ihre Anfrage. Ich melde mich in der Regel innerhalb von 24 Stunden bei Ihnen.</p>
+          </div>
 
         </div>
       </div>
@@ -2312,6 +2348,48 @@
       }, 4000);
     });
 
+  }());
+  </script>
+
+  <script>
+  (function() {
+    var form = document.getElementById('contact-form');
+    var success = document.getElementById('contact-success');
+    var submitBtn = document.getElementById('contact-submit');
+    if (!form) return;
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.reportValidity(); return; }
+
+      submitBtn.classList.add('form__btn-loading');
+      submitBtn.textContent = 'Wird gesendet…';
+
+      var data = new FormData(form);
+
+      fetch('https://formspree.io/f/xaqzwzja', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      })
+      .then(function(res) {
+        if (res.ok) {
+          form.style.display = 'none';
+          success.classList.add('visible');
+          success.focus();
+          if (typeof gtag !== 'undefined') {
+            gtag('event', 'form_submit', { event_category: 'contact', event_label: 'kontakt' });
+          }
+        } else {
+          return res.json().then(function(d) { throw new Error(d.error || 'Fehler'); });
+        }
+      })
+      .catch(function(err) {
+        submitBtn.classList.remove('form__btn-loading');
+        submitBtn.innerHTML = 'Nachricht senden <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2.5 7.5h10M9 4l3.5 3.5L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+        alert('Fehler beim Senden. Bitte versuchen Sie es erneut oder schreiben Sie direkt an maxbeeken@beekenwebengineering.com');
+      });
+    });
   }());
   </script>
 
