@@ -1,0 +1,15 @@
+signatur-kopieren.html
+logo.png
+logo-200.png
+logo-square.png
+CLAUDE.md
+PRODUCT.md
+skills-lock.json
+.mcp.json
+.agents/
+.claude/
+.vscode/
+Müll/
+Gemini_Generated_Image_*.png
+*.jsonl
+.DS_Store
