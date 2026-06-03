@@ -7,6 +7,27 @@
   <meta name="description" content="Beeken Web Engineering baut präzise, barrierefreie Websites mit handgeschriebenem Code. WCAG AA. 90+ Core Web Vitals. Kein Template.">
   <meta name="theme-color" content="#0a0a0f">
 
+  <!-- Google Analytics 4 mit Consent Mode v2 -->
+  <!-- Ersetzen Sie G-XXXXXXXXXX mit Ihrer echten GA4 Measurement-ID -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{
+      analytics_storage:'denied',
+      ad_storage:'denied',
+      functionality_storage:'denied',
+      personalization_storage:'denied',
+      wait_for_update: 500
+    });
+    gtag('js', new Date());
+    gtag('config','G-XXXXXXXXXX', { anonymize_ip: true });
+    try {
+      const _p = JSON.parse(localStorage.getItem('bwe_cookie_consent') || 'null');
+      if (_p && _p.analytics) gtag('consent','update',{ analytics_storage:'granted' });
+    } catch(e) {}
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300;12..96,400;12..96,500;12..96,700;12..96,800&family=Epilogue:wght@300;400;500&display=swap" rel="stylesheet">
@@ -819,6 +840,158 @@
       .about__figures   { gap: 1.75rem; }
       .footer__inner    { flex-direction: column; align-items: flex-start; gap: 1.25rem; }
     }
+
+    /* ─────────────────────────────────────────
+       COOKIE BANNER
+    ───────────────────────────────────────── */
+    .cookie-banner {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(calc(100vw - 2rem), 720px);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      box-shadow: 0 24px 64px oklch(0 0 0 / 0.55);
+      z-index: 9999;
+      padding: 1.5rem;
+      opacity: 0;
+      transform: translateX(-50%) translateY(16px);
+      transition: opacity 0.4s var(--ease-expo), transform 0.4s var(--ease-expo);
+      pointer-events: none;
+    }
+    .cookie-banner.visible {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+      pointer-events: auto;
+    }
+    [data-theme="light"] .cookie-banner {
+      box-shadow: 0 16px 48px oklch(0 0 0 / 0.14);
+    }
+    .cookie-banner__head {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      margin-bottom: 1rem;
+    }
+    .cookie-banner__icon {
+      font-size: 1.3rem;
+      line-height: 1;
+      flex-shrink: 0;
+      margin-top: 0.1rem;
+    }
+    .cookie-banner__title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: -0.015em;
+      margin-bottom: 0.3rem;
+    }
+    .cookie-banner__desc {
+      font-size: 0.82rem;
+      color: var(--ink-muted);
+      line-height: 1.6;
+      max-width: 56ch;
+    }
+    .cookie-banner__desc a {
+      color: var(--primary);
+    }
+    .cookie-banner__actions {
+      display: flex;
+      align-items: center;
+      gap: 0.625rem;
+      flex-wrap: wrap;
+      margin-top: 1.25rem;
+    }
+    .cbtn {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.65rem 1.25rem;
+      border-radius: 6px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s, color 0.2s, border-color 0.2s, transform 0.2s;
+      white-space: nowrap;
+      letter-spacing: -0.01em;
+    }
+    .cbtn:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+    .cbtn-accept {
+      background: var(--primary);
+      color: oklch(0.98 0 0);
+    }
+    .cbtn-accept:hover { background: var(--primary-hi); transform: translateY(-1px); }
+    .cbtn-decline {
+      background: var(--surface-hi);
+      color: var(--ink-muted);
+    }
+    .cbtn-decline:hover { color: var(--ink); }
+    .cbtn-settings {
+      background: none;
+      color: var(--ink-muted);
+      border: 1px solid var(--border);
+    }
+    .cbtn-settings:hover { border-color: var(--primary); color: var(--primary); }
+
+    /* Cookie-Einstellungen (Detailansicht) */
+    .cookie-details {
+      display: none;
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .cookie-details.open { display: block; }
+    .cookie-row {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 1.5rem;
+      padding: 0.875rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .cookie-row:last-of-type { border-bottom: none; }
+    .cookie-row__info {}
+    .cookie-row__name {
+      font-size: 0.875rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: var(--ink);
+    }
+    .cookie-row__desc {
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+      line-height: 1.5;
+      max-width: 48ch;
+    }
+    /* Toggle switch */
+    .toggle {
+      position: relative;
+      flex-shrink: 0;
+      width: 40px;
+      height: 22px;
+    }
+    .toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+    .toggle__track {
+      position: absolute;
+      inset: 0;
+      background: var(--border);
+      border-radius: 11px;
+      cursor: pointer;
+      transition: background 0.25s;
+    }
+    .toggle input:checked ~ .toggle__track { background: var(--primary); }
+    .toggle input:disabled ~ .toggle__track { opacity: 0.5; cursor: not-allowed; }
+    .toggle__thumb {
+      position: absolute;
+      top: 3px; left: 3px;
+      width: 16px; height: 16px;
+      background: white;
+      border-radius: 50%;
+      transition: transform 0.25s;
+      pointer-events: none;
+    }
+    .toggle input:checked ~ .toggle__thumb { transform: translateX(18px); }
 
     /* ─────────────────────────────────────────
        FOCUS RING (global fallback)
@@ -1675,6 +1848,65 @@
 
   </main>
 
+  <!-- Cookie Banner -->
+  <div id="cookieBanner" class="cookie-banner" role="dialog"
+       aria-labelledby="cookie-title" aria-describedby="cookie-desc" aria-modal="true"
+       aria-live="polite">
+    <div class="cookie-banner__head">
+      <span class="cookie-banner__icon" aria-hidden="true">🍪</span>
+      <div>
+        <div class="cookie-banner__title" id="cookie-title">Cookie-Einstellungen</div>
+        <p class="cookie-banner__desc" id="cookie-desc">
+          Wir nutzen Cookies zur Analyse der Website-Nutzung (Google Analytics).
+          Details in unserer <a href="legal.html#datenschutz">Datenschutzerklärung</a>.
+        </p>
+      </div>
+    </div>
+
+    <div class="cookie-details" id="cookieDetails" aria-hidden="true">
+      <div class="cookie-row">
+        <div class="cookie-row__info">
+          <div class="cookie-row__name">Notwendig</div>
+          <div class="cookie-row__desc">Technisch erforderlich. Können nicht deaktiviert werden.</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" checked disabled aria-label="Notwendige Cookies — immer aktiv">
+          <span class="toggle__track"></span>
+          <span class="toggle__thumb"></span>
+        </label>
+      </div>
+      <div class="cookie-row">
+        <div class="cookie-row__info">
+          <div class="cookie-row__name">Statistik — Google Analytics (GA4)</div>
+          <div class="cookie-row__desc">Anonymisierte Nutzungsdaten zur Verbesserung der Website. IP-Adressen werden gekürzt und nicht gespeichert.</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" id="toggleAnalytics" aria-label="Statistik-Cookies aktivieren">
+          <span class="toggle__track"></span>
+          <span class="toggle__thumb"></span>
+        </label>
+      </div>
+      <div class="cookie-row">
+        <div class="cookie-row__info">
+          <div class="cookie-row__name">Marketing</div>
+          <div class="cookie-row__desc">Werden derzeit nicht eingesetzt.</div>
+        </div>
+        <label class="toggle">
+          <input type="checkbox" disabled aria-label="Marketing-Cookies — nicht verfügbar">
+          <span class="toggle__track"></span>
+          <span class="toggle__thumb"></span>
+        </label>
+      </div>
+    </div>
+
+    <div class="cookie-banner__actions">
+      <button class="cbtn cbtn-accept" id="cookieAcceptAll">Alle akzeptieren</button>
+      <button class="cbtn cbtn-decline" id="cookieDecline">Nur notwendige</button>
+      <button class="cbtn cbtn-settings" id="cookieToggleDetails" aria-expanded="false" aria-controls="cookieDetails">Einstellungen</button>
+      <button class="cbtn cbtn-accept" id="cookieSaveSettings" style="display:none">Auswahl speichern</button>
+    </div>
+  </div>
+
   <!-- ╔══════════════════════════════════════
        FOOTER
   ══════════════════════════════════════╗ -->
@@ -1688,6 +1920,7 @@
           <a href="#contact">Kontakt</a>
         </nav>
         <a href="legal.html" class="footer__copy" style="color:var(--ink-dim);transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-dim)'">Impressum & Datenschutz</a>
+        <button onclick="window.openCookieSettings()" class="footer__copy" style="background:none;border:none;cursor:pointer;color:var(--ink-dim);font-family:inherit;font-size:0.75rem;transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-dim)'">Cookie-Einstellungen</button>
         <p class="footer__copy">© 2026 Beeken Web Engineering</p>
       </div>
     </div>
@@ -1954,6 +2187,101 @@
     resize();
     draw();
 
+
+    /* ── Cookie Consent ── */
+    (function () {
+      const KEY     = 'bwe_cookie_consent';
+      const banner  = document.getElementById('cookieBanner');
+      const details = document.getElementById('cookieDetails');
+      const togA    = document.getElementById('toggleAnalytics');
+      const btnSave = document.getElementById('cookieSaveSettings');
+      const btnToggle = document.getElementById('cookieToggleDetails');
+
+      function applyConsent(prefs) {
+        if (typeof gtag !== 'undefined') {
+          gtag('consent', 'update', {
+            analytics_storage: prefs.analytics ? 'granted' : 'denied',
+            ad_storage: 'denied',
+          });
+        }
+      }
+
+      function hideBanner() {
+        banner.classList.remove('visible');
+        setTimeout(() => { banner.setAttribute('aria-hidden', 'true'); }, 420);
+      }
+
+      function showBanner() {
+        banner.removeAttribute('aria-hidden');
+        requestAnimationFrame(() =>
+          requestAnimationFrame(() => banner.classList.add('visible'))
+        );
+        banner.querySelector('.cbtn-accept').focus();
+      }
+
+      /* Restore saved prefs on load */
+      const saved = localStorage.getItem(KEY);
+      if (!saved) {
+        setTimeout(showBanner, 1200);
+      } else {
+        try { applyConsent(JSON.parse(saved)); } catch(e) {}
+      }
+
+      /* Accept all */
+      document.getElementById('cookieAcceptAll').addEventListener('click', () => {
+        const p = { analytics: true, marketing: false };
+        localStorage.setItem(KEY, JSON.stringify(p));
+        applyConsent(p);
+        hideBanner();
+      });
+
+      /* Only essential */
+      document.getElementById('cookieDecline').addEventListener('click', () => {
+        const p = { analytics: false, marketing: false };
+        localStorage.setItem(KEY, JSON.stringify(p));
+        applyConsent(p);
+        hideBanner();
+      });
+
+      /* Toggle detail view */
+      btnToggle.addEventListener('click', () => {
+        const open = details.classList.toggle('open');
+        details.setAttribute('aria-hidden', String(!open));
+        btnToggle.setAttribute('aria-expanded', String(open));
+        btnToggle.textContent = open ? 'Schließen' : 'Einstellungen';
+        btnSave.style.display = open ? '' : 'none';
+        if (open) {
+          const sv = localStorage.getItem(KEY);
+          try { togA.checked = sv ? JSON.parse(sv).analytics : false; } catch(e) {}
+        }
+      });
+
+      /* Save custom selection */
+      btnSave.addEventListener('click', () => {
+        const p = { analytics: togA.checked, marketing: false };
+        localStorage.setItem(KEY, JSON.stringify(p));
+        applyConsent(p);
+        hideBanner();
+      });
+
+      /* Auto-open wenn von legal.html weitergeleitet */
+      if (localStorage.getItem('bwe_open_cookies')) {
+        localStorage.removeItem('bwe_open_cookies');
+        setTimeout(() => window.openCookieSettings?.(), 600);
+      }
+
+      /* Public API for footer button and legal page */
+      window.openCookieSettings = () => {
+        showBanner();
+        details.classList.add('open');
+        details.setAttribute('aria-hidden', 'false');
+        btnToggle.setAttribute('aria-expanded', 'true');
+        btnToggle.textContent = 'Schließen';
+        btnSave.style.display = '';
+        const sv = localStorage.getItem(KEY);
+        try { togA.checked = sv ? JSON.parse(sv).analytics : false; } catch(e) {}
+      };
+    }());
 
     /* ── Form submit ── */
     document.querySelector('.form')?.addEventListener('submit', function (e) {
