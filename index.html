@@ -1201,71 +1201,81 @@
     @media (max-width: 960px) { .hero__laptop { display: none; } }
 
     /* ─────────────────────────────────────────
-       TESTIMONIALS
+       PROCESS
     ───────────────────────────────────────── */
-    .testimonials {
+    .process {
       padding: var(--section-gap) 0;
-    }
-    .testimonials__head {
-      display: flex;
-      align-items: flex-end;
-      justify-content: space-between;
-      gap: 2rem;
-      margin-bottom: clamp(3rem, 5vw, 4.5rem);
-    }
-    .testimonials__note {
-      font-size: 0.8rem;
-      color: var(--ink-dim);
-      font-style: italic;
-    }
-    .testimonials__grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-    }
-    .tcard {
       background: var(--surface);
-      border: 1px solid var(--border-subtle);
-      border-radius: 10px;
-      padding: 2rem 2rem 1.75rem;
+    }
+    .process__head {
+      margin-bottom: clamp(3rem, 6vw, 5rem);
+    }
+    .process__steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      position: relative;
+    }
+    /* Connecting line between steps */
+    .process__steps::before {
+      content: '';
+      position: absolute;
+      top: 1.6rem;
+      left: calc(12.5% + 1rem);
+      right: calc(12.5% + 1rem);
+      height: 1px;
+      background: linear-gradient(to right,
+        var(--primary) 0%,
+        var(--border) 60%,
+        var(--border-subtle) 100%);
+      pointer-events: none;
+    }
+    .process__step {
+      padding: 0 1.5rem 0 0;
+      position: relative;
+    }
+    .process__step:last-child { padding-right: 0; }
+    .process__num {
+      width: 3.2rem;
+      height: 3.2rem;
+      border-radius: 50%;
+      background: var(--primary-dim);
+      border: 1px solid var(--primary);
       display: flex;
-      flex-direction: column;
-      gap: 1.5rem;
-    }
-    .tcard__quote-mark {
-      font-family: var(--font-display);
-      font-size: 3.5rem;
-      line-height: 0.8;
-      color: var(--primary);
-      font-weight: 800;
-      opacity: 0.5;
-      user-select: none;
-    }
-    .tcard__body {
-      font-size: 0.95rem;
-      line-height: 1.70;
-      color: var(--ink-muted);
-      font-style: italic;
-      flex: 1;
-      border: 1.5px dashed var(--border);
-      border-radius: 6px;
-      padding: 1rem;
-    }
-    .tcard__author {
-      display: flex;
-      flex-direction: column;
-      gap: 0.2rem;
-    }
-    .tcard__name {
+      align-items: center;
+      justify-content: center;
       font-family: var(--font-display);
       font-size: 0.9rem;
-      font-weight: 700;
-      letter-spacing: -0.015em;
-      color: var(--ink-dim);
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      position: relative;
+      z-index: 1;
     }
-    .tcard__role {
-      font-size: 0.76rem;
-      color: var(--ink-dim);
+    .process__step-title {
+      font-family: var(--font-display);
+      font-size: clamp(1rem, 1.6vw, 1.2rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.6rem;
+      line-height: 1.2;
+    }
+    .process__step-desc {
+      font-size: 0.875rem;
+      color: var(--ink-muted);
+      line-height: 1.65;
+    }
+    @media (max-width: 860px) {
+      .process__steps {
+        grid-template-columns: 1fr 1fr;
+        gap: 2.5rem 2rem;
+      }
+      .process__steps::before { display: none; }
+    }
+    @media (max-width: 520px) {
+      .process__steps {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
     }
 
     /* ─────────────────────────────────────────
@@ -1441,7 +1451,7 @@
 
           <ul class="nav__links" role="list">
             <li><a href="#services">Leistungen</a></li>
-            <li><a href="#testimonials">Kunden</a></li>
+            <li><a href="#process">Prozess</a></li>
             <li><a href="#contact">Kontakt</a></li>
           </ul>
 
@@ -1690,18 +1700,19 @@
           </li>
 
           <li class="services__item reveal reveal-d2">
-            <h3 class="services__name">Eigener Code</h3>
+            <h3 class="services__name">Volle Kontrolle</h3>
             <div class="services__right">
               <p class="services__desc-text">
-                Wir schreiben jede Zeile von Hand. Kein WordPress, keine
-                Page Builder. Code, den man lesen, erweitern und dauerhaft
-                besitzen kann.
+                Kein Seitenbaukästen, keine Plattformabhängigkeit.
+                Sie erhalten Quellcode, den Sie lesen, erweitern und
+                dauerhaft besitzen können — ohne Lizenzgebühren oder
+                Vendor Lock-in.
               </p>
               <div class="services__chips">
-                <span class="chip">HTML / CSS / JS</span>
-                <span class="chip">React &amp; Next.js</span>
+                <span class="chip">Kein Vendor Lock-in</span>
+                <span class="chip">Quellcode-Übergabe</span>
                 <span class="chip">Kein Template</span>
-                <span class="chip">Dokumentiert</span>
+                <span class="chip">Erweiterbar</span>
               </div>
             </div>
           </li>
@@ -1711,53 +1722,56 @@
     </section>
 
     <!-- ╔══════════════════════════════════════
-         TESTIMONIALS
+         PROCESS
     ══════════════════════════════════════╗ -->
-    <section class="testimonials" id="testimonials" aria-labelledby="testi-h2">
+    <section class="process" id="process" aria-labelledby="process-h2">
       <div class="container">
 
-        <div class="testimonials__head">
-          <h2 id="testi-h2" class="t-heading reveal">Was Kunden sagen</h2>
-          <p class="testimonials__note reveal reveal-d1">Zitate werden ergänzt</p>
+        <div class="process__head">
+          <h2 id="process-h2" class="t-heading reveal">So arbeiten wir zusammen</h2>
         </div>
 
-        <div class="testimonials__grid">
+        <div class="process__steps">
 
-          <blockquote class="tcard reveal">
-            <div class="tcard__quote-mark" aria-hidden="true">"</div>
-            <p class="tcard__body">
-              Ihr Kundenzitat erscheint hier. Bitte senden Sie uns das Zitat,
-              Namen und Funktion der Person.
+          <div class="process__step reveal">
+            <div class="process__num" aria-hidden="true">01</div>
+            <h3 class="process__step-title">Gespräch</h3>
+            <p class="process__step-desc">
+              In einem kostenlosen 30-Minuten-Call klären wir Ihr Projekt,
+              Ihre Ziele und ob wir die richtigen Partner für Sie sind.
+              Kein Verkaufsgespräch — ein ehrliches Kennenlernen.
             </p>
-            <footer class="tcard__author">
-              <span class="tcard__name">Name Nachname</span>
-              <span class="tcard__role">Funktion · Unternehmen</span>
-            </footer>
-          </blockquote>
+          </div>
 
-          <blockquote class="tcard reveal reveal-d1">
-            <div class="tcard__quote-mark" aria-hidden="true">"</div>
-            <p class="tcard__body">
-              Ihr Kundenzitat erscheint hier. Bitte senden Sie uns das Zitat,
-              Namen und Funktion der Person.
+          <div class="process__step reveal reveal-d1">
+            <div class="process__num" aria-hidden="true">02</div>
+            <h3 class="process__step-title">Konzept &amp; Design</h3>
+            <p class="process__step-desc">
+              Wir entwickeln ein Designkonzept und technisches Konzept,
+              das genau auf Ihre Anforderungen zugeschnitten ist —
+              mit klarer Struktur, bevor eine Zeile Code entsteht.
             </p>
-            <footer class="tcard__author">
-              <span class="tcard__name">Name Nachname</span>
-              <span class="tcard__role">Funktion · Unternehmen</span>
-            </footer>
-          </blockquote>
+          </div>
 
-          <blockquote class="tcard reveal reveal-d2">
-            <div class="tcard__quote-mark" aria-hidden="true">"</div>
-            <p class="tcard__body">
-              Ihr Kundenzitat erscheint hier. Bitte senden Sie uns das Zitat,
-              Namen und Funktion der Person.
+          <div class="process__step reveal reveal-d2">
+            <div class="process__num" aria-hidden="true">03</div>
+            <h3 class="process__step-title">Entwicklung</h3>
+            <p class="process__step-desc">
+              Wir bauen Ihre Website — barrierefrei, schnell und ohne
+              Templates. Sie erhalten regelmäßige Updates und können
+              jederzeit Feedback geben.
             </p>
-            <footer class="tcard__author">
-              <span class="tcard__name">Name Nachname</span>
-              <span class="tcard__role">Funktion · Unternehmen</span>
-            </footer>
-          </blockquote>
+          </div>
+
+          <div class="process__step reveal reveal-d3">
+            <div class="process__num" aria-hidden="true">04</div>
+            <h3 class="process__step-title">Launch &amp; Begleitung</h3>
+            <p class="process__step-desc">
+              Nach dem Launch begleiten wir Sie weiter — Anpassungen,
+              Erweiterungen, Pflege. Ihre Website wächst mit Ihrem
+              Unternehmen.
+            </p>
+          </div>
 
         </div>
       </div>
@@ -1916,7 +1930,7 @@
         <span class="footer__brand">Beeken Web Engineering</span>
         <nav class="footer__nav" aria-label="Footer-Navigation">
           <a href="#services">Leistungen</a>
-          <a href="#testimonials">Kunden</a>
+          <a href="#process">Prozess</a>
           <a href="#contact">Kontakt</a>
         </nav>
         <a href="legal.html" class="footer__copy" style="color:var(--ink-dim);transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-dim)'">Impressum & Datenschutz</a>
