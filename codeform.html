@@ -1642,7 +1642,7 @@
                   <rect x="0"   y="6.5" width="5.5" height="5.5" fill="oklch(0.62 0.18 255)" opacity="0.78"/>
                   <rect x="6.5" y="6.5" width="5.5" height="5.5" fill="oklch(0.62 0.18 255)" opacity="0.58"/>
                 </svg>
-                <span class="hero__screen-url">index.html &#x2014; Visual Studio Code</span>
+                <span class="hero__screen-url">index.html</span>
               </div>
               <div class="win-controls">
                 <span class="win-ctrl">&#x2212;</span>
@@ -2125,20 +2125,26 @@
       /* Each chunk is a complete HTML-safe token rendered at once.
          The cursor blinks between chunks for a realistic typing rhythm. */
       const chunks = [
-        '<span class="cc">&lt;!-- Barrierefreie Navigation --&gt;</span>\n',
-        '<span class="ct">&lt;nav</span>',
-        ' <span class="ca">aria-label</span>=<span class="cv">"Hauptnavigation"</span>',
-        '\n     <span class="ca">role</span>=<span class="cv">"navigation"</span>',
-        '<span class="ct">&gt;</span>\n',
-        '  <span class="ct">&lt;ul</span> <span class="ca">role</span>=<span class="cv">"list"</span><span class="ct">&gt;</span>\n',
-        '    <span class="ct">&lt;li&gt;</span>\n',
-        '      <span class="ct">&lt;a</span> <span class="ca">href</span>=<span class="cv">"/leistungen"</span>\n',
-        '         <span class="ca">aria-current</span>=<span class="cv">"page"</span><span class="ct">&gt;</span>\n',
-        '        Leistungen\n',
-        '      <span class="ct">&lt;/a&gt;</span>\n',
-        '    <span class="ct">&lt;/li&gt;</span>\n',
-        '  <span class="ct">&lt;/ul&gt;</span>\n',
-        '<span class="ct">&lt;/nav&gt;</span>',
+        '<span class="cc">// Kontaktformular</span>\n',
+        '<span class="ct">const</span> form = document.\n',
+        '  <span class="ca">getElementById</span>(\n',
+        '    <span class="cv">\'contact-form\'</span>);\n',
+        '\nform.<span class="ca">addEventListener</span>(\n',
+        '  <span class="cv">\'submit\'</span>, ',
+        '<span class="ct">async</span> e => {\n',
+        '  e.<span class="ca">preventDefault</span>();\n',
+        '  <span class="ct">const</span> res = <span class="ct">await</span>\n',
+        '    <span class="ca">fetch</span>(<span class="cv">\'/f/xaqzwzja\'</span>, {\n',
+        '      <span class="ca">method</span>: <span class="cv">\'POST\'</span>,\n',
+        '      <span class="ca">body</span>: <span class="ct">new</span> FormData(form),\n',
+        '      <span class="ca">headers</span>: {\n',
+        '        Accept: <span class="cv">\'application/json\'</span>\n',
+        '      }\n',
+        '    });\n',
+        '  <span class="ct">if</span> (res.<span class="ca">ok</span>)\n',
+        '    success.<span class="ca">classList</span>\n',
+        '      .<span class="ca">add</span>(<span class="cv">\'visible\'</span>);\n',
+        '});\n',
       ];
 
       const CURSOR = '<span class="hero__code-cursor"></span>';
