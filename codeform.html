@@ -1129,25 +1129,47 @@
     .hero__screen-bar {
       display: flex;
       align-items: center;
+      justify-content: space-between;
       gap: 5px;
-      padding: 5px 9px 4px;
+      padding: 0 0 0 8px;
       background: oklch(0.13 0.009 280);
       border-bottom: 1px solid oklch(0.18 0.008 280 / 0.7);
       flex-shrink: 0;
+      min-height: 22px;
     }
-    .hero__screen-dot {
-      width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+    .win-title {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      min-width: 0;
     }
-    .sdr { background: oklch(0.60 0.19 22); }
-    .sdy { background: oklch(0.75 0.17 65); }
-    .sdg { background: oklch(0.62 0.19 142); }
+    .win-icon { flex-shrink: 0; }
     .hero__screen-url {
       font-family: var(--font-body);
       font-size: 0.50rem;
-      color: oklch(0.42 0.008 280);
-      margin-left: 5px;
+      color: oklch(0.48 0.008 280);
       letter-spacing: 0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
+    .win-controls {
+      display: flex;
+      align-items: stretch;
+      align-self: stretch;
+      flex-shrink: 0;
+    }
+    .win-ctrl {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px;
+      font-size: 0.55rem;
+      color: oklch(0.52 0.005 280);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+    .win-close { color: oklch(0.62 0.005 280); }
 
     .hero__screen-body {
       padding: 8px 10px;
@@ -1613,10 +1635,20 @@
           <!-- Screen content overlay -->
           <div class="hero__laptop-screen">
             <div class="hero__screen-bar">
-              <span class="hero__screen-dot sdr"></span>
-              <span class="hero__screen-dot sdy"></span>
-              <span class="hero__screen-dot sdg"></span>
-              <span class="hero__screen-url">www.beekenwebengineering.com</span>
+              <div class="win-title">
+                <svg class="win-icon" width="11" height="11" viewBox="0 0 12 12" aria-hidden="true">
+                  <rect x="0"   y="0"   width="5.5" height="5.5" fill="oklch(0.62 0.18 255)"/>
+                  <rect x="6.5" y="0"   width="5.5" height="5.5" fill="oklch(0.62 0.18 255)" opacity="0.78"/>
+                  <rect x="0"   y="6.5" width="5.5" height="5.5" fill="oklch(0.62 0.18 255)" opacity="0.78"/>
+                  <rect x="6.5" y="6.5" width="5.5" height="5.5" fill="oklch(0.62 0.18 255)" opacity="0.58"/>
+                </svg>
+                <span class="hero__screen-url">index.html &#x2014; Visual Studio Code</span>
+              </div>
+              <div class="win-controls">
+                <span class="win-ctrl">&#x2212;</span>
+                <span class="win-ctrl">&#x25A1;</span>
+                <span class="win-ctrl win-close">&#xD7;</span>
+              </div>
             </div>
             <div class="hero__screen-body">
               <pre class="hero__screen-pre" id="heroCodePre"></pre>
