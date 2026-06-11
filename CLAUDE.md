@@ -3,16 +3,16 @@
 **Inhaber:** Max Beeken · **Domain:** beekenwebengineering.com (Registrar: Squarespace) · **Hosting:** GitHub Pages · **Verfügbar:** ab Juli 2026
 
 ## Hauptdatei & Live-Seite
-**Arbeitsdatei: `codeform.html`** — hier editieren. **Danach zwingend nach `index.html` synchronisieren** (`cp codeform.html index.html`), denn **GitHub Pages liefert `index.html` unter `/` aus** (nicht `codeform.html`). Beide Dateien müssen byte-identisch sein, sonst zeigt die Live-Seite einen alten Stand. `legal.html` → `/legal`. Andere HTML-Dateien sind nicht live.
+**Masterdatei: `index.html`** — die EINZIGE Quelldatei der Homepage, direkt hier editieren. GitHub Pages liefert sie unter `/` aus. (`codeform.html` wurde am 2026-06-11 abgeschafft — es gibt keinen Kopier-/Sync-Schritt mehr.) `legal.html` → `/legal` · `404.html` → Fehlerseite. Andere HTML-Dateien sind nicht live.
 
 ## Deployment (GitHub Pages — NICHT Vercel!)
 Hosting = **GitHub Pages**. Repo `maxbeeken-dot/beekenwebengineering`, Branch `main`, Custom-Domain via `CNAME`. Die Domain ist bei **Squarespace** nur registriert (Registrar/DNS → zeigt auf GitHub Pages); es gibt **keinen Squarespace-Baukasten**. `vercel.json` / `.vercelignore` sind Altlasten und werden von GitHub Pages **ignoriert**.
 
 **Veröffentlichen:** Aus der Agent-/Sandbox-Umgebung **hängt `git push`** (Schreibpfad zu GitHub blockiert; Lesen + `gh api` funktionieren). Daher per **GitHub Contents API** committen:
-`gh api -X PUT repos/maxbeeken-dot/beekenwebengineering/contents/<datei> --input <payload.json>` mit JSON `{message, content:<base64>, sha:<aktuelle Blob-sha aus `gh api repos/.../contents/<datei>?ref=main --jq .sha`>, branch:"main"}`. Beide Dateien (`index.html` + `codeform.html`) pushen, dann lokal `git fetch <token-url> main:refs/remotes/origin/main && git reset --hard origin/main`. GitHub Pages baut automatisch (~1 Min). **Von Max' eigenem Rechner** geht normaler `git push origin main`.
+`gh api -X PUT repos/maxbeeken-dot/beekenwebengineering/contents/<datei> --input <payload.json>` mit JSON `{message, content:<base64>, sha:<aktuelle Blob-sha aus `gh api repos/.../contents/<datei>?ref=main --jq .sha`>, branch:"main"}` (neue Dateien: ohne `sha`; Löschen: `-X DELETE` mit `sha`). Danach lokal `git fetch origin main && git reset --hard origin/main`. GitHub Pages baut automatisch (~1 Min). **Von Max' eigenem Rechner** geht normaler `git push origin main`.
 
 ## Tech
-Reines HTML/CSS/JS · Bricolage Grotesque (Display) + Epilogue (Body) · GA4 `G-8TF95LBYRV` (Consent v2) · Formspree `https://formspree.io/f/xaqzwzja` → `maxbeeken@beekenwebengineering.com` · MCP: 21st.dev Magic
+Reines HTML/CSS/JS · Bricolage Grotesque (Display) + Epilogue (Body) — **selbst gehostet** in `fonts/` (variable WOFF2, DSGVO: keine Google-Font-Server!) · GA4 `G-8TF95LBYRV` (Consent v2) · Formspree `https://formspree.io/f/xaqzwzja` → `maxbeeken@beekenwebengineering.com` · CSP per `<meta>` + Referrer-Policy · MCP: 21st.dev Magic
 
 ## Design-Tokens (Dark Mode Standard / Light: `[data-theme="light"]`)
 ```css
@@ -26,8 +26,8 @@ Reines HTML/CSS/JS · Bricolage Grotesque (Display) + Epilogue (Body) · GA4 `G-
 ```
 Klassen: `.t-display` `.t-heading` `.t-body` `.t-small` `.t-label`
 
-## Seitenstruktur (codeform.html)
-`.nav` (fixed, frosted-glass @scroll) → `.hero` (fullscreen, Laptop-Mockup, Canvas-Dotgrid, Typewriter) → `.strip` (Marquee) → `.services#services` (DL-Layout, 3 Einträge, Hover-Unterlinie) → `.process#process` (4-Grid + Linie: Gespräch→Konzept→Entwicklung→Launch) → `.contact#contact` (Formspree-Formular) → Cookie-Banner (DSGVO, `bwe_cookie_consent` in localStorage) → `<footer>`
+## Seitenstruktur (index.html)
+Skip-Link → `.nav` (fixed, frosted-glass @scroll, Scroll-Spy) → Scroll-Strahl (wandernder Beam oben = Lesefortschritt) → `.hero` (fullscreen, SVG-Laptop + Typewriter, Canvas-Dotgrid, Orbs; mobil: Laptop statisch im Fluss) → `.strip` (Marquee) → `.services#services` (DL-Layout, 3 Einträge, gezeichnete SVG-Icons) → `.work2#arbeiten` (3 Browser-Mockups, 3D-Tilt) → `.versus#vergleich` (Baukasten vs. Handarbeit) → `.process#process` (4-Grid + Linie) → `.play#interaktiv` (interaktives Punktfeld, Canvas) → `.proof#beweis` (Live-Performance-Messung, Performance-API) → `.contact#contact` (Formspree, Inline-Fehler) → Cookie-Banner (DSGVO, `bwe_cookie_consent`) → `<footer>` · Theme: Dark = Standard, Wahl in localStorage `bwe_theme`
 
 ## A11y (nicht verhandelbar)
 WCAG AA · Semantisches HTML · `aria-*` vollständig · `:focus-visible` 2px `--primary` offset 3px · Kontrast body≥4.5:1 groß≥3:1 · `prefers-reduced-motion` überall
@@ -43,9 +43,11 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 
 | Datei | Beschreibung |
 |---|---|
-| `codeform.html` | **Arbeitsdatei** — hier editieren, danach nach `index.html` kopieren (identisch halten) |
+| `index.html` | **Masterdatei & Live-Homepage** unter `/` — die einzige Quelldatei, direkt hier editieren |
 | `legal.html` | Impressum & Datenschutz — live unter `/legal` |
-| `index.html` | **Live-Homepage** unter `/` (GitHub Pages liefert diese aus) — Kopie von `codeform.html` |
+| `404.html` | Markenkonforme Fehlerseite (GitHub Pages nutzt sie automatisch) |
+| `fonts/` | Selbst gehostete variable WOFF2-Fonts (Bricolage Grotesque, Epilogue — DSGVO) |
+| `og-image.png` | Social-Sharing-Bild 1200×630 (Open Graph / Twitter) |
 | `index_deploy.html` | Staging-/Deploy-Testversion, nicht live |
 | `signatur-kopieren.html` | E-Mail-Signatur-Generator, lokal genutzt |
 | `dashboard.html` | J.A.R.V.I.S. Business-Dashboard — lokales HUD mit Aufgaben, Projekten, Leads und Analytics (nicht live) |
@@ -60,6 +62,7 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `robots.txt` | SEO-Crawling-Steuerung |
 | `llms.txt` | Kontextdatei für AI-Systeme (llmstxt.org-Standard) zur besseren AI-Sichtbarkeit |
 | `sitemap.xml` | XML-Sitemap für Suchmaschinen |
+| `google9fc278bb26ec797c.html` | Google-Search-Console-Verifizierungsdatei (muss live bleiben) |
 | `skills-lock.json` | Claude-Skills-Versionsdatei |
 | `logo.png` | Haupt-Logo (Originalformat) |
 | `logo-200.png` | Logo-Variante 200 px |
