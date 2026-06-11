@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seite nicht gefunden — Beeken Web Engineering</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#0d0c12">
+  <link rel="icon" type="image/png" sizes="96x96" href="/logo-96.png">
+  <style>
+    @font-face {
+      font-family: 'Bricolage Grotesque';
+      font-style: normal;
+      font-weight: 200 800;
+      font-stretch: 100%;
+      font-display: swap;
+      src: url('/fonts/bricolage-grotesque-var.woff2') format('woff2');
+    }
+    @font-face {
+      font-family: 'Epilogue';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/epilogue-var.woff2') format('woff2');
+    }
+    :root {
+      --bg:        oklch(0.09 0.014 280);
+      --ink:       oklch(0.96 0.004 280);
+      --ink-muted: oklch(0.58 0.012 280);
+      --primary:   oklch(0.60 0.200 280);
+      --primary-hi:oklch(0.66 0.188 280);
+      --accent:    oklch(0.74 0.148 195);
+      --border:    oklch(0.24 0.014 280);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: 'Epilogue', sans-serif;
+      line-height: 1.6;
+      padding: 2rem;
+      text-align: center;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: -25%;
+      z-index: -1;
+      pointer-events: none;
+      background:
+        radial-gradient(36% 44% at 20% 22%, oklch(0.56 0.21 280 / 0.30), transparent 60%),
+        radial-gradient(40% 46% at 80% 80%, oklch(0.64 0.16 210 / 0.20), transparent 60%);
+      filter: blur(36px);
+    }
+    main { max-width: 34rem; }
+    .label {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.25rem;
+    }
+    h1 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(5rem, 18vw, 9rem);
+      font-weight: 800;
+      line-height: 1;
+      letter-spacing: -0.04em;
+      background: linear-gradient(110deg, var(--primary-hi), var(--accent));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      margin-bottom: 0.75rem;
+    }
+    h2 {
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: clamp(1.3rem, 4vw, 1.8rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    p { color: var(--ink-muted); font-size: 0.95rem; margin-bottom: 2.25rem; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-family: 'Bricolage Grotesque', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.9rem 1.75rem;
+      border-radius: 6px;
+      background: var(--primary);
+      color: oklch(0.98 0 0);
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn:hover { background: var(--primary-hi); transform: translateY(-1px); }
+    .btn:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+  </style>
+</head>
+<body>
+  <main>
+    <p class="label">Fehler 404</p>
+    <h1 aria-hidden="true">404</h1>
+    <h2>Diese Seite gibt es nicht.</h2>
+    <p>Der Link führt ins Leere — vielleicht ein Tippfehler, vielleicht eine alte Adresse.
+       Auf der Startseite finden Sie alles Wichtige.</p>
+    <a class="btn" href="/">
+      Zur Startseite
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
+        <path d="M3 7.5h9M9 4l3.5 3.5L9 11" stroke="currentColor"
+          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </main>
+</body>
+</html>
