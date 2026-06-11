@@ -1779,27 +1779,48 @@
        PREMIUM EFFECTS
     ───────────────────────────────────────── */
 
-    /* Scroll-Strahl — wandernder Lichtstrahl an der Oberkante,
-       Position = Lesefortschritt (ersetzt den alten Füll-Balken) */
-    .scroll-beam {
-      position: fixed;
-      top: 0; left: 0;
-      height: 3px;
-      width: clamp(90px, 14vw, 200px);
-      border-radius: 0 0 3px 3px;
-      background: linear-gradient(90deg,
-        transparent,
-        var(--primary) 45%,
-        var(--accent) 88%,
-        oklch(0.88 0.06 195) 100%);
-      box-shadow:
-        0 0 10px oklch(0.60 0.20 280 / 0.55),
-        0 0 24px oklch(0.60 0.20 280 / 0.25);
-      transform: translateX(-220px);
-      z-index: calc(var(--z-sticky) + 10);
+    /* Integrierter Scroll-Strahl (Tracing Beam) — läuft IN der Seite mit:
+       die Spur am linken Rand füllt sich beim Lesen, der Leuchtkopf
+       hält die aktuelle Lese-Position. Teil des Inhalts, nicht overlay. */
+    main { position: relative; }
+    .trace {
+      position: absolute;
+      left: clamp(0.9rem, 2.2vw, 2.5rem);
+      top: 0;
+      width: 2px;
+      height: 0;
+      z-index: 1;
       pointer-events: none;
+      display: none;
+    }
+    @media (min-width: 961px) { .trace { display: block; } }
+    .trace__track {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg,
+        transparent, var(--border) 4%, var(--border) 96%, transparent);
+      opacity: 0.7;
+    }
+    .trace__fill {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, var(--primary), var(--accent));
+      border-radius: 2px;
+      transform-origin: 0 0;
+      transform: scaleY(0);
+    }
+    .trace__head {
+      position: absolute; left: 50%; top: 0;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow:
+        0 0 8px oklch(0.74 0.148 195 / 0.65),
+        0 0 22px oklch(0.60 0.20 280 / 0.35);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 0.3s var(--ease-quart);
       will-change: transform;
     }
+    .trace.is-tracing .trace__head { opacity: 1; }
 
     /* Cursor spotlight — soft brand light follows the pointer over a surface.
        Subtle (primary-dim ~14% alpha): no neon glow, stays on-brand. */
@@ -2204,7 +2225,7 @@
       .hero__laptop { opacity: 1 !important; }
       .versus__row { opacity: 1 !important; transform: none !important; }
       .services__icon [stroke], .vicon [stroke] { stroke-dashoffset: 0 !important; }
-      .scroll-beam, .hero__canvas { display: none !important; }
+      .trace, .hero__canvas { display: none !important; }
     </style>
   </noscript>
 </head>
@@ -2213,7 +2234,6 @@
 
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-  <div class="scroll-beam" id="scrollBeam" aria-hidden="true"></div>
 
   <!-- ╔══════════════════════════════════════
        NAV
@@ -2271,6 +2291,13 @@
   </header>
 
   <main id="main" tabindex="-1">
+
+    <!-- Integrierter Scroll-Strahl: Spur + Füllung + Leuchtkopf -->
+    <div class="trace" id="trace" aria-hidden="true">
+      <span class="trace__track"></span>
+      <span class="trace__fill" id="traceFill"></span>
+      <span class="trace__head" id="traceHead"></span>
+    </div>
 
     <!-- ╔══════════════════════════════════════
          HERO
@@ -3130,20 +3157,44 @@
     }
 
 
-    /* ── Nav scroll + Scroll-Strahl ── */
-    const nav  = document.getElementById('nav');
-    const beam = document.getElementById('scrollBeam');
+    /* ── Nav scroll + integrierter Scroll-Strahl (Tracing Beam) ── */
+    const nav       = document.getElementById('nav');
+    const trace     = document.getElementById('trace');
+    const traceFill = document.getElementById('traceFill');
+    const traceHead = document.getElementById('traceHead');
+
+    /* Strahl spannt sich vom Ende des Heros bis in die Kontakt-Sektion */
+    function measureTrace() {
+      if (!trace) return;
+      const start = document.querySelector('.strip');
+      const end   = document.querySelector('.contact');
+      if (!start || !end) return;
+      const top = start.offsetTop + start.offsetHeight;
+      const len = end.offsetTop + end.offsetHeight * 0.55 - top;
+      trace.style.top    = top + 'px';
+      trace.style.height = Math.max(len, 0) + 'px';
+    }
+    window.addEventListener('load', () => {
+      measureTrace();
+      setTimeout(measureTrace, 800); /* nach Font-Swap erneut messen */
+    });
+    window.addEventListener('resize', measureTrace, { passive: true });
+    measureTrace();
+
     let ticking = false;
     function onScroll() {
       nav.classList.toggle('is-scrolled', window.scrollY > 24);
-      if (beam) {
-        const doc = document.documentElement;
-        const max = doc.scrollHeight - doc.clientHeight;
-        const ratio = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
-        /* Strahlspitze wandert von links (0) bis zum rechten Rand (100 %) */
-        const w = beam.offsetWidth || 140;
-        beam.style.transform =
-          'translateX(' + (ratio * doc.clientWidth - w).toFixed(1) + 'px)';
+      if (trace && trace.offsetParent !== null) {
+        const r = trace.getBoundingClientRect();
+        if (r.height > 0) {
+          /* Lese-Position: etwas oberhalb der Viewport-Mitte */
+          const ratio = Math.min(Math.max(
+            (window.innerHeight * 0.55 - r.top) / r.height, 0), 1);
+          traceFill.style.transform = 'scaleY(' + ratio.toFixed(4) + ')';
+          traceHead.style.transform =
+            'translate(-50%, -50%) translateY(' + (ratio * r.height).toFixed(1) + 'px)';
+          trace.classList.toggle('is-tracing', ratio > 0 && ratio < 1);
+        }
       }
       ticking = false;
     }
