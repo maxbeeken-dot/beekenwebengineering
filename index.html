@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- Sicherheit: CSP per Meta-Tag (GitHub Pages erlaubt keine eigenen Server-Header) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Beeken Web Engineering — Barrierefreie Websites, handgemacht</title>
   <meta name="description" content="Wir bauen Ihre Website komplett von Hand — kein Baukastensystem, kein vorgefertigtes Design. Blitzschnell, für alle nutzbar, dauerhaft Ihr Eigentum.">
@@ -21,21 +21,21 @@
   <meta property="og:locale" content="de_DE">
   <meta property="og:title" content="Beeken Web Engineering — Barrierefreie Websites, handgemacht">
   <meta property="og:description" content="Wir bauen Ihre Website komplett von Hand — kein Baukastensystem, kein vorgefertigtes Design. Blitzschnell, für alle nutzbar, dauerhaft Ihr Eigentum.">
-  <meta property="og:image" content="https://beekenwebengineering.com/logo-square.png">
-  <meta property="og:image:width" content="1536">
-  <meta property="og:image:height" content="1536">
+  <meta property="og:image" content="https://beekenwebengineering.com/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Beeken Web Engineering — Barrierefreie Websites">
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Beeken Web Engineering — Barrierefreie Websites, handgemacht">
   <meta name="twitter:description" content="Wir bauen Ihre Website komplett von Hand — kein Baukastensystem, kein vorgefertigtes Design. Blitzschnell, für alle nutzbar, dauerhaft Ihr Eigentum.">
-  <meta name="twitter:image" content="https://beekenwebengineering.com/logo-square.png">
+  <meta name="twitter:image" content="https://beekenwebengineering.com/og-image.png">
 
   <!-- Favicons -->
   <link rel="icon" type="image/png" sizes="96x96" href="/logo-96.png">
   <link rel="shortcut icon" type="image/png" href="/logo-96.png">
-  <link rel="apple-touch-icon" sizes="96x96" href="/logo-96.png">
+  <link rel="apple-touch-icon" sizes="200x200" href="/logo-200.png">
 
   <!-- JSON-LD Structured Data -->
   <script type="application/ld+json">
@@ -203,11 +203,32 @@
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TF95LBYRV"></script>
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Epilogue:wght@400;500&display=swap" rel="stylesheet">
+  <!-- Schriften: selbst gehostet — keine Verbindung zu Google-Servern (DSGVO) -->
+  <link rel="preload" href="/fonts/bricolage-grotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/epilogue-var.woff2" as="font" type="font/woff2" crossorigin>
 
   <style>
+    /* ─────────────────────────────────────────
+       SCHRIFTEN — selbst gehostet, variable WOFF2 (Latin)
+    ───────────────────────────────────────── */
+    @font-face {
+      font-family: 'Bricolage Grotesque';
+      font-style: normal;
+      font-weight: 200 800;
+      font-stretch: 100%;
+      font-display: swap;
+      src: url('/fonts/bricolage-grotesque-var.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+    @font-face {
+      font-family: 'Epilogue';
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url('/fonts/epilogue-var.woff2') format('woff2');
+      unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+    }
+
     /* ─────────────────────────────────────────
        TOKENS
     ───────────────────────────────────────── */
@@ -1464,7 +1485,21 @@
       100% { transform: translate(var(--tx,0px), var(--ty,-70px)) scale(0.15); opacity: 0; }
     }
 
-    @media (max-width: 960px) { .hero__laptop { display: none; } }
+    /* Mobil: Laptop statisch im Fluss unter dem Text — ohne teure Effekte */
+    @media (max-width: 960px) {
+      .hero__laptop {
+        position: static;
+        width: min(100%, 440px);
+        margin: 2.75rem auto 0;
+        transform: none;
+        animation: none;
+        align-self: center;
+      }
+      .hero__laptop-halo  { animation: none; opacity: 0.65; filter: blur(18px); }
+      .hero__laptop-3d    { transform: perspective(1400px) rotateX(4deg) rotateY(-8deg); }
+      .hero__screen-glow  { animation: none; }
+      .hero__scroll       { display: none; }
+    }
 
     /* ─────────────────────────────────────────
        PROCESS
@@ -1744,15 +1779,23 @@
        PREMIUM EFFECTS
     ───────────────────────────────────────── */
 
-    /* Scroll progress — slim reading indicator at the very top */
-    .scroll-progress {
+    /* Scroll-Strahl — wandernder Lichtstrahl an der Oberkante,
+       Position = Lesefortschritt (ersetzt den alten Füll-Balken) */
+    .scroll-beam {
       position: fixed;
       top: 0; left: 0;
-      height: 2px;
-      width: 100%;
-      transform: scaleX(0);
-      transform-origin: 0 50%;
-      background: linear-gradient(90deg, var(--primary), var(--accent));
+      height: 3px;
+      width: clamp(90px, 14vw, 200px);
+      border-radius: 0 0 3px 3px;
+      background: linear-gradient(90deg,
+        transparent,
+        var(--primary) 45%,
+        var(--accent) 88%,
+        oklch(0.88 0.06 195) 100%);
+      box-shadow:
+        0 0 10px oklch(0.60 0.20 280 / 0.55),
+        0 0 24px oklch(0.60 0.20 280 / 0.25);
+      transform: translateX(-220px);
       z-index: calc(var(--z-sticky) + 10);
       pointer-events: none;
       will-change: transform;
@@ -1929,7 +1972,7 @@
     .play__canvas { position: absolute; inset: 0; width: 100%; height: 100%; z-index: 0; display: block; cursor: crosshair; }
     .play__overlay {
       position: relative; z-index: 1; text-align: center; padding: 2rem var(--pad);
-      pointer-events: none; max-width: 36ch;
+      pointer-events: none; max-width: 52ch;
     }
     .play__overlay .eyebrow { justify-content: center; }
     .play__title { font-family: var(--font-display); font-weight: 800; letter-spacing: -0.03em;
@@ -2129,6 +2172,21 @@
       padding: 0;
     }
 
+    /* ─────────────────────────────────────────
+       FORMULAR — Fehlerhinweis (statt alert)
+    ───────────────────────────────────────── */
+    .form__error {
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: oklch(0.74 0.15 25);
+      background: oklch(0.55 0.19 25 / 0.10);
+      border: 1px solid oklch(0.55 0.19 25 / 0.35);
+      border-radius: 8px;
+      padding: 0.8rem 1rem;
+    }
+    .form__error a { color: inherit; text-decoration: underline; }
+    [data-theme="light"] .form__error { color: oklch(0.44 0.16 25); }
+
     @media (prefers-reduced-motion: reduce) {
       body::before { animation: none !important; }
       .mock { transition: box-shadow 0.2s !important; }
@@ -2146,7 +2204,7 @@
       .hero__laptop { opacity: 1 !important; }
       .versus__row { opacity: 1 !important; transform: none !important; }
       .services__icon [stroke], .vicon [stroke] { stroke-dashoffset: 0 !important; }
-      .scroll-progress, .hero__canvas { display: none !important; }
+      .scroll-beam, .hero__canvas { display: none !important; }
     </style>
   </noscript>
 </head>
@@ -2155,7 +2213,7 @@
 
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
 
-  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+  <div class="scroll-beam" id="scrollBeam" aria-hidden="true"></div>
 
   <!-- ╔══════════════════════════════════════
        NAV
@@ -2736,12 +2794,14 @@
       <div class="container">
         <div class="play__inner">
           <canvas class="play__canvas" id="playCanvas" aria-hidden="true"></canvas>
-          <span class="play__badge" aria-hidden="true">live · 0 kB Bilder</span>
+          <span class="play__badge" aria-hidden="true">live · nur Code</span>
           <div class="play__overlay">
-            <span class="eyebrow">Selbst ausprobieren</span>
-            <h2 id="play-h2" class="play__title">Das hier läuft in Echtzeit.<br>Kein Bild, nur Code.</h2>
-            <p class="play__hint"><strong>Beweg die Maus</strong> (oder tippe am Handy) — jeder Punkt reagiert.
-            Genau diese Sorte Detail steckt in jeder Seite, die wir bauen.</p>
+            <span class="eyebrow">Zum Ausprobieren</span>
+            <h2 id="play-h2" class="play__title">Diese Punkte reagieren auf Sie</h2>
+            <p class="play__hint"><strong>Fahren Sie mit der Maus über die Fläche</strong> —
+            am Handy streichen Sie einfach mit dem Finger darüber. Die Punkte weichen aus
+            und kehren zurück. Solche lebendigen Details bauen wir direkt in den Code —
+            ganz ohne Bilder oder Videos.</p>
           </div>
         </div>
       </div>
@@ -2905,6 +2965,10 @@
                   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
+            <p class="form__error" id="contact-error" role="alert" hidden>
+              Das Senden hat leider nicht geklappt. Bitte schreiben Sie direkt an
+              <a href="mailto:maxbeeken@beekenwebengineering.com">maxbeeken@beekenwebengineering.com</a>.
+            </p>
           </form>
 
           <div class="form__success" id="contact-success" role="status" aria-live="polite">
@@ -2926,7 +2990,7 @@
 
   <!-- Cookie Banner -->
   <div id="cookieBanner" class="cookie-banner" role="dialog"
-       aria-labelledby="cookie-title" aria-describedby="cookie-desc" aria-modal="true"
+       aria-labelledby="cookie-title" aria-describedby="cookie-desc"
        aria-live="polite">
     <div class="cookie-banner__head">
       <span class="cookie-banner__icon" aria-hidden="true">🍪</span>
@@ -3027,6 +3091,8 @@
       html.setAttribute('data-theme', dark ? 'dark' : 'light');
       themeBtn.innerHTML       = dark ? SUN : MOON;
       themeBtn.ariaLabel       = dark ? 'Zum hellen Modus wechseln' : 'Zum dunklen Modus wechseln';
+      document.querySelector('meta[name="theme-color"]')
+        ?.setAttribute('content', dark ? '#0d0c12' : '#f7f6fa');
     }
     applyTheme();
     themeBtn.addEventListener('click', () => {
@@ -3064,17 +3130,20 @@
     }
 
 
-    /* ── Nav scroll + reading progress ── */
-    const nav      = document.getElementById('nav');
-    const progress = document.getElementById('scrollProgress');
+    /* ── Nav scroll + Scroll-Strahl ── */
+    const nav  = document.getElementById('nav');
+    const beam = document.getElementById('scrollBeam');
     let ticking = false;
     function onScroll() {
       nav.classList.toggle('is-scrolled', window.scrollY > 24);
-      if (progress) {
+      if (beam) {
         const doc = document.documentElement;
         const max = doc.scrollHeight - doc.clientHeight;
         const ratio = max > 0 ? Math.min(window.scrollY / max, 1) : 0;
-        progress.style.transform = 'scaleX(' + ratio.toFixed(4) + ')';
+        /* Strahlspitze wandert von links (0) bis zum rechten Rand (100 %) */
+        const w = beam.offsetWidth || 140;
+        beam.style.transform =
+          'translateX(' + (ratio * doc.clientWidth - w).toFixed(1) + 'px)';
       }
       ticking = false;
     }
@@ -3082,6 +3151,26 @@
       if (!ticking) { requestAnimationFrame(onScroll); ticking = true; }
     }, { passive: true });
     onScroll();
+
+
+    /* ── Scroll-Spy: aktiven Nav-Link markieren ── */
+    (function () {
+      const links = document.querySelectorAll('.nav__links a[href^="#"]');
+      const bySection = new Map();
+      links.forEach(a => {
+        const sec = document.querySelector(a.getAttribute('href'));
+        if (sec) bySection.set(sec, a);
+      });
+      if (!bySection.size) return;
+      const spy = new IntersectionObserver(entries => {
+        entries.forEach(e => {
+          if (!e.isIntersecting) return;
+          links.forEach(l => l.classList.remove('is-active'));
+          bySection.get(e.target).classList.add('is-active');
+        });
+      }, { rootMargin: '-40% 0px -55% 0px' });
+      bySection.forEach((_, sec) => spy.observe(sec));
+    }());
 
 
     /* ── Hero line reveal ── */
@@ -3356,6 +3445,111 @@
     }());
 
 
+    /* ── Play canvas: interaktives Punktfeld — Desktop & Mobile ── */
+    (function () {
+      const canvas = document.getElementById('playCanvas');
+      if (!canvas || !canvas.getContext) return;
+      const ctx = canvas.getContext('2d');
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      let W, H, dots = [], raf = null, t = 0;
+      const ptr = { x: -9e9, y: -9e9 };
+
+      function buildGrid() {
+        dots = [];
+        const gap = W < 640 ? 38 : 46;
+        for (let y = gap / 2; y < H; y += gap)
+          for (let x = gap / 2; x < W; x += gap)
+            dots.push({ ox: x, oy: y, x, y, vx: 0, vy: 0, phase: Math.random() * Math.PI * 2 });
+      }
+
+      function colors() {
+        const isDark = document.documentElement.getAttribute('data-theme') !== 'light';
+        return isDark
+          ? { base: '140,70,255', hot: '64,210,220' }
+          : { base: '90,30,200',  hot: '0,130,150' };
+      }
+
+      function drawStatic() {
+        ctx.clearRect(0, 0, W, H);
+        const c = colors();
+        for (const d of dots) {
+          ctx.beginPath();
+          ctx.arc(d.ox, d.oy, 1.6, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(' + c.base + ',0.45)';
+          ctx.fill();
+        }
+      }
+
+      function resize() {
+        W = canvas.width  = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+        buildGrid();
+        if (reduce) drawStatic();
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        t += 0.008;
+        const c = colors();
+        for (const d of dots) {
+          /* Abstoßung vom Zeiger + Feder zurück zum Ursprung */
+          const dx = d.x - ptr.x, dy = d.y - ptr.y;
+          const dist = Math.hypot(dx, dy);
+          const R = 130;
+          if (dist < R && dist > 0.01) {
+            const f = (1 - dist / R) * 5.2;
+            d.vx += (dx / dist) * f;
+            d.vy += (dy / dist) * f;
+          }
+          d.vx += (d.ox - d.x) * 0.045;
+          d.vy += (d.oy - d.y) * 0.045;
+          d.vx *= 0.86; d.vy *= 0.86;
+          d.x += d.vx; d.y += d.vy;
+
+          const off  = Math.hypot(d.x - d.ox, d.y - d.oy);
+          const heat = Math.min(off / 34, 1);
+          const wave = Math.sin(t + d.phase + d.ox * 0.011 + d.oy * 0.008) * 0.5 + 0.5;
+          const r    = 1.5 + heat * 1.8;
+          const a    = 0.28 + wave * 0.22 + heat * 0.4;
+          ctx.beginPath();
+          ctx.arc(d.x, d.y, r, 0, Math.PI * 2);
+          ctx.fillStyle = heat > 0.25
+            ? 'rgba(' + c.hot  + ',' + a.toFixed(2) + ')'
+            : 'rgba(' + c.base + ',' + a.toFixed(2) + ')';
+          ctx.fill();
+        }
+        raf = requestAnimationFrame(draw);
+      }
+
+      function setPtr(cx, cy) {
+        const r = canvas.getBoundingClientRect();
+        ptr.x = cx - r.left;
+        ptr.y = cy - r.top;
+      }
+      canvas.addEventListener('pointermove', e => setPtr(e.clientX, e.clientY), { passive: true });
+      canvas.addEventListener('pointerleave', () => { ptr.x = -9e9; ptr.y = -9e9; });
+      canvas.addEventListener('touchmove', e => setPtr(e.touches[0].clientX, e.touches[0].clientY), { passive: true });
+      canvas.addEventListener('touchend', () => { ptr.x = -9e9; ptr.y = -9e9; });
+
+      new ResizeObserver(resize).observe(canvas);
+      resize();
+
+      if (reduce) return;
+
+      /* Nur rechnen, wenn die Sektion sichtbar ist */
+      const playIO = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          if (!raf) raf = requestAnimationFrame(draw);
+        } else if (raf) {
+          cancelAnimationFrame(raf);
+          raf = null;
+        }
+      });
+      playIO.observe(canvas);
+    }());
+
+
     /* ── Cookie Consent ── */
     (function () {
       const KEY     = 'bwe_cookie_consent';
@@ -3525,10 +3719,13 @@
     var submitBtn = document.getElementById('contact-submit');
     if (!form) return;
 
+    var errBox = document.getElementById('contact-error');
+
     form.addEventListener('submit', function(e) {
       e.preventDefault();
       if (!form.checkValidity()) { form.reportValidity(); return; }
 
+      if (errBox) errBox.hidden = true;
       submitBtn.classList.add('form__btn-loading');
       submitBtn.textContent = 'Wird gesendet…';
 
@@ -3552,7 +3749,7 @@
       .catch(function() {
         submitBtn.classList.remove('form__btn-loading');
         submitBtn.innerHTML = 'Nachricht senden <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2.5 7.5h10M9 4l3.5 3.5L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-        alert('Fehler beim Senden. Bitte schreiben Sie direkt an maxbeeken@beekenwebengineering.com');
+        if (errBox) errBox.hidden = false;
       });
     });
   }());
