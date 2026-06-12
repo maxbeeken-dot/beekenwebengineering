@@ -271,7 +271,6 @@
 
       --z-sticky: 100;
       --z-overlay: 200;
-      --z-cursor: 400;
 
       --font-mono: 'SF Mono', 'Cascadia Code', ui-monospace, Menlo, monospace;
     }
@@ -337,13 +336,15 @@
         radial-gradient(32% 38% at 84% 16%, var(--aurora-2), transparent 58%),
         radial-gradient(46% 52% at 78% 84%, var(--aurora-3), transparent 62%),
         radial-gradient(40% 46% at 22% 88%, var(--aurora-2), transparent 60%);
-      filter: blur(36px) saturate(122%);
-      animation: aurora-drift 28s var(--ease-quart) infinite alternate;
+      filter: blur(36px) saturate(120%);
+      will-change: transform;
+      animation: aurora-drift 32s ease-in-out infinite alternate;
     }
     @keyframes aurora-drift {
-      0%   { transform: translate3d(-2%, -1%, 0) scale(1.02) rotate(0deg); }
-      50%  { transform: translate3d(2%, 2%, 0)  scale(1.09) rotate(1.4deg); }
-      100% { transform: translate3d(1%, -2%, 0) scale(1.05) rotate(-1.4deg); }
+      0%   { transform: translate3d(0, 0, 0); }
+      33%  { transform: translate3d(-3%, 2%, 0); }
+      66%  { transform: translate3d(2%, -2%, 0); }
+      100% { transform: translate3d(-1%, 1%, 0); }
     }
 
     /* Film grain — premium filmic texture, behind content */
@@ -1317,6 +1318,12 @@
     }
     .toggle input:checked ~ .toggle__thumb { transform: translateX(18px); }
 
+    /* content-visibility: off-screen sections skip layout+paint until needed */
+    .services, .work2, .versus, .process, .play, .proof, .contact {
+      content-visibility: auto;
+      contain-intrinsic-size: auto 700px;
+    }
+
     /* ─────────────────────────────────────────
        FOCUS RING (global fallback)
     ───────────────────────────────────────── */
@@ -1346,8 +1353,8 @@
     .hero__laptop.is-visible { opacity: 1; }
 
     @keyframes laptop-float {
-      0%,100% { transform: translateY(-52%); }
-      50%      { transform: translateY(calc(-52% - 18px)); }
+      0%,100% { transform: translate3d(0, -52%, 0); }
+      50%      { transform: translate3d(0, calc(-52% - 18px), 0); }
     }
 
     /* Radial halo — light emanates from the screen */
@@ -1372,8 +1379,8 @@
       );
     }
     @keyframes halo-pulse {
-      0%,100% { opacity: 0.88; transform: scale(1); }
-      50%      { opacity: 1;   transform: scale(1.04); }
+      0%,100% { opacity: 0.88; }
+      50%      { opacity: 1; }
     }
 
     /* 3D perspective wrapper */
@@ -1497,8 +1504,8 @@
       animation: screen-pulse 3s ease-in-out infinite;
     }
     @keyframes screen-pulse {
-      0%,100% { opacity: 0.7; }
-      50%      { opacity: 1.0; }
+      0%,100% { opacity: 0.65; }
+      50%      { opacity: 0.95; }
     }
 
     /* Particles emanating from screen area */
@@ -1664,19 +1671,19 @@
     [data-theme="light"] .hero__orb-c { background: oklch(0.76 0.120 300 / 0.30); }
 
     @keyframes orb-drift-a {
-      0%,100% { transform: translate(0px, 0px) scale(1); }
-      25%      { transform: translate(-38px, 32px) scale(1.04); }
-      50%      { transform: translate(-12px, -22px) scale(0.97); }
-      75%      { transform: translate(28px, 14px) scale(1.02); }
+      0%,100% { transform: translate3d(0, 0, 0); }
+      25%      { transform: translate3d(-38px, 32px, 0); }
+      50%      { transform: translate3d(-12px, -22px, 0); }
+      75%      { transform: translate3d(28px, 14px, 0); }
     }
     @keyframes orb-drift-b {
-      0%,100% { transform: translate(0px, 0px); }
-      33%      { transform: translate(44px, -28px) scale(1.06); }
-      66%      { transform: translate(-20px, -12px) scale(0.94); }
+      0%,100% { transform: translate3d(0, 0, 0); }
+      33%      { transform: translate3d(44px, -28px, 0); }
+      66%      { transform: translate3d(-20px, -12px, 0); }
     }
     @keyframes orb-drift-c {
-      0%,100% { transform: translate(0px, 0px) scale(1); }
-      50%      { transform: translate(-32px, 36px) scale(1.10); }
+      0%,100% { transform: translate3d(0, 0, 0); }
+      50%      { transform: translate3d(-32px, 36px, 0); }
     }
 
     /* ─────────────────────────────────────────
@@ -1904,19 +1911,16 @@
        FLAGSHIP — atmosphere, depth & new sections
     ───────────────────────────────────────── */
 
-    /* Let the aurora breathe through the opaque bands */
     .strip {
-      background: color-mix(in oklch, var(--surface) 82%, transparent);
-      backdrop-filter: blur(6px);
+      background: var(--surface);
     }
     .process {
       background:
         linear-gradient(180deg,
-          color-mix(in oklch, var(--surface) 0%, transparent),
+          transparent,
           color-mix(in oklch, var(--surface) 80%, transparent) 12%,
           color-mix(in oklch, var(--surface) 80%, transparent) 88%,
-          color-mix(in oklch, var(--surface) 0%, transparent));
-      backdrop-filter: blur(4px);
+          transparent);
     }
 
     /* Section eyebrow used by the new sections (one deliberate system, not per-section) */
@@ -3416,10 +3420,6 @@
         }, { threshold: 0.5 });
         startIO.observe(triggerEl);
       }
-      /* Fallback in case IO fires before DOMContentLoaded */
-      window.addEventListener('DOMContentLoaded', () =>
-        setTimeout(start, 900)
-      );
     }());
 
 
@@ -3849,49 +3849,42 @@
       pio.observe(panel);
     }());
 
-  }());
-  </script>
-
-  <script>
-  (function() {
-    var form = document.getElementById('contact-form');
-    var success = document.getElementById('contact-success');
-    var submitBtn = document.getElementById('contact-submit');
-    if (!form) return;
-
-    var errBox = document.getElementById('contact-error');
-
-    form.addEventListener('submit', function(e) {
-      e.preventDefault();
-      if (!form.checkValidity()) { form.reportValidity(); return; }
-
-      if (errBox) errBox.hidden = true;
-      submitBtn.classList.add('form__btn-loading');
-      submitBtn.textContent = 'Wird gesendet…';
-
-      fetch('https://formspree.io/f/xaqzwzja', {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      })
-      .then(function(res) {
-        if (res.ok) {
-          form.style.display = 'none';
-          success.classList.add('visible');
-          success.focus();
-          if (typeof gtag !== 'undefined') {
-            gtag('event', 'form_submit', { event_category: 'contact', event_label: 'kontakt' });
+    /* ── Kontaktformular ── */
+    (function() {
+      const form      = document.getElementById('contact-form');
+      const success   = document.getElementById('contact-success');
+      const submitBtn = document.getElementById('contact-submit');
+      const errBox    = document.getElementById('contact-error');
+      if (!form) return;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        if (!form.checkValidity()) { form.reportValidity(); return; }
+        if (errBox) errBox.hidden = true;
+        submitBtn.classList.add('form__btn-loading');
+        submitBtn.textContent = 'Wird gesendet…';
+        fetch('https://formspree.io/f/xaqzwzja', {
+          method: 'POST', body: new FormData(form),
+          headers: { 'Accept': 'application/json' }
+        })
+        .then(function(res) {
+          if (res.ok) {
+            form.style.display = 'none';
+            success.classList.add('visible');
+            success.focus();
+            if (typeof gtag !== 'undefined')
+              gtag('event', 'form_submit', { event_category: 'contact', event_label: 'kontakt' });
+          } else {
+            return res.json().then(function(d) { throw new Error(d.error || 'Fehler'); });
           }
-        } else {
-          return res.json().then(function(d) { throw new Error(d.error || 'Fehler'); });
-        }
-      })
-      .catch(function() {
-        submitBtn.classList.remove('form__btn-loading');
-        submitBtn.innerHTML = 'Nachricht senden <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2.5 7.5h10M9 4l3.5 3.5L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
-        if (errBox) errBox.hidden = false;
+        })
+        .catch(function() {
+          submitBtn.classList.remove('form__btn-loading');
+          submitBtn.innerHTML = 'Nachricht senden <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true"><path d="M2.5 7.5h10M9 4l3.5 3.5L9 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+          if (errBox) errBox.hidden = false;
+        });
       });
-    });
+    }());
+
   }());
   </script>
 
