@@ -1822,55 +1822,77 @@
     .services__item:hover::after { transform: scaleX(1); }
 
     /* ─────────────────────────────────────────
+       SCROLL PROGRESS RING
+    ───────────────────────────────────────── */
+    .scrollpulse {
+      position: fixed;
+      bottom: 2rem;
+      left: 2rem;
+      z-index: var(--z-overlay);
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      opacity: 0;
+      transform: translateY(10px);
+      transition: opacity 0.5s var(--ease-expo), transform 0.5s var(--ease-expo);
+      pointer-events: none;
+    }
+    .scrollpulse.is-visible { opacity: 1; transform: translateY(0); }
+    .scrollpulse__ring-wrap {
+      position: relative;
+      width: 44px; height: 44px;
+      flex-shrink: 0;
+    }
+    .scrollpulse__svg { display: block; transform: rotate(-90deg); }
+    .scrollpulse__track { fill: none; stroke: var(--border); stroke-width: 1.5; }
+    .scrollpulse__arc {
+      fill: none;
+      stroke: url(#spGrad);
+      stroke-width: 2.2;
+      stroke-linecap: round;
+      stroke-dasharray: 113.1;
+      stroke-dashoffset: 113.1;
+      transition: stroke-dashoffset 0.18s linear;
+    }
+    .scrollpulse__dot {
+      position: absolute;
+      width: 10px; height: 10px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--accent));
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      box-shadow: 0 0 10px oklch(0.60 0.200 280 / 0.55);
+      animation: sp-pulse 2.4s ease-in-out infinite;
+    }
+    @keyframes sp-pulse {
+      0%,100% { box-shadow: 0 0 8px oklch(0.60 0.200 280 / 0.55); }
+      50%      { box-shadow: 0 0 18px oklch(0.60 0.200 280 / 0.85), 0 0 0 7px oklch(0.60 0.200 280 / 0); }
+    }
+    .scrollpulse__label {
+      font-family: var(--font-display);
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      white-space: nowrap;
+      transition: opacity 0.15s, transform 0.18s var(--ease-expo);
+    }
+    .scrollpulse__label.is-changing { opacity: 0; transform: translateY(-5px); }
+    @media (max-width: 560px) {
+      .scrollpulse { bottom: 1rem; left: 1rem; }
+      .scrollpulse__label { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .scrollpulse__dot { animation: none !important; }
+      .scrollpulse__arc { transition: none !important; }
+    }
+
+    /* ─────────────────────────────────────────
        PREMIUM EFFECTS
     ───────────────────────────────────────── */
 
-    /* Integrierter Scroll-Strahl (Tracing Beam) — läuft IN der Seite mit:
-       die Spur am linken Rand füllt sich beim Lesen, der Leuchtkopf
-       hält die aktuelle Lese-Position. Teil des Inhalts, nicht overlay. */
-    main { position: relative; }
-    .trace {
-      position: absolute;
-      left: clamp(0.9rem, 2.2vw, 2.5rem);
-      top: 0;
-      width: 2px;
-      height: 0;
-      z-index: 1;
-      pointer-events: none;
-      display: none;
-    }
-    @media (min-width: 961px) { .trace { display: block; } }
-    .trace__track {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg,
-        transparent, var(--border) 4%, var(--border) 96%, transparent);
-      opacity: 0.7;
-    }
-    .trace__fill {
-      position: absolute; inset: 0;
-      background: linear-gradient(180deg, var(--primary), var(--accent));
-      border-radius: 2px;
-      transform-origin: 0 0;
-      transform: scaleY(0);
-      will-change: transform;
-    }
-    .trace__head {
-      position: absolute; left: 50%; top: 0;
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow:
-        0 0 8px oklch(0.74 0.148 195 / 0.65),
-        0 0 22px oklch(0.60 0.20 280 / 0.35);
-      transform: translate(-50%, -50%);
-      opacity: 0;
-      transition: opacity 0.3s var(--ease-quart);
-      will-change: transform;
-    }
-    .trace.is-tracing .trace__head { opacity: 1; }
-
-    /* Cursor spotlight — soft brand light follows the pointer over a surface.
-       Subtle (primary-dim ~14% alpha): no neon glow, stays on-brand. */
+    /* Cursor spotlight */
     .spotlight { position: relative; }
     .spotlight > * { position: relative; z-index: 1; }
     .spotlight::after {
@@ -2270,7 +2292,7 @@
       .hero__laptop { opacity: 1 !important; }
       .versus__row { opacity: 1 !important; transform: none !important; }
       .services__icon [stroke], .vicon [stroke] { stroke-dashoffset: 0 !important; }
-      .trace, .hero__canvas { display: none !important; }
+      .hero__canvas { display: none !important; }
     </style>
   </noscript>
 </head>
@@ -2336,13 +2358,6 @@
   </header>
 
   <main id="main" tabindex="-1">
-
-    <!-- Integrierter Scroll-Strahl: Spur + Füllung + Leuchtkopf -->
-    <div class="trace" id="trace" aria-hidden="true">
-      <span class="trace__track"></span>
-      <span class="trace__fill" id="traceFill"></span>
-      <span class="trace__head" id="traceHead"></span>
-    </div>
 
     <!-- ╔══════════════════════════════════════
          HERO
@@ -3209,45 +3224,12 @@
     }
 
 
-    /* ── Nav scroll + integrierter Scroll-Strahl (Tracing Beam) ── */
-    const nav       = document.getElementById('nav');
-    const trace     = document.getElementById('trace');
-    const traceFill = document.getElementById('traceFill');
-    const traceHead = document.getElementById('traceHead');
-
-    /* Strahl spannt sich vom Ende des Heros bis in die Kontakt-Sektion */
-    function measureTrace() {
-      if (!trace) return;
-      const start = document.querySelector('.strip');
-      const end   = document.querySelector('.contact');
-      if (!start || !end) return;
-      const top = start.offsetTop + start.offsetHeight;
-      const len = end.offsetTop + end.offsetHeight * 0.55 - top;
-      trace.style.top    = top + 'px';
-      trace.style.height = Math.max(len, 0) + 'px';
-    }
-    window.addEventListener('load', () => {
-      measureTrace();
-      setTimeout(measureTrace, 800); /* nach Font-Swap erneut messen */
-    });
-    window.addEventListener('resize', measureTrace, { passive: true });
-    measureTrace();
+    /* ── Nav scroll ── */
+    const nav = document.getElementById('nav');
 
     let ticking = false;
     function onScroll() {
       nav.classList.toggle('is-scrolled', window.scrollY > 24);
-      if (trace && trace.offsetParent !== null) {
-        const r = trace.getBoundingClientRect();
-        if (r.height > 0) {
-          /* Lese-Position: etwas oberhalb der Viewport-Mitte */
-          const ratio = Math.min(Math.max(
-            (window.innerHeight * 0.55 - r.top) / r.height, 0), 1);
-          traceFill.style.transform = 'scaleY(' + ratio.toFixed(4) + ')';
-          traceHead.style.transform =
-            'translate(-50%, -50%) translateY(' + (ratio * r.height).toFixed(1) + 'px)';
-          trace.classList.toggle('is-tracing', ratio > 0 && ratio < 1);
-        }
-      }
       ticking = false;
     }
     window.addEventListener('scroll', () => {
@@ -3885,6 +3867,79 @@
       });
     }());
 
+  }());
+  </script>
+
+  <!-- Scroll Progress Ring -->
+  <div class="scrollpulse" id="scrollPulse" aria-hidden="true">
+    <div class="scrollpulse__ring-wrap">
+      <svg class="scrollpulse__svg" viewBox="0 0 44 44" width="44" height="44" aria-hidden="true">
+        <defs>
+          <linearGradient id="spGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#7c5cf6"/>
+            <stop offset="100%" stop-color="#34d6c8"/>
+          </linearGradient>
+        </defs>
+        <circle class="scrollpulse__track" cx="22" cy="22" r="18"/>
+        <circle class="scrollpulse__arc" id="spArc" cx="22" cy="22" r="18"/>
+      </svg>
+      <span class="scrollpulse__dot" aria-hidden="true"></span>
+    </div>
+    <span class="scrollpulse__label" id="spLabel"></span>
+  </div>
+
+  <script>
+  /* ── Scroll Progress Ring ── */
+  (function () {
+    var el   = document.getElementById('scrollPulse');
+    var arc  = document.getElementById('spArc');
+    var lbl  = document.getElementById('spLabel');
+    if (!el || !arc || !lbl) return;
+
+    var CIRC = 2 * Math.PI * 18; /* stroke-dasharray = 113.1 */
+
+    var SECS = [
+      { sel: '#hero',        name: 'Intro' },
+      { sel: '#services',    name: 'Leistungen' },
+      { sel: '#arbeiten',    name: 'Arbeiten' },
+      { sel: '#vergleich',   name: 'Vergleich' },
+      { sel: '#process',     name: 'Prozess' },
+      { sel: '#interaktiv',  name: 'Erleben' },
+      { sel: '#beweis',      name: 'Beweis' },
+      { sel: '#contact',     name: 'Kontakt' },
+    ];
+
+    var currentName = '';
+
+    function update() {
+      var scrollTop  = window.scrollY;
+      var maxScroll  = document.documentElement.scrollHeight - window.innerHeight;
+      var pct        = maxScroll > 0 ? scrollTop / maxScroll : 0;
+
+      el.classList.toggle('is-visible', scrollTop > 140);
+      arc.style.strokeDashoffset = (CIRC * (1 - pct)).toFixed(2);
+
+      var mid  = scrollTop + window.innerHeight * 0.45;
+      var name = SECS[0].name;
+      for (var i = 0; i < SECS.length; i++) {
+        var sec = document.querySelector(SECS[i].sel);
+        if (sec && sec.offsetTop <= mid) name = SECS[i].name;
+      }
+
+      if (name !== currentName) {
+        currentName = name;
+        lbl.classList.add('is-changing');
+        (function (n) {
+          setTimeout(function () {
+            lbl.textContent = n;
+            lbl.classList.remove('is-changing');
+          }, 160);
+        }(name));
+      }
+    }
+
+    window.addEventListener('scroll', update, { passive: true });
+    update();
   }());
   </script>
 
