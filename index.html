@@ -3909,34 +3909,81 @@
 
     function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     resize();
-    window.addEventListener('resize', resize, { passive: true });
 
-    var N = 32;
+    /* ── Spring chain ── */
+    var N = 24;
     var pts = [];
     for (var i = 0; i < N; i++) pts.push({ x: -800, y: -800 });
-
     var mx = -800, my = -800, active = false;
+    var scrollVY = 0, lastSY = window.scrollY;
 
     window.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; active = true; }, { passive: true });
     document.addEventListener('mouseleave', function () { active = false; });
+    window.addEventListener('scroll', function () {
+      scrollVY = (window.scrollY - lastSY) * 0.45;
+      lastSY = window.scrollY;
+      refreshDots();
+    }, { passive: true });
+    window.addEventListener('resize', function () { resize(); refreshDots(); }, { passive: true });
 
-    /* Brand colors: violet → teal */
-    var HEAD = [140, 100, 255];
-    var TAIL = [ 52, 210, 200];
+    /* ── Chapter anchors ── */
+    var SIDS = ['#hero','#services','#arbeiten','#vergleich','#process','#interaktiv','#beweis','#contact'];
+    var ancX = 36, ancY = window.innerHeight * 0.55;
+    var tAncX = 36, tAncY = ancY;
+    var ancPulse = 0;
+    var dots = [];
 
-    function lc(a, b, t) { return (a + (b - a) * t) | 0; }
+    function refreshDots() {
+      var focus = window.innerHeight * 0.38;
+      var bestScore = -Infinity;
+      dots = [];
+      for (var s = 0; s < SIDS.length; s++) {
+        var el = document.querySelector(SIDS[s]);
+        if (!el) continue;
+        var hEl = el.querySelector('h2') || el.querySelector('h3') || el.querySelector('h1') || el;
+        var hr = hEl.getBoundingClientRect();
+        var vy = hr.top + hr.height * 0.5;
+        if (vy < -60 || vy > window.innerHeight + 60) continue;
+        var score = -Math.abs(vy - focus);
+        var alpha = Math.max(0, 1 - Math.abs(vy - focus) / (window.innerHeight * 0.52)) * 0.55;
+        dots.push({ x: 36, y: vy, alpha: alpha, isCurrent: false });
+        if (score > bestScore) {
+          bestScore = score;
+          tAncX = 36;
+          tAncY = Math.max(80, Math.min(window.innerHeight - 80, vy));
+          dots[dots.length - 1].isCurrent = true;
+        }
+      }
+    }
+    refreshDots();
+
+    /* ── Colors ── */
+    var CH = [140, 100, 255];
+    var CT = [52, 210, 200];
+    function lci(a, b, t) { return (a + (b - a) * t) | 0; }
 
     function draw() {
       requestAnimationFrame(draw);
+
+      ancX += (tAncX - ancX) * 0.055;
+      ancY += (tAncY - ancY) * 0.055;
+      scrollVY *= 0.80;
+
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      /* Spring-chain: each point follows the previous with decreasing speed */
-      pts[0].x += (mx - pts[0].x) * 0.26;
-      pts[0].y += (my - pts[0].y) * 0.26;
+      /* Head: fast lerp to cursor */
+      pts[0].x += (mx - pts[0].x) * 0.42;
+      pts[0].y += (my - pts[0].y) * 0.42;
+
+      /* Each segment: follows previous + tail pulled toward chapter anchor */
       for (var i = 1; i < N; i++) {
-        var f = Math.max(0.26 - i * 0.007, 0.045);
-        pts[i].x += (pts[i - 1].x - pts[i].x) * f;
-        pts[i].y += (pts[i - 1].y - pts[i].y) * f;
+        var pg = i / (N - 1);
+        var pull = Math.pow(pg, 2.5) * 0.60;
+        var tx = pts[i-1].x * (1-pull) + ancX * pull;
+        var ty = pts[i-1].y * (1-pull) + ancY * pull;
+        var lf = Math.max(0.40 - i * 0.009, 0.12);
+        pts[i].x += (tx - pts[i].x) * lf;
+        pts[i].y += (ty - pts[i].y) * lf + Math.sin(pg * Math.PI) * scrollVY * 0.10;
       }
 
       if (!active) return;
@@ -3944,38 +3991,55 @@
       ctx.lineCap = 'round';
       ctx.lineJoin = 'round';
 
-      for (var i = 0; i < N - 1; i++) {
-        var t = 1 - i / (N - 1); /* 1 = head, 0 = tail */
-        var a = Math.pow(t, 1.6);
-        var r = lc(HEAD[0], TAIL[0], 1 - t);
-        var g = lc(HEAD[1], TAIL[1], 1 - t);
-        var b = lc(HEAD[2], TAIL[2], 1 - t);
-        var color = 'rgba(' + r + ',' + g + ',' + b + ',';
-
+      /* Chain segments */
+      for (var i = 0; i < N-1; i++) {
+        var tt = 1 - i / (N-1);
+        var aa = Math.pow(tt, 1.4);
+        var cr = lci(CH[0], CT[0], 1-tt);
+        var cg = lci(CH[1], CT[1], 1-tt);
+        var cb = lci(CH[2], CT[2], 1-tt);
+        var col = 'rgba('+cr+','+cg+','+cb+',';
         ctx.beginPath();
         ctx.moveTo(pts[i].x, pts[i].y);
-        ctx.lineTo(pts[i + 1].x, pts[i + 1].y);
-
-        /* Glow pass (wide, low opacity) */
-        ctx.lineWidth = (1.5 + t * 3) * 4;
-        ctx.strokeStyle = color + (a * 0.10).toFixed(3) + ')';
+        ctx.lineTo(pts[i+1].x, pts[i+1].y);
+        ctx.lineWidth = (1.5 + tt*3) * 4;
+        ctx.strokeStyle = col + (aa*0.10).toFixed(3) + ')';
         ctx.stroke();
-
-        /* Core pass (thin, bright) */
-        ctx.lineWidth = 1.5 + t * 2.5;
-        ctx.strokeStyle = color + (a * 0.85).toFixed(3) + ')';
+        ctx.lineWidth = 1.5 + tt*2.5;
+        ctx.strokeStyle = col + (aa*0.88).toFixed(3) + ')';
         ctx.stroke();
       }
 
-      /* Glowing dot at cursor tip */
-      var grd = ctx.createRadialGradient(pts[0].x, pts[0].y, 0, pts[0].x, pts[0].y, 14);
-      grd.addColorStop(0, 'rgba(200,170,255,0.92)');
-      grd.addColorStop(0.45, 'rgba(140,100,255,0.40)');
-      grd.addColorStop(1,   'rgba(140,100,255,0)');
+      /* Cursor tip */
+      var gd = ctx.createRadialGradient(pts[0].x, pts[0].y, 0, pts[0].x, pts[0].y, 14);
+      gd.addColorStop(0, 'rgba(200,170,255,0.92)');
+      gd.addColorStop(0.45, 'rgba(140,100,255,0.40)');
+      gd.addColorStop(1, 'rgba(140,100,255,0)');
       ctx.beginPath();
-      ctx.arc(pts[0].x, pts[0].y, 14, 0, Math.PI * 2);
-      ctx.fillStyle = grd;
+      ctx.arc(pts[0].x, pts[0].y, 14, 0, Math.PI*2);
+      ctx.fillStyle = gd;
       ctx.fill();
+
+      /* Chapter anchor dots (left margin) */
+      ancPulse = (ancPulse + 0.05) % (Math.PI*2);
+      for (var d = 0; d < dots.length; d++) {
+        var dt = dots[d];
+        var ps = dt.isCurrent ? 1 + Math.sin(ancPulse) * 0.35 : 1;
+        var dr = dt.isCurrent ? 4.5*ps : 2.5;
+        var da = dt.isCurrent ? 0.82 + Math.sin(ancPulse)*0.18 : dt.alpha;
+        var ag = ctx.createRadialGradient(dt.x, dt.y, 0, dt.x, dt.y, dr*3.5);
+        ag.addColorStop(0, 'rgba(52,210,200,'+da.toFixed(2)+')');
+        ag.addColorStop(0.5, 'rgba(52,210,200,'+(da*0.4).toFixed(2)+')');
+        ag.addColorStop(1, 'rgba(52,210,200,0)');
+        ctx.beginPath();
+        ctx.arc(dt.x, dt.y, dr*3.5, 0, Math.PI*2);
+        ctx.fillStyle = ag;
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(dt.x, dt.y, dt.isCurrent ? 2.2 : 1.5, 0, Math.PI*2);
+        ctx.fillStyle = 'rgba(220,255,252,'+(da*0.95).toFixed(2)+')';
+        ctx.fill();
+      }
     }
 
     draw();
