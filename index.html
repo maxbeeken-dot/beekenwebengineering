@@ -3896,7 +3896,7 @@
   </script>
 
   <script>
-  /* ── Cursor Trail Beam ── */
+  /* ── Cursor Trail Beam — flüssige Bezier-Kette + Scroll + Kapitel-Anker ── */
   (function () {
     if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
@@ -3910,8 +3910,8 @@
     function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
     resize();
 
-    /* ── Spring chain ── */
-    var N = 24;
+    /* ── Kette ── */
+    var N = 26;
     var pts = [];
     for (var i = 0; i < N; i++) pts.push({ x: -800, y: -800 });
     var mx = -800, my = -800, active = false;
@@ -3920,13 +3920,13 @@
     window.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; active = true; }, { passive: true });
     document.addEventListener('mouseleave', function () { active = false; });
     window.addEventListener('scroll', function () {
-      scrollVY = (window.scrollY - lastSY) * 0.45;
+      scrollVY = (window.scrollY - lastSY) * 0.55;
       lastSY = window.scrollY;
       refreshDots();
     }, { passive: true });
     window.addEventListener('resize', function () { resize(); refreshDots(); }, { passive: true });
 
-    /* ── Chapter anchors ── */
+    /* ── Kapitel-Ankerpunkte ── */
     var SIDS = ['#hero','#services','#arbeiten','#vergleich','#process','#interaktiv','#beweis','#contact'];
     var ancX = 36, ancY = window.innerHeight * 0.55;
     var tAncX = 36, tAncY = ancY;
@@ -3957,89 +3957,97 @@
     }
     refreshDots();
 
-    /* ── Colors ── */
-    var CH = [140, 100, 255];
-    var CT = [52, 210, 200];
-    function lci(a, b, t) { return (a + (b - a) * t) | 0; }
+    /* ── Smooth curve helper (quadratic bezier through midpoints) ── */
+    function strokeSmooth(w, col) {
+      ctx.beginPath();
+      ctx.moveTo(pts[0].x, pts[0].y);
+      for (var i = 1; i < N - 1; i++) {
+        ctx.quadraticCurveTo(
+          pts[i].x, pts[i].y,
+          (pts[i].x + pts[i+1].x) * 0.5,
+          (pts[i].y + pts[i+1].y) * 0.5
+        );
+      }
+      ctx.lineTo(pts[N-1].x, pts[N-1].y);
+      ctx.lineWidth = w;
+      ctx.strokeStyle = col;
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+      ctx.stroke();
+    }
 
     function draw() {
       requestAnimationFrame(draw);
 
-      ancX += (tAncX - ancX) * 0.055;
-      ancY += (tAncY - ancY) * 0.055;
-      scrollVY *= 0.80;
+      ancX += (tAncX - ancX) * 0.06;
+      ancY += (tAncY - ancY) * 0.06;
+      scrollVY *= 0.78;
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      /* Head: fast lerp to cursor */
-      pts[0].x += (mx - pts[0].x) * 0.42;
-      pts[0].y += (my - pts[0].y) * 0.42;
+      /* Head: tight follow */
+      pts[0].x += (mx - pts[0].x) * 0.46;
+      pts[0].y += (my - pts[0].y) * 0.46;
 
-      /* Each segment: follows previous + tail pulled toward chapter anchor */
+      /* Spring chain: tail attracted to chapter anchor */
       for (var i = 1; i < N; i++) {
         var pg = i / (N - 1);
-        var pull = Math.pow(pg, 2.5) * 0.60;
-        var tx = pts[i-1].x * (1-pull) + ancX * pull;
-        var ty = pts[i-1].y * (1-pull) + ancY * pull;
-        var lf = Math.max(0.40 - i * 0.009, 0.12);
+        var pull = Math.pow(pg, 2.2) * 0.50;
+        var tx = pts[i-1].x * (1 - pull) + ancX * pull;
+        var ty = pts[i-1].y * (1 - pull) + ancY * pull;
+        var lf = Math.max(0.42 - i * 0.010, 0.16);
         pts[i].x += (tx - pts[i].x) * lf;
-        pts[i].y += (ty - pts[i].y) * lf + Math.sin(pg * Math.PI) * scrollVY * 0.10;
+        pts[i].y += (ty - pts[i].y) * lf + Math.sin(pg * Math.PI) * scrollVY * 0.14;
+      }
+
+      /* Chapter anchor dots */
+      ancPulse = (ancPulse + 0.05) % (Math.PI * 2);
+      for (var d = 0; d < dots.length; d++) {
+        var dt = dots[d];
+        var ps  = dt.isCurrent ? 1 + Math.sin(ancPulse) * 0.35 : 1;
+        var dr  = dt.isCurrent ? 4.5 * ps : 2.5;
+        var da  = dt.isCurrent ? 0.82 + Math.sin(ancPulse) * 0.18 : dt.alpha;
+        var ag = ctx.createRadialGradient(dt.x, dt.y, 0, dt.x, dt.y, dr * 3.5);
+        ag.addColorStop(0,   'rgba(52,210,200,' + da.toFixed(2) + ')');
+        ag.addColorStop(0.5, 'rgba(52,210,200,' + (da * 0.4).toFixed(2) + ')');
+        ag.addColorStop(1,   'rgba(52,210,200,0)');
+        ctx.beginPath();
+        ctx.arc(dt.x, dt.y, dr * 3.5, 0, Math.PI * 2);
+        ctx.fillStyle = ag;
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(dt.x, dt.y, dt.isCurrent ? 2.2 : 1.5, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(220,255,252,' + (da * 0.95).toFixed(2) + ')';
+        ctx.fill();
       }
 
       if (!active) return;
 
-      ctx.lineCap = 'round';
-      ctx.lineJoin = 'round';
+      /* ── Draw smooth bezier chain with canvas gradient ── */
+      var grad = ctx.createLinearGradient(pts[0].x, pts[0].y, pts[N-1].x, pts[N-1].y);
+      grad.addColorStop(0,    'rgba(148,108,255,0.88)');
+      grad.addColorStop(0.55, 'rgba(100,160,255,0.55)');
+      grad.addColorStop(1,    'rgba(52,210,200,0.18)');
 
-      /* Chain segments */
-      for (var i = 0; i < N-1; i++) {
-        var tt = 1 - i / (N-1);
-        var aa = Math.pow(tt, 1.4);
-        var cr = lci(CH[0], CT[0], 1-tt);
-        var cg = lci(CH[1], CT[1], 1-tt);
-        var cb = lci(CH[2], CT[2], 1-tt);
-        var col = 'rgba('+cr+','+cg+','+cb+',';
-        ctx.beginPath();
-        ctx.moveTo(pts[i].x, pts[i].y);
-        ctx.lineTo(pts[i+1].x, pts[i+1].y);
-        ctx.lineWidth = (1.5 + tt*3) * 4;
-        ctx.strokeStyle = col + (aa*0.10).toFixed(3) + ')';
-        ctx.stroke();
-        ctx.lineWidth = 1.5 + tt*2.5;
-        ctx.strokeStyle = col + (aa*0.88).toFixed(3) + ')';
-        ctx.stroke();
-      }
+      var glow = ctx.createLinearGradient(pts[0].x, pts[0].y, pts[N-1].x, pts[N-1].y);
+      glow.addColorStop(0,    'rgba(148,108,255,0.10)');
+      glow.addColorStop(0.55, 'rgba(100,160,255,0.06)');
+      glow.addColorStop(1,    'rgba(52,210,200,0.02)');
 
-      /* Cursor tip */
+      /* Glow pass (thick, transparent) */
+      strokeSmooth(18, glow);
+      /* Core pass (thin, bright) */
+      strokeSmooth(2.2, grad);
+
+      /* Cursor-Leuchtpunkt */
       var gd = ctx.createRadialGradient(pts[0].x, pts[0].y, 0, pts[0].x, pts[0].y, 14);
-      gd.addColorStop(0, 'rgba(200,170,255,0.92)');
-      gd.addColorStop(0.45, 'rgba(140,100,255,0.40)');
-      gd.addColorStop(1, 'rgba(140,100,255,0)');
+      gd.addColorStop(0,    'rgba(210,180,255,0.95)');
+      gd.addColorStop(0.4,  'rgba(148,108,255,0.42)');
+      gd.addColorStop(1,    'rgba(148,108,255,0)');
       ctx.beginPath();
-      ctx.arc(pts[0].x, pts[0].y, 14, 0, Math.PI*2);
+      ctx.arc(pts[0].x, pts[0].y, 14, 0, Math.PI * 2);
       ctx.fillStyle = gd;
       ctx.fill();
-
-      /* Chapter anchor dots (left margin) */
-      ancPulse = (ancPulse + 0.05) % (Math.PI*2);
-      for (var d = 0; d < dots.length; d++) {
-        var dt = dots[d];
-        var ps = dt.isCurrent ? 1 + Math.sin(ancPulse) * 0.35 : 1;
-        var dr = dt.isCurrent ? 4.5*ps : 2.5;
-        var da = dt.isCurrent ? 0.82 + Math.sin(ancPulse)*0.18 : dt.alpha;
-        var ag = ctx.createRadialGradient(dt.x, dt.y, 0, dt.x, dt.y, dr*3.5);
-        ag.addColorStop(0, 'rgba(52,210,200,'+da.toFixed(2)+')');
-        ag.addColorStop(0.5, 'rgba(52,210,200,'+(da*0.4).toFixed(2)+')');
-        ag.addColorStop(1, 'rgba(52,210,200,0)');
-        ctx.beginPath();
-        ctx.arc(dt.x, dt.y, dr*3.5, 0, Math.PI*2);
-        ctx.fillStyle = ag;
-        ctx.fill();
-        ctx.beginPath();
-        ctx.arc(dt.x, dt.y, dt.isCurrent ? 2.2 : 1.5, 0, Math.PI*2);
-        ctx.fillStyle = 'rgba(220,255,252,'+(da*0.95).toFixed(2)+')';
-        ctx.fill();
-      }
     }
 
     draw();
