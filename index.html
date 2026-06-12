@@ -3895,5 +3895,92 @@
   }());
   </script>
 
+  <script>
+  /* ── Cursor Trail Beam ── */
+  (function () {
+    if (!window.matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    var canvas = document.createElement('canvas');
+    canvas.setAttribute('aria-hidden', 'true');
+    canvas.style.cssText = 'position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:9000;mix-blend-mode:screen;';
+    document.body.appendChild(canvas);
+    var ctx = canvas.getContext('2d');
+
+    function resize() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+    resize();
+    window.addEventListener('resize', resize, { passive: true });
+
+    var N = 32;
+    var pts = [];
+    for (var i = 0; i < N; i++) pts.push({ x: -800, y: -800 });
+
+    var mx = -800, my = -800, active = false;
+
+    window.addEventListener('mousemove', function (e) { mx = e.clientX; my = e.clientY; active = true; }, { passive: true });
+    document.addEventListener('mouseleave', function () { active = false; });
+
+    /* Brand colors: violet → teal */
+    var HEAD = [140, 100, 255];
+    var TAIL = [ 52, 210, 200];
+
+    function lc(a, b, t) { return (a + (b - a) * t) | 0; }
+
+    function draw() {
+      requestAnimationFrame(draw);
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      /* Spring-chain: each point follows the previous with decreasing speed */
+      pts[0].x += (mx - pts[0].x) * 0.26;
+      pts[0].y += (my - pts[0].y) * 0.26;
+      for (var i = 1; i < N; i++) {
+        var f = Math.max(0.26 - i * 0.007, 0.045);
+        pts[i].x += (pts[i - 1].x - pts[i].x) * f;
+        pts[i].y += (pts[i - 1].y - pts[i].y) * f;
+      }
+
+      if (!active) return;
+
+      ctx.lineCap = 'round';
+      ctx.lineJoin = 'round';
+
+      for (var i = 0; i < N - 1; i++) {
+        var t = 1 - i / (N - 1); /* 1 = head, 0 = tail */
+        var a = Math.pow(t, 1.6);
+        var r = lc(HEAD[0], TAIL[0], 1 - t);
+        var g = lc(HEAD[1], TAIL[1], 1 - t);
+        var b = lc(HEAD[2], TAIL[2], 1 - t);
+        var color = 'rgba(' + r + ',' + g + ',' + b + ',';
+
+        ctx.beginPath();
+        ctx.moveTo(pts[i].x, pts[i].y);
+        ctx.lineTo(pts[i + 1].x, pts[i + 1].y);
+
+        /* Glow pass (wide, low opacity) */
+        ctx.lineWidth = (1.5 + t * 3) * 4;
+        ctx.strokeStyle = color + (a * 0.10).toFixed(3) + ')';
+        ctx.stroke();
+
+        /* Core pass (thin, bright) */
+        ctx.lineWidth = 1.5 + t * 2.5;
+        ctx.strokeStyle = color + (a * 0.85).toFixed(3) + ')';
+        ctx.stroke();
+      }
+
+      /* Glowing dot at cursor tip */
+      var grd = ctx.createRadialGradient(pts[0].x, pts[0].y, 0, pts[0].x, pts[0].y, 14);
+      grd.addColorStop(0, 'rgba(200,170,255,0.92)');
+      grd.addColorStop(0.45, 'rgba(140,100,255,0.40)');
+      grd.addColorStop(1,   'rgba(140,100,255,0)');
+      ctx.beginPath();
+      ctx.arc(pts[0].x, pts[0].y, 14, 0, Math.PI * 2);
+      ctx.fillStyle = grd;
+      ctx.fill();
+    }
+
+    draw();
+  }());
+  </script>
+
 </body>
 </html>
