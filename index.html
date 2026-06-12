@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Theme sofort setzen — verhindert Flash und stellt Dark als Standard sicher -->
+  <script>try{var _t=localStorage.getItem('bwe_theme');if(_t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
 
   <!-- Sicherheit: CSP per Meta-Tag (GitHub Pages erlaubt keine eigenen Server-Header) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cdn.jsdelivr.net; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Beeken Web Engineering — Barrierefreie Websites, handgemacht</title>
   <meta name="description" content="Wir bauen Ihre Website komplett von Hand — kein Baukastensystem, kein vorgefertigtes Design. Blitzschnell, für alle nutzbar, dauerhaft Ihr Eigentum.">
@@ -202,6 +204,15 @@
     } catch(e) {}
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TF95LBYRV"></script>
+
+  <!-- Motion (Framer Motion vanilla) — importierbar via `import { animate, scroll, inView } from "motion"` -->
+  <script type="importmap">
+  {
+    "imports": {
+      "motion": "https://cdn.jsdelivr.net/npm/motion@12/+esm"
+    }
+  }
+  </script>
 
   <!-- Schriften: selbst gehostet — keine Verbindung zu Google-Servern (DSGVO) -->
   <link rel="preload" href="/fonts/bricolage-grotesque-var.woff2" as="font" type="font/woff2" crossorigin>
