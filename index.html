@@ -310,6 +310,7 @@
     html {
       scroll-behavior: smooth;
       scroll-padding-top: var(--nav-h);
+      overscroll-behavior-y: none;
     }
 
     body {
@@ -320,7 +321,8 @@
       overflow-x: hidden;
       position: relative;
       -webkit-font-smoothing: antialiased;
-      transition: background 0.35s var(--ease-quart), color 0.35s var(--ease-quart);
+      text-rendering: optimizeLegibility;
+      transition: background 0.38s var(--ease-quart), color 0.38s var(--ease-quart);
     }
 
     /* Atmosphere — animated aurora mesh behind everything */
@@ -433,7 +435,9 @@
       white-space: nowrap;
       position: relative;
       overflow: hidden;
+      -webkit-tap-highlight-color: transparent;
     }
+    .btn:active { transform: scale(0.97) !important; transition-duration: 0.08s !important; }
 
     .btn-primary {
       background: var(--primary);
@@ -485,7 +489,7 @@
       z-index: var(--z-sticky);
       display: flex;
       align-items: center;
-      transition: background 0.3s, border-color 0.3s;
+      transition: background 0.4s var(--ease-quart), border-color 0.4s var(--ease-quart);
     }
 
     .nav.is-scrolled {
@@ -748,6 +752,7 @@
       white-space: nowrap;
       animation: marquee 28s linear infinite;
       width: max-content;
+      will-change: transform;
     }
     @keyframes marquee {
       from { transform: translateX(0); }
@@ -1003,7 +1008,20 @@
       line-height: 1.5;
       outline: none;
       appearance: none;
-      transition: border-color 0.2s, box-shadow 0.2s;
+      transition: border-color 0.14s var(--ease-quart), box-shadow 0.14s var(--ease-quart), background 0.2s;
+    }
+    .form__select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8' fill='none'%3E%3Cpath d='M1 1.5l5 5 5-5' stroke='%23888899' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 0.9rem center;
+      padding-right: 2.5rem;
+    }
+    .form__input:-webkit-autofill,
+    .form__input:-webkit-autofill:hover,
+    .form__input:-webkit-autofill:focus {
+      -webkit-box-shadow: 0 0 0 100px var(--surface) inset;
+      -webkit-text-fill-color: var(--ink);
+      caret-color: var(--ink);
     }
 
     .form__input:focus,
@@ -1082,13 +1100,31 @@
     ───────────────────────────────────────── */
     .reveal {
       opacity: 0;
-      transform: translateY(26px);
-      transition: opacity 0.72s var(--ease-expo), transform 0.72s var(--ease-expo);
+      transform: translateY(22px);
+      transition: opacity 0.82s var(--ease-expo), transform 0.82s var(--ease-expo);
     }
     .reveal.in { opacity: 1; transform: translateY(0); }
     .reveal-d1 { transition-delay: 0.10s; }
     .reveal-d2 { transition-delay: 0.20s; }
     .reveal-d3 { transition-delay: 0.32s; }
+
+    /* ─────────────────────────────────────────
+       VIEW TRANSITIONS — Theme-Wechsel (Progressives Enhancement)
+    ───────────────────────────────────────── */
+    @media (prefers-reduced-motion: no-preference) {
+      ::view-transition-old(root) {
+        animation: 280ms var(--ease-expo) both vt-fade-out;
+      }
+      ::view-transition-new(root) {
+        animation: 340ms var(--ease-expo) both vt-fade-in;
+      }
+    }
+    @keyframes vt-fade-out {
+      to { opacity: 0; transform: scale(0.985); }
+    }
+    @keyframes vt-fade-in {
+      from { opacity: 0; transform: scale(1.008); }
+    }
 
     /* ─────────────────────────────────────────
        REDUCED MOTION
@@ -1204,6 +1240,7 @@
       letter-spacing: -0.01em;
     }
     .cbtn:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+    .cbtn:active { transform: scale(0.97); transition-duration: 0.08s; }
     .cbtn-accept {
       background: var(--primary);
       color: oklch(0.98 0 0);
@@ -1769,11 +1806,13 @@
       position: absolute;
       bottom: -1px; left: 0;
       height: 1px;
-      width: 0%;
+      width: 100%;
       background: var(--primary);
-      transition: width 0.45s var(--ease-expo);
+      transform: scaleX(0);
+      transform-origin: left center;
+      transition: transform 0.45s var(--ease-expo);
     }
-    .services__item:hover::after { width: 100%; }
+    .services__item:hover::after { transform: scaleX(1); }
 
     /* ─────────────────────────────────────────
        PREMIUM EFFECTS
@@ -1806,6 +1845,7 @@
       border-radius: 2px;
       transform-origin: 0 0;
       transform: scaleY(0);
+      will-change: transform;
     }
     .trace__head {
       position: absolute; left: 50%; top: 0;
@@ -1911,8 +1951,9 @@
       background: var(--surface-hi);
       box-shadow: var(--elev-2);
       transform: translateZ(0);
-      transition: transform 0.5s var(--ease-expo), box-shadow 0.5s var(--ease-expo), border-color 0.3s;
+      transition: transform 0.55s var(--ease-expo), box-shadow 0.55s var(--ease-expo), border-color 0.3s;
       will-change: transform;
+      backface-visibility: hidden;
     }
     .mock:hover {
       transform: translateY(-8px);
@@ -3124,8 +3165,15 @@
     applyTheme();
     themeBtn.addEventListener('click', () => {
       dark = !dark;
-      applyTheme();
-      try { localStorage.setItem('bwe_theme', dark ? 'dark' : 'light'); } catch (e) {}
+      const commit = () => {
+        applyTheme();
+        try { localStorage.setItem('bwe_theme', dark ? 'dark' : 'light'); } catch (e) {}
+      };
+      if (document.startViewTransition) {
+        document.startViewTransition(commit);
+      } else {
+        commit();
+      }
     });
 
 
@@ -3248,24 +3296,49 @@
 
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-    /* ── 3D tilt on work mockups — desktop with fine pointer only ── */
+    /* ── 3D tilt on work mockups — spring-lerped, desktop only ── */
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches &&
         !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      const TILT_MAX = 5; /* degrees */
+      const TILT_MAX = 5;
       document.querySelectorAll('.mock').forEach(card => {
+        let tx = 0, ty = 0, cx = 0, cy = 0, active = false, lraf = null;
+        const L = 0.13; /* lerp factor enter */
+        const LO = 0.09; /* lerp factor leave */
+
+        function lerpLoop() {
+          const f = active ? L : LO;
+          cx += (tx - cx) * f;
+          cy += (ty - cy) * f;
+          const rx = (-cy * TILT_MAX).toFixed(2);
+          const ry = ( cx * TILT_MAX).toFixed(2);
+          card.style.transform = active
+            ? `perspective(1100px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-7px)`
+            : `perspective(1100px) rotateX(${rx}deg) rotateY(${ry}deg)`;
+          const done = !active && Math.abs(cx) < 0.005 && Math.abs(cy) < 0.005;
+          if (done) {
+            card.style.transform = '';
+            card.style.transition = '';
+            lraf = null;
+          } else {
+            lraf = requestAnimationFrame(lerpLoop);
+          }
+        }
+
+        card.addEventListener('mouseenter', () => {
+          active = true;
+          card.style.transition = 'box-shadow 0.45s var(--ease-expo), border-color 0.3s';
+          if (!lraf) lraf = requestAnimationFrame(lerpLoop);
+        });
         card.addEventListener('mousemove', e => {
-          const r  = card.getBoundingClientRect();
-          const dx = (e.clientX - (r.left + r.width  / 2)) / (r.width  / 2); /* -1 … 1 */
-          const dy = (e.clientY - (r.top  + r.height / 2)) / (r.height / 2);
-          const rx = (-dy * TILT_MAX).toFixed(2);
-          const ry = ( dx * TILT_MAX).toFixed(2);
-          card.style.transition = 'box-shadow 0.5s var(--ease-expo), border-color 0.3s';
-          card.style.transform  =
-            `perspective(1100px) rotateX(${rx}deg) rotateY(${ry}deg) translateY(-6px)`;
+          const r = card.getBoundingClientRect();
+          tx = (e.clientX - (r.left + r.width  / 2)) / (r.width  / 2);
+          ty = (e.clientY - (r.top  + r.height / 2)) / (r.height / 2);
+          if (!lraf) lraf = requestAnimationFrame(lerpLoop);
         });
         card.addEventListener('mouseleave', () => {
-          card.style.transition = '';
-          card.style.transform  = '';
+          tx = 0; ty = 0; active = false;
+          card.style.transition = 'transform 0.6s var(--ease-expo), box-shadow 0.55s var(--ease-expo), border-color 0.3s';
+          if (!lraf) lraf = requestAnimationFrame(lerpLoop);
         });
       });
     }
@@ -3373,23 +3446,39 @@
         });
       }
 
-      /* Magnetic buttons — subtle pull toward the cursor, spring back on exit */
+      /* Magnetic buttons — spring-lerped pull toward cursor, spring back on exit */
       if (finePtr && !reduce) {
-        const STRENGTH = 0.28;
+        const STRENGTH = 0.30;
         const BASE = 'background 0.22s var(--ease-quart), color 0.22s, border-color 0.22s';
         document.querySelectorAll('[data-magnetic]').forEach(btn => {
+          let tx = 0, ty = 0, bx = 0, by = 0, mraf = null, mActive = false;
+
+          function magLoop() {
+            const f = mActive ? 0.18 : 0.10;
+            bx += (tx - bx) * f;
+            by += (ty - by) * f;
+            btn.style.transform = `translate(${bx.toFixed(2)}px,${by.toFixed(2)}px)`;
+            const done = !mActive && Math.abs(bx) < 0.12 && Math.abs(by) < 0.12;
+            if (done) {
+              btn.style.transform = '';
+              btn.style.transition = BASE;
+              mraf = null;
+            } else {
+              mraf = requestAnimationFrame(magLoop);
+            }
+          }
+
           btn.addEventListener('pointermove', e => {
-            const r  = btn.getBoundingClientRect();
-            const mx = e.clientX - (r.left + r.width  / 2);
-            const my = e.clientY - (r.top  + r.height / 2);
-            btn.style.transition = 'transform 0.12s linear, ' + BASE;
-            btn.style.transform  =
-              'translate(' + (mx * STRENGTH).toFixed(1) + 'px,' +
-                             (my * STRENGTH).toFixed(1) + 'px)';
+            const r = btn.getBoundingClientRect();
+            tx = (e.clientX - (r.left + r.width  / 2)) * STRENGTH;
+            ty = (e.clientY - (r.top  + r.height / 2)) * STRENGTH;
+            mActive = true;
+            btn.style.transition = BASE;
+            if (!mraf) mraf = requestAnimationFrame(magLoop);
           });
           btn.addEventListener('pointerleave', () => {
-            btn.style.transition = 'transform 0.5s var(--ease-expo), ' + BASE;
-            btn.style.transform  = '';
+            tx = 0; ty = 0; mActive = false;
+            if (!mraf) mraf = requestAnimationFrame(magLoop);
           });
         });
       }
