@@ -27,7 +27,7 @@ Reines HTML/CSS/JS · Bricolage Grotesque (Display) + Epilogue (Body) — **selb
 Klassen: `.t-display` `.t-heading` `.t-body` `.t-small` `.t-label`
 
 ## Seitenstruktur (index.html)
-Skip-Link → `.nav` (fixed, frosted-glass @scroll, Scroll-Spy) → Scroll-Strahl (wandernder Beam oben = Lesefortschritt) → `.hero` (fullscreen, SVG-Laptop + Typewriter, Canvas-Dotgrid, Orbs; mobil: Laptop statisch im Fluss) → `.strip` (Marquee) → `.services#services` (DL-Layout, 3 Einträge, gezeichnete SVG-Icons) → `.work2#arbeiten` (3 Browser-Mockups, 3D-Tilt) → `.versus#vergleich` (Baukasten vs. Handarbeit) → `.process#process` (4-Grid + Linie) → `.play#interaktiv` (interaktives Punktfeld, Canvas) → `.proof#beweis` (Live-Performance-Messung, Performance-API) → `.contact#contact` (Formspree, Inline-Fehler) → Cookie-Banner (DSGVO, `bwe_cookie_consent`) → `<footer>` · Theme: Dark = Standard, Wahl in localStorage `bwe_theme`
+Skip-Link → `.nav` (fixed, frosted-glass @scroll, Scroll-Spy) → `.trace` (integrierter Tracing-Beam: Spur links im Inhalt von Hero-Ende bis Kontakt, Füllung Violett→Teal + Leuchtkopf = Lesefortschritt, Desktop ≥961px) → `.hero` (fullscreen, SVG-Laptop + Typewriter, Canvas-Dotgrid, Orbs; mobil: Laptop statisch im Fluss) → `.strip` (Marquee) → `.services#services` (DL-Layout, 3 Einträge, gezeichnete SVG-Icons) → `.work2#arbeiten` (3 Browser-Mockups, 3D-Tilt) → `.versus#vergleich` (Baukasten vs. Handarbeit) → `.process#process` (4-Grid + Linie) → `.play#interaktiv` (interaktives Punktfeld, Canvas) → `.proof#beweis` (Live-Performance-Messung, Performance-API) → `.contact#contact` (Formspree, Inline-Fehler) → Cookie-Banner (DSGVO, `bwe_cookie_consent`) → `<footer>` · Theme: Dark = Standard, Wahl in localStorage `bwe_theme`
 
 ## A11y (nicht verhandelbar)
 WCAG AA · Semantisches HTML · `aria-*` vollständig · `:focus-visible` 2px `--primary` offset 3px · Kontrast body≥4.5:1 groß≥3:1 · `prefers-reduced-motion` überall
@@ -47,6 +47,8 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `legal.html` | Impressum & Datenschutz — live unter `/legal` |
 | `404.html` | Markenkonforme Fehlerseite (GitHub Pages nutzt sie automatisch) |
 | `fonts/` | Selbst gehostete variable WOFF2-Fonts (Bricolage Grotesque, Epilogue — DSGVO) |
+| `fonts/bricolage-grotesque-var.woff2` | Variable WOFF2-Font: Bricolage Grotesque (Display-Schrift) |
+| `fonts/epilogue-var.woff2` | Variable WOFF2-Font: Epilogue (Body-Schrift) |
 | `og-image.png` | Social-Sharing-Bild 1200×630 (Open Graph / Twitter) |
 | `index_deploy.html` | Staging-/Deploy-Testversion, nicht live |
 | `signatur-kopieren.html` | E-Mail-Signatur-Generator, lokal genutzt |
