@@ -13,3 +13,8 @@ Müll/
 Gemini_Generated_Image_*.png
 *.jsonl
 .DS_Store
+
+# Ads API keys
+.env.ads
+ads-log.json
+ads-videos/

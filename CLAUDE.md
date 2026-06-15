@@ -79,7 +79,10 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `Müll/SKILL.md` | Archivierte Skill-Definition |
 | `Müll/skills-lock.json` | Archivierte Skills-Versionsdatei |
 | `Müll/LICENSE.txt` | Archivierte Lizenzdatei |
+| `.env.ads` | Lokale Ads-Agent API-Keys (gitignored, nie committen) |
 | `.env.ads.example` | Template für Ads-Agent API-Keys (→ `.env.ads` lokal, nie committen) |
+| `package.json` | npm-Manifest im Hauptverzeichnis (Abhängigkeiten des Projekts) |
+| `package-lock.json` | npm-Sperrdatei im Hauptverzeichnis (exakte Abhängigkeitsversionen) |
 | `render-creatives.mjs` | Node.js-Script zum Rendern von Werbe-Creatives (lokal ausgeführt) |
 | `ads-log.json` | Automatisches Upload-Log des Ads-Agenten (gitignored) |
 | `ads-videos/` | Gerenderte Werbevideos (gitignored) |
