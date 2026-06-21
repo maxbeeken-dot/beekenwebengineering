@@ -18,3 +18,11 @@ Gemini_Generated_Image_*.png
 .env.ads
 ads-log.json
 ads-videos/
+
+# Alle Env-/Secret-Dateien (ElevenLabs u.a.)
+.env
+.env.*
+*.env
+video-studio/.env
+video-studio/out/
+video-studio/node_modules/

@@ -101,6 +101,13 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `jarvis-mcp-server/dist/` | Kompiliertes JavaScript (Build-Ausgabe) |
 | `jarvis-mcp-server/node_modules/` | npm-Abhängigkeiten des Jarvis-MCP-Servers (automatisch installiert, nicht committet) |
 | `jarvis-mcp-server/README.md` | Dokumentation und Setup-Anleitung für den Jarvis-MCP-Server |
+| `video-studio/` | Lokales Remotion-Studio zum Rendern von Werbevideos (9:16, Kampagnen-Creatives) |
+| `video-studio/render.mjs` | Node.js-Render-Script: ruft Remotion auf und schreibt MP4-Ausgaben nach `out/` |
+| `video-studio/package.json` | npm-Manifest des Video-Studios (Remotion-Abhängigkeiten) |
+| `video-studio/package-lock.json` | Gesperrte Abhängigkeiten des Video-Studios |
+| `video-studio/src/` | Remotion-Compositions (React-Quellcode der Video-Templates) |
+| `video-studio/out/` | Gerenderte Video-Ausgaben (lokal, nicht committet) |
+| `video-studio/node_modules/` | npm-Abhängigkeiten des Video-Studios (automatisch installiert, nicht committet) |
 
 ## Ads Agent
 Trigger: `/ads` · Skill: `.claude/skills/ads-agent/SKILL.md`  
