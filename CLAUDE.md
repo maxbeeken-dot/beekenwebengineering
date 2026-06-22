@@ -60,6 +60,7 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `.mcp.json` | MCP-Server-Konfiguration (21st.dev Magic) |
 | `CLAUDE.md` | Projektdokumentation für Claude Code |
 | `PRODUCT.md` | Produktbeschreibung / Feature-Dokumentation |
+| `CONTENT-PLAN.md` | Wochen-Content-Plan für Social-Media-Uploads (Status pro Tag/Slot/Plattform) |
 | `CNAME` | Custom-Domain für **GitHub Pages** (`beekenwebengineering.com`) |
 | `robots.txt` | SEO-Crawling-Steuerung |
 | `llms.txt` | Kontextdatei für AI-Systeme (llmstxt.org-Standard) zur besseren AI-Sichtbarkeit |
@@ -103,6 +104,7 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `jarvis-mcp-server/README.md` | Dokumentation und Setup-Anleitung für den Jarvis-MCP-Server |
 | `video-studio/` | Lokales Remotion-Studio zum Rendern von Werbevideos (9:16, Kampagnen-Creatives) |
 | `video-studio/render.mjs` | Node.js-Render-Script: ruft Remotion auf und schreibt MP4-Ausgaben nach `out/` |
+| `video-studio/ensure.mjs` | Node.js-Helper-Script: stellt vor dem Render sicher, dass Remotion-Abhängigkeiten und Ausgabeverzeichnisse bereitstehen |
 | `video-studio/package.json` | npm-Manifest des Video-Studios (Remotion-Abhängigkeiten) |
 | `video-studio/package-lock.json` | Gesperrte Abhängigkeiten des Video-Studios |
 | `video-studio/src/` | Remotion-Compositions (React-Quellcode der Video-Templates) |
