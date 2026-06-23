@@ -11,7 +11,7 @@
 | **Mo 22.06** | 1 | **Baukasten vs. Handarbeit** (Performance-Showdown) | ✅ | ✅ | ⏸️ | ⏸️ | ⏸️ |
 | Mo 22.06 | 2 | **Website Glow-Up** (Before/After, viraler Hook) | ✅ | ✅ | ✅ | ⏸️ | ⏭️ |
 | Di 23.06 | 1 | Web Red Flags (3 Zeichen für eine schlechte Website) | ✅ | ✅ | ✅ | ⏸️ | ⏭️ |
-| Di 23.06 | 2 | „3,9s = 53% weg" (Ladezeit-Schock) | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
+| Di 23.06 | 2 | „3,9s = 53% weg" (Ladezeit-Schock) | ✅ | ✅ | ✅ | ⏸️ | ⏭️ |
 | Mi 24.06 | 1 | Website-Rettung (Redesign Vorher/Nachher) | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
 | Mi 24.06 | 2 | Eigentum statt Mietmodell (dir gehört die Seite) | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
 | Do 25.06 | 1 | Mobile-Fail (Seite kaputt auf dem Handy) | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
