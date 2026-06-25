@@ -1,4 +1,5 @@
 import {AbsoluteFill, Sequence, useCurrentFrame, useVideoConfig, interpolate, spring, Easing} from 'remotion';
+import {MusicBed} from './MusicBed.jsx';
 
 const C = {
   bg: '#08080b', ink: '#f6f5fa', muted: '#8b8a99', dim: '#56555f',
@@ -111,6 +112,7 @@ export const WebsiteGlowUp = () => {
 
   return (
     <AbsoluteFill style={{background: C.bg, fontFamily: FONT}}>
+      <MusicBed />
       {/* Hintergrund-Glow */}
       <AbsoluteFill style={{background: `radial-gradient(700px 700px at ${540+bgGlowX}px 700px, rgba(124,92,255,0.16), transparent 70%)`}} />
 

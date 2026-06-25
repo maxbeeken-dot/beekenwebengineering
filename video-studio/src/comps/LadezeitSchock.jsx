@@ -1,4 +1,5 @@
 import {AbsoluteFill, Sequence, useCurrentFrame, interpolate, spring, Easing} from 'remotion';
+import {MusicBed} from './MusicBed.jsx';
 
 const C = {
   bg: '#08080b', ink: '#f6f5fa', muted: '#8b8a99', dim: '#56555f',
@@ -133,6 +134,7 @@ export const LadezeitSchock = () => {
   const bgGlowX = interpolate(f, [0, 720], [-200, 200]);
   return (
     <AbsoluteFill style={{background: C.bg, fontFamily: FONT}}>
+      <MusicBed />
       <AbsoluteFill style={{background:`radial-gradient(700px 700px at ${540+bgGlowX}px 760px, rgba(255,84,104,0.12), transparent 70%)`}} />
       <Sequence from={0} durationInFrames={78}><HookScene /></Sequence>
       <Sequence from={78} durationInFrames={282}><DrainScene /></Sequence>

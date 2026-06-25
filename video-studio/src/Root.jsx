@@ -4,6 +4,7 @@ import {WebRedFlags} from './comps/WebRedFlags.jsx';
 import {LadezeitSchock} from './comps/LadezeitSchock.jsx';
 import {WebsiteRettung} from './comps/WebsiteRettung.jsx';
 import {MobileFail} from './comps/MobileFail.jsx';
+import {ChatDeal} from './comps/ChatDeal.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -44,6 +45,14 @@ export const RemotionRoot = () => {
         id="MobileFail"
         component={MobileFail}
         durationInFrames={720}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="ChatDeal"
+        component={ChatDeal}
+        durationInFrames={810}
         fps={30}
         width={1080}
         height={1920}

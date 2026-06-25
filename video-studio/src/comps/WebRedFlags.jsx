@@ -1,4 +1,5 @@
 import {AbsoluteFill, Sequence, useCurrentFrame, interpolate, spring, Easing} from 'remotion';
+import {MusicBed} from './MusicBed.jsx';
 
 const C = {
   bg: '#08080b', ink: '#f6f5fa', muted: '#8b8a99', dim: '#56555f',
@@ -168,6 +169,7 @@ export const WebRedFlags = () => {
   const bgGlowX = interpolate(f, [0, 450], [-200, 200]);
   return (
     <AbsoluteFill style={{background: C.bg, fontFamily: FONT}}>
+      <MusicBed />
       <AbsoluteFill style={{background:`radial-gradient(700px 700px at ${540+bgGlowX}px 760px, rgba(255,84,104,0.12), transparent 70%)`}} />
       <Sequence from={0} durationInFrames={60}><HookScene /></Sequence>
       <Sequence from={60} durationInFrames={98}><FlagScene n={1} title="Lädt langsamer als 3 Sekunden" fix="Handgeschriebener Code lädt in unter 1s" Visual={Flag1} /></Sequence>

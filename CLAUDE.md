@@ -111,6 +111,7 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `video-studio/src/` | Remotion-Compositions (React-Quellcode der Video-Templates) |
 | `video-studio/out/` | Gerenderte Video-Ausgaben (lokal, nicht committet) |
 | `video-studio/node_modules/` | npm-Abhängigkeiten des Video-Studios (automatisch installiert, nicht committet) |
+| `video-studio/still.mjs` | Node.js-Script: rendert Einzelbild-Stills (PNG) ausgewählter Frames einer Remotion-Composition nach `/tmp/` (Debug-/Vorschau-Tool) |
 
 ## Ads Agent
 Trigger: `/ads` · Skill: `.claude/skills/ads-agent/SKILL.md`  

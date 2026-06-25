@@ -14,8 +14,8 @@
 | Di 23.06 | 2 | „3,9s = 53% weg" (Ladezeit-Schock) | ✅ | ✅ | ✅ | ⏸️ | ⏭️ |
 | Mi 24.06 | 1 | Website-Rettung (Redesign Vorher/Nachher) | ✅ | ✅ | ✅ | ⏸️ | ⏭️ |
 | Mi 24.06 | 2 | Eigentum statt Mietmodell (dir gehört die Seite) | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
-| Do 25.06 | 1 | Mobile-Fail (Seite kaputt auf dem Handy) | ✅ | ✅ | ✅ | ⏸️ | ⏭️ |
-| Do 25.06 | 2 | Lighthouse 100 erklärt | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
+| Do 25.06 | 1 | Mobile-Fail (Seite kaputt auf dem Handy) | ✅ | ✅ | ✅ | ✅ | ⏭️ | _(IG: Post blieb auf „Wird geteilt" hängen – frischer Account, später erneut)_
+| Do 25.06 | 2 | **Kunde vs. Web-Engineer** (viraler Chat-Dialog, `ChatDeal`) | ✅ | ✅ | ✅ | ✅ | ⏭️ | _(IG: posted=true gemeldet, Profil zeigt aber weiter „0 Beiträge" – frischer Account blockiert)_
 | Fr 26.06 | 1 | Trend/Meme-Jacking (aktueller Sound) | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
 | Fr 26.06 | 2 | DSGVO-Falle: Google Fonts | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
 | Sa 27.06 | 1 | Was kostet eine Website wirklich? | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
