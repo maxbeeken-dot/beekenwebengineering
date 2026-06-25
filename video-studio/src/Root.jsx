@@ -5,6 +5,9 @@ import {LadezeitSchock} from './comps/LadezeitSchock.jsx';
 import {WebsiteRettung} from './comps/WebsiteRettung.jsx';
 import {MobileFail} from './comps/MobileFail.jsx';
 import {ChatDeal} from './comps/ChatDeal.jsx';
+import {EigentumKeys} from './comps/EigentumKeys.jsx';
+import {KuendigungSplit} from './comps/KuendigungSplit.jsx';
+import {EigentumUebergabe} from './comps/EigentumUebergabe.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -53,6 +56,30 @@ export const RemotionRoot = () => {
         id="ChatDeal"
         component={ChatDeal}
         durationInFrames={810}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="EigentumKeys"
+        component={EigentumKeys}
+        durationInFrames={720}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="KuendigungSplit"
+        component={KuendigungSplit}
+        durationInFrames={720}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="EigentumUebergabe"
+        component={EigentumUebergabe}
+        durationInFrames={690}
         fps={30}
         width={1080}
         height={1920}

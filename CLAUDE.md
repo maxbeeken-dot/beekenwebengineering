@@ -112,6 +112,9 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `video-studio/out/` | Gerenderte Video-Ausgaben (lokal, nicht committet) |
 | `video-studio/node_modules/` | npm-Abhängigkeiten des Video-Studios (automatisch installiert, nicht committet) |
 | `video-studio/still.mjs` | Node.js-Script: rendert Einzelbild-Stills (PNG) ausgewählter Frames einer Remotion-Composition nach `/tmp/` (Debug-/Vorschau-Tool) |
+| `video-studio/fix-compositor-libs.sh` | Shell-Script (macOS-arm64): repariert Remotions gebündelte ffmpeg/ffprobe-Binaries durch Umschreiben der dylib-Pfade auf `@loader_path/` + adhoc-Codesigning; idempotent, nach jedem `npm install` im video-studio erneut ausführen |
+| `video-studio/make-music.mjs` | Node.js-Script: synthetisiert ein eigenes lizenzfreies Marken-Musikbett (WAV, 30s Stereo 44.1k) mit Pad + Sub-Puls + Pentatonik-Bells (Am–F–C–G); selbst erzeugt → keine Copyright-Flags für Business-Accounts |
+| `video-studio/public/` | Statische Assets für Remotion-Compositions (z.B. `music/`-Bett) — von Remotion zur Build-Zeit eingelesen |
 
 ## Ads Agent
 Trigger: `/ads` · Skill: `.claude/skills/ads-agent/SKILL.md`  
