@@ -61,6 +61,7 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `CLAUDE.md` | Projektdokumentation für Claude Code |
 | `PRODUCT.md` | Produktbeschreibung / Feature-Dokumentation |
 | `CONTENT-PLAN.md` | Wochen-Content-Plan für Social-Media-Uploads (Status pro Tag/Slot/Plattform) |
+| `VIDEO-IDEAS.md` | Ideenbank für nicht-werbliche, organische Video-Formate rund um Websites/Webdev (Stand Juni 2026) |
 | `CNAME` | Custom-Domain für **GitHub Pages** (`beekenwebengineering.com`) |
 | `robots.txt` | SEO-Crawling-Steuerung |
 | `llms.txt` | Kontextdatei für AI-Systeme (llmstxt.org-Standard) zur besseren AI-Sichtbarkeit |
