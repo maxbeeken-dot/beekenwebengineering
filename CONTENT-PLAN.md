@@ -16,8 +16,10 @@
 | Mi 24.06 | 2 | Eigentum statt Mietmodell (dir gehört die Seite) | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
 | Do 25.06 | 1 | Mobile-Fail (Seite kaputt auf dem Handy) | ✅ | ✅ | ✅ | ✅ | ⏭️ | _(IG: Post blieb auf „Wird geteilt" hängen – frischer Account, später erneut)_
 | Do 25.06 | 2 | **Kunde vs. Web-Engineer** (viraler Chat-Dialog, `ChatDeal`) | ✅ | ✅ | ✅ | ✅ | ⏭️ | _(IG: posted=true gemeldet, Profil zeigt aber weiter „0 Beiträge" – frischer Account blockiert)_
-| Fr 26.06 | 1 | Trend/Meme-Jacking (aktueller Sound) | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
-| Fr 26.06 | 2 | DSGVO-Falle: Google Fonts | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
+| **Fr 26.06** | 1 | **Eigentum: KuendigungSplit** (Split-Screen „Was, wenn du kündigst?") | ✅ | ✅ | ✅ | ❌ | ⏭️ | _(🎉 **IG ✅ LIVE — erster Post überhaupt!** Account-Sperre überwunden, „Teilen" lief durch, Profil = 1 Beitrag. · FB: Reel 2× nicht durchgelaufen, Anzahl unverändert 10, neuester Feed-Post 16 Std alt → später erneut)_
+| **Fr 26.06** | 2 | **Eigentum: EigentumUebergabe** (Asset-Checkliste + „GEHÖRT DIR"-Stempel) | 🔲 | 🔲 | 🔲 | 🔲 | ⏭️ |
+| **Fr 26.06** | 3 | **Eigentum: EigentumKeys** (Schloss/Schlüssel-Metapher) | 🔲 | 🔲 | 🔲 | 🔲 | ⏭️ |
+| Sa 27.06 | _verschoben_ | Trend/Meme-Jacking + DSGVO Google Fonts (von Fr verschoben) | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
 | Sa 27.06 | 1 | Was kostet eine Website wirklich? | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
 | Sa 27.06 | 2 | Animationen, die verkaufen | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
 | So 28.06 | 1 | Code-Website vs. KI-Website | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
