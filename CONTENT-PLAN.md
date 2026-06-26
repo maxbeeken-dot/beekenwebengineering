@@ -31,7 +31,7 @@
 |---|---|---|
 | **X** | ✅ eingeloggt | — (läuft automatisch, `upload-x-auto.mjs`) |
 | **TikTok** | ✅ eingeloggt | Login lief am 22.06 durch (`upload-tt-auto.mjs`, `tt-profile`) — Block aufgehoben |
-| **Facebook** | ⛔ dauerhaft blockiert | 2FA-Code geht an einen für den Nutzer unzugänglichen Account → kein Upload möglich. Übergehen. |
+| **Facebook** | ⚠️ Login OK, Publish blockiert | **Login + Session funktionieren jetzt** (`~/.bwe-sessions/fb-profile`, auto, am 26.06 eingeloggt). Reel-Composer öffnet automatisch (Weg A: `facebook.com/reels/create/`), Video lädt. **Neuer Blocker:** finale Reel-Seite verlangt „Bestätige deine Identität, um als diese Seite zu veröffentlichen" → nur per **FB-App am Handy** lösbar (Page Publishing Authorization, nicht automatisierbar). Nach einmaliger Bestätigung läuft Upload via `upload-fb.mjs` durch. |
 | **LinkedIn** | ⏭️ ausgelassen | auf Nutzerwunsch vorerst weggelassen |
 | **YouTube** | ✅ eingeloggt | — (`upload-yt-manual.mjs`, persistente `yt-profile`-Session) |
 
