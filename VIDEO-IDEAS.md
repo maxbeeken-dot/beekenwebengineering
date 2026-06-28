@@ -48,3 +48,25 @@ Storytime triggert emotionale Bindung. (Fiktionalisierte) Chat-Verläufe als Tex
 
 ## Faceless-Pipeline (was ich autonom bauen kann)
 Sofort als Remotion-Vorlagen umsetzbar: #3 Glow-Up-Transition, #4 POV-Karten, #5 Tier-List, #7 Client-Storytime, #8 Speedrun-Timelapse, #10 Trend-Check. Für #1/#2/#6/#9 brauchst du Aufnahmen/Stimme (oder wir holen ein AI-Voiceover dazu).
+
+## Neue Ideen aus Trend-Recherche (Stand 27.06.2026, web-recherchiert)
+
+Quellen-Kernbefunde: **Outcome-first-Hook** (Ergebnis in Sek. 1–2 zeigen) ≈ 2× Views · Such-Intent („Was ist…/Wie…") wird auf TikTok/IG wie Google behandelt · Web-Design 2026 = **Micro-Interactions als Usability-Layer mit Zurückhaltung**, interaktives 3D/WebGL, Dopamine-/Y2K-Farben, kinetische/Variable-Font-Typo.
+
+### 11. „Animationen, die verkaufen" 🤖 — **als Sa-Slot-2 produziert (`AnimationenVerkaufen`)**
+Micro-Interactions als Conversion-Layer zeigen (Hover-Feedback, Klick-Bestätigung, Scroll-Reveal), Prinzip „weniger ist mehr". Demonstriert die Animationen live im Video statt sie nur zu nennen.
+
+### 12. Such-Intent-Micro-Erklärer 🤖 (volumenstark, Algo = Suchmaschine)
+60-Sek-Antworten auf echte Suchfragen: „Was ist eine Micro-Interaction?", „Was ist Hosting wirklich?", „Was ist eine Variable Font?". Titel = exakte Suchphrase. Edukativ → mehr Leads.
+
+### 13. „Outcome-first" Glow-Up 🤖🔊
+Trend-konform: **fertiges Ergebnis zuerst** (Sek. 1: perfekte animierte Hero-Section) → dann zurückspulen „so sah's vorher aus". Nutzt den 2×-Hook-Effekt.
+
+### 14. Web-Design-Trend-Check 2026 (Dopamine/Y2K/3D) 🤖🔊
+Tier-/Listen-Format zu echten 2026-Trends: cursor-reaktives 3D, kinetische Typo, Dopamine-Farben, Ambient-UI. Positioniert als Trend-Insider, Kommentar-Köder „welcher Trend ist Hype?".
+
+### 15. „Kinetische Typo" Satisfying-Loop 🤖🔊
+Reines oddly-satisfying Motion-Piece: Variable-Font-Headline morpht/animiert zum Trend-Sound. Hohe Completion, zeigt technisches Können ohne Pitch.
+
+### 16. „Diese 1 Animation killt deine Conversion" 🤖
+Negativ-Hook (Pattern-Interrupt): Auto-Play-Karussell, endlose Lade-Spinner, Bewegung ohne Zweck. Was NICHT animiert gehört — Gegenstück zu #11.

@@ -8,6 +8,9 @@ import {ChatDeal} from './comps/ChatDeal.jsx';
 import {EigentumKeys} from './comps/EigentumKeys.jsx';
 import {KuendigungSplit} from './comps/KuendigungSplit.jsx';
 import {EigentumUebergabe} from './comps/EigentumUebergabe.jsx';
+import {WebsiteKosten} from './comps/WebsiteKosten.jsx';
+import {AnimationenVerkaufen} from './comps/AnimationenVerkaufen.jsx';
+import {CodeVsKI} from './comps/CodeVsKI.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -80,6 +83,30 @@ export const RemotionRoot = () => {
         id="EigentumUebergabe"
         component={EigentumUebergabe}
         durationInFrames={690}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WebsiteKosten"
+        component={WebsiteKosten}
+        durationInFrames={720}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="AnimationenVerkaufen"
+        component={AnimationenVerkaufen}
+        durationInFrames={720}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="CodeVsKI"
+        component={CodeVsKI}
+        durationInFrames={720}
         fps={30}
         width={1080}
         height={1920}
