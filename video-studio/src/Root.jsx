@@ -11,6 +11,9 @@ import {EigentumUebergabe} from './comps/EigentumUebergabe.jsx';
 import {WebsiteKosten} from './comps/WebsiteKosten.jsx';
 import {AnimationenVerkaufen} from './comps/AnimationenVerkaufen.jsx';
 import {CodeVsKI} from './comps/CodeVsKI.jsx';
+import {DomainHostingWebsite} from './comps/DomainHostingWebsite.jsx';
+import {GoogleFontsAbmahnung} from './comps/GoogleFontsAbmahnung.jsx';
+import {SeiteLangsam} from './comps/SeiteLangsam.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -106,6 +109,30 @@ export const RemotionRoot = () => {
       <Composition
         id="CodeVsKI"
         component={CodeVsKI}
+        durationInFrames={720}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="DomainHostingWebsite"
+        component={DomainHostingWebsite}
+        durationInFrames={720}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="GoogleFontsAbmahnung"
+        component={GoogleFontsAbmahnung}
+        durationInFrames={720}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="SeiteLangsam"
+        component={SeiteLangsam}
         durationInFrames={720}
         fps={30}
         width={1080}

@@ -19,11 +19,12 @@
 | **Fr 26.06** | 1 | **Eigentum: KuendigungSplit** (Split-Screen „Was, wenn du kündigst?") | ✅ | ✅ | ✅ | ❌ | ⏭️ | _(🎉 **IG ✅ LIVE — erster Post überhaupt!** Account-Sperre überwunden, „Teilen" lief durch, Profil = 1 Beitrag. · FB: Reel 2× nicht durchgelaufen, Anzahl unverändert 10, neuester Feed-Post 16 Std alt → später erneut)_
 | **Fr 26.06** | 2 | **Eigentum: EigentumUebergabe** (Asset-Checkliste + „GEHÖRT DIR"-Stempel) | ✅ | ✅ | ✅ | ❌ | ⏭️ | _(IG ✅ gepostet via Web `ig-post.mjs` (posted=true) · FB: Identitätssperre — Publish blockiert (3× erneut versucht 26.06, weiterhin gesperrt) · LinkedIn aus)_
 | **Fr 26.06** | 3 | **Eigentum: EigentumKeys** (Schloss/Schlüssel-Metapher) | ✅ | ✅ | ✅ | ❌ | ⏭️ | _(IG ✅ gepostet via Web `ig-post.mjs` (posted=true) · FB: Identitätssperre — Publish blockiert (3× erneut versucht 26.06, weiterhin gesperrt) · LinkedIn aus)_
-| Sa 27.06 | _verschoben_ | Trend/Meme-Jacking + DSGVO Google Fonts (von Fr verschoben) | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
+| **Mo 29.06** | 1 | **Google Fonts = Abmahnfalle** (`GoogleFontsAbmahnung`, Mehrwert-Serie C2, DSGVO-Erklär + Fix) — *erste Folge neue Woche; löst den „verschobenen" DSGVO-Google-Fonts-Posten ab* | ✅ | ✅ | ✅ | ❌ | ⏭️ | _(IG ✅ gepostet via Web `ig-post.mjs` (posted=true) · FB: Identitätssperre — blockiert · LinkedIn aus)_
+| **Mo 29.06** | 2 | **Warum ist deine Seite langsam? (Top 3)** (`SeiteLangsam`, Mehrwert-Serie B1, Ursachen + Fixes + PageSpeed-Check) | ✅ | ✅ | ✅ | ❌ | ⏭️ | _(IG ✅ gepostet via Web `ig-post.mjs` (posted=true) · FB: Identitätssperre — blockiert · LinkedIn aus)_
 | **Sa 27.06** | 1 | **Was kostet eine Website wirklich?** (`WebsiteKosten`, Frage-Flip: was kostet dich eine *schlechte*) | ✅ | ✅ | ✅ | ❌ | ⏭️ | _(IG ✅ gepostet via Web `ig-post.mjs` (posted=true) · FB: Identitätssperre — blockiert · LinkedIn aus)_
 | **Sa 27.06** | 2 | **Animationen, die verkaufen** (`AnimationenVerkaufen`, Micro-Interactions live demonstriert) | ✅ | ✅ | ✅ | ❌ | ⏭️ | _(IG ✅ gepostet via Web `ig-post.mjs` (posted=true) · FB: Identitätssperre — blockiert · LinkedIn aus)_
 | **So 28.06** | 1 | **Code-Website vs. KI-Website** (`CodeVsKI`, VS-Vergleich, „was die KI verschweigt") | ✅ | ✅ | ✅ | ❌ | ⏭️ | _(IG ✅ gepostet via Web `ig-post.mjs` (posted=true) · FB: Identitätssperre — blockiert · LinkedIn aus)_
-| So 28.06 | 2 | „1 Woche, 1 Website" (Timelapse) | 🔲 | 🔲 | 🔲 | 🔲 | 🔲 |
+| **So 28.06** | 2 | **Domain vs. Hosting vs. Website** (`DomainHostingWebsite`, Mehrwert/Erklär, Haus-Analogie) — *ersetzt „1 Woche, 1 Website" (bleibt als Idee)* | ✅ | ✅ | ✅ | ❌ | ⏭️ | _(IG ✅ gepostet via Web `ig-post.mjs` (posted=true) · FB: Identitätssperre — blockiert · LinkedIn aus)_
 
 ## Offene Logins (nach Neustart, Sessions in ~/.bwe-sessions/ — bleiben künftig erhalten)
 
