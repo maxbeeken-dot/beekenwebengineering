@@ -100,3 +100,26 @@ Für Leute, die die Begriffe ständig hören, aber nie erklärt bekommen.
 - **D4 So vermeidest du den Stock-Foto-/AI-Look** — was Seiten billig wirken lässt + Alternativen. → Pro-Look-Checkliste.
 
 **Umsetzung:** Alle 16 Episoden faceless via Remotion baubar (Diagramme, Vergleiche, animierte Erklär-Karten). Empfohlener Serien-Auftakt: **C2 (Google Fonts), B1 (langsame Seite)** oder **A1 (Domain/Hosting/Website)** — höchster Such-Intent + sofort spürbarer Aha-Effekt.
+
+## TikTok-Trend-Adaption (web-recherchiert 30.06.2026) — interaktiv & breit unterhaltsam
+
+Richtung laut Nutzer: Videos sollen **interaktiv, breit ansprechend, unterhaltsam** sein [[feedback-interactive-videos]] — Mehrwert bleibt, aber als Entertainment + Mitmach verpackt.
+
+**Übergreifende Stellschrauben (ab sofort für ALLE Videos):**
+- **CTA = Frage statt „Speichern".** Frage in Caption = +26% Kommentare; „kommentier X" = +14%; **niemals „like"** (−60%). Also: „A oder B? 👇", „Was gibst du ihr, 1–10?".
+- **Hook = visueller Payoff in Sekunde 1** (Bewegung/Ergebnis sofort).
+- **Länge 15–35 s**, native/roh statt Ad-Look. Video schlägt Karussell (5× Views).
+- **Hashtags: 1–5, nischig** — kein #fyp/#viral (sagen dem Algo nichts). Unsere ~10-Tag-Captions kürzen.
+- **Trending-Sound in den ersten 48 h** drauf (5–10× Views) — nur beim manuellen Mobile-Post möglich [[feedback-viral-sounds]]; pro Video Sound-Empfehlung mitliefern.
+- **3-3-1/Woche:** 3 unterhaltend, 3 edukativ, 1 werblich.
+
+**Konkrete Konzepte (faceless via Remotion, je mit Mitmach-Hook):**
+- **T1 „Website Glow-Up – Summoning"** 🤖🔊 — *Food-Jutsu/CapCut-Summoning-Transition* (Brand-Reveal-Trend des Monats): hässliche Seite → *Flash/Glitch* → perfekte Seite. CTA: „Würdest du auf A oder B kaufen? 👇". Oddly-satisfying, breit teilbar.
+- **T2 „Rate this Website 1–10"** 🤖🔊 — Mockup zeigen, Bewertung antippen lassen. CTA: „Welche Zahl gibst du ihr? 👇". Reiner Kommentar-Magnet, jeder hat eine Meinung.
+- **T3 „Welcher Website-Typ bist du?"** 🤖 — 4 Persönlichkeiten (Baukasten-Bastler · PDF-im-Header · Karussell-König · Handgecodet). CTA: „Kommentier deinen Buchstaben". Quiz/Selbsteinordnung.
+- **T4 „Tier-List: Web-Design-Sünden S–F"** 🤖🔊 — Auto-Play-Musik, Stock-Fotos, Comic Sans, Karussell-Slider ranken. CTA: „Was ist für dich F-Tier? 👇". Debatten-Treiber.
+- **T5 „POV: ‚Mach das Logo größer'"** 🤖🔊 — relatable Kunden-Humor, eskalierend. Breit auch für Nicht-Techniker.
+- **T6 „Errätst du, welche Seite mehr verkauft?"** 🤖 — A/B-Rate-Game, Reveal. CTA: „A oder B? Auflösung im Video 👇".
+- **T7 „wow, ok" Reaction** 🤖🔊 — Trend-Reaction-Audio über einen echt schlechten Seiten-Walkthrough.
+
+Empfohlener Auftakt im neuen Stil: **T1 (Glow-Up Summoning)** oder **T2 (Rate 1–10)** — beide faceless baubar, maximal interaktiv, breit.

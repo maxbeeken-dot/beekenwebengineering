@@ -19,6 +19,7 @@ import {HttpsSchloss} from './comps/HttpsSchloss.jsx';
 import {PageSpeedScore} from './comps/PageSpeedScore.jsx';
 import {FarbeKontrast} from './comps/FarbeKontrast.jsx';
 import {BilderOptimieren} from './comps/BilderOptimieren.jsx';
+import {GlowUpSummoning} from './comps/GlowUpSummoning.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -179,6 +180,14 @@ export const RemotionRoot = () => {
         id="BilderOptimieren"
         component={BilderOptimieren}
         durationInFrames={720}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="GlowUpSummoning"
+        component={GlowUpSummoning}
+        durationInFrames={540}
         fps={30}
         width={1080}
         height={1920}
