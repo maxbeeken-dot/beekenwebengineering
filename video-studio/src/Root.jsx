@@ -14,6 +14,10 @@ import {CodeVsKI} from './comps/CodeVsKI.jsx';
 import {DomainHostingWebsite} from './comps/DomainHostingWebsite.jsx';
 import {GoogleFontsAbmahnung} from './comps/GoogleFontsAbmahnung.jsx';
 import {SeiteLangsam} from './comps/SeiteLangsam.jsx';
+import {LandingPageAnatomie} from './comps/LandingPageAnatomie.jsx';
+import {HttpsSchloss} from './comps/HttpsSchloss.jsx';
+import {PageSpeedScore} from './comps/PageSpeedScore.jsx';
+import {FarbeKontrast} from './comps/FarbeKontrast.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -133,6 +137,38 @@ export const RemotionRoot = () => {
       <Composition
         id="SeiteLangsam"
         component={SeiteLangsam}
+        durationInFrames={720}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="LandingPageAnatomie"
+        component={LandingPageAnatomie}
+        durationInFrames={720}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="HttpsSchloss"
+        component={HttpsSchloss}
+        durationInFrames={720}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="PageSpeedScore"
+        component={PageSpeedScore}
+        durationInFrames={720}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="FarbeKontrast"
+        component={FarbeKontrast}
         durationInFrames={720}
         fps={30}
         width={1080}
