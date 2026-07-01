@@ -21,6 +21,9 @@ import {FarbeKontrast} from './comps/FarbeKontrast.jsx';
 import {BilderOptimieren} from './comps/BilderOptimieren.jsx';
 import {GlowUpSummoning} from './comps/GlowUpSummoning.jsx';
 import {RateWebsite} from './comps/RateWebsite.jsx';
+import {TierListSuenden} from './comps/TierListSuenden.jsx';
+import {WebsiteTyp} from './comps/WebsiteTyp.jsx';
+import {WebsiteVersusAB} from './comps/WebsiteVersusAB.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -197,6 +200,30 @@ export const RemotionRoot = () => {
         id="RateWebsite"
         component={RateWebsite}
         durationInFrames={600}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="TierListSuenden"
+        component={TierListSuenden}
+        durationInFrames={600}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WebsiteTyp"
+        component={WebsiteTyp}
+        durationInFrames={570}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WebsiteVersusAB"
+        component={WebsiteVersusAB}
+        durationInFrames={560}
         fps={30}
         width={1080}
         height={1920}
