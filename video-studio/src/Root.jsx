@@ -24,6 +24,7 @@ import {RateWebsite} from './comps/RateWebsite.jsx';
 import {TierListSuenden} from './comps/TierListSuenden.jsx';
 import {WebsiteTyp} from './comps/WebsiteTyp.jsx';
 import {WebsiteVersusAB} from './comps/WebsiteVersusAB.jsx';
+import {POVLogoGroesser} from './comps/POVLogoGroesser.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -223,6 +224,14 @@ export const RemotionRoot = () => {
       <Composition
         id="WebsiteVersusAB"
         component={WebsiteVersusAB}
+        durationInFrames={560}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="POVLogoGroesser"
+        component={POVLogoGroesser}
         durationInFrames={560}
         fps={30}
         width={1080}
