@@ -25,6 +25,7 @@ import {TierListSuenden} from './comps/TierListSuenden.jsx';
 import {WebsiteTyp} from './comps/WebsiteTyp.jsx';
 import {WebsiteVersusAB} from './comps/WebsiteVersusAB.jsx';
 import {POVLogoGroesser} from './comps/POVLogoGroesser.jsx';
+import {WowOkReaction} from './comps/WowOkReaction.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -232,6 +233,14 @@ export const RemotionRoot = () => {
       <Composition
         id="POVLogoGroesser"
         component={POVLogoGroesser}
+        durationInFrames={560}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WowOkReaction"
+        component={WowOkReaction}
         durationInFrames={560}
         fps={30}
         width={1080}
