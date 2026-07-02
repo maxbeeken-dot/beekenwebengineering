@@ -26,6 +26,8 @@ import {WebsiteTyp} from './comps/WebsiteTyp.jsx';
 import {WebsiteVersusAB} from './comps/WebsiteVersusAB.jsx';
 import {POVLogoGroesser} from './comps/POVLogoGroesser.jsx';
 import {WowOkReaction} from './comps/WowOkReaction.jsx';
+import {WelcherFehler} from './comps/WelcherFehler.jsx';
+import {VARCheck} from './comps/VARCheck.jsx';
 import {WebsiteCheck5} from './comps/WebsiteCheck5.jsx';
 
 export const RemotionRoot = () => {
@@ -251,6 +253,22 @@ export const RemotionRoot = () => {
         id="WebsiteCheck5"
         component={WebsiteCheck5}
         durationInFrames={600}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WelcherFehler"
+        component={WelcherFehler}
+        durationInFrames={560}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="VARCheck"
+        component={VARCheck}
+        durationInFrames={540}
         fps={30}
         width={1080}
         height={1920}

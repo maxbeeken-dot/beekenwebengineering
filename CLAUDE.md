@@ -88,14 +88,8 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `node_modules/` | npm-Abhängigkeiten (automatisch installiert, nicht committet) |
 | `.claude/` | Claude Code Skills, Einstellungen und Memory-Dateien |
 | `.git/` | Git-Repository-Daten (Versionskontrolle, automatisch verwaltet) |
-| `jarvis-mcp-server/` | Lokaler MCP-Server „Jarvis" (TypeScript) — Tools für Wetter, Websuche u.a. |
-| `jarvis-mcp-server/package.json` | npm-Manifest des Jarvis-MCP-Servers |
-| `jarvis-mcp-server/package-lock.json` | Gesperrte Abhängigkeiten des Jarvis-MCP-Servers |
-| `jarvis-mcp-server/tsconfig.json` | TypeScript-Konfiguration des Jarvis-MCP-Servers |
-| `jarvis-mcp-server/src/` | Quellcode des Jarvis-MCP-Servers |
-| `jarvis-mcp-server/dist/` | Kompiliertes JavaScript (Build-Ausgabe) |
-| `jarvis-mcp-server/node_modules/` | npm-Abhängigkeiten des Jarvis-MCP-Servers (automatisch installiert, nicht committet) |
-| `jarvis-mcp-server/README.md` | Dokumentation und Setup-Anleitung für den Jarvis-MCP-Server |
+| `jarvis-mcp-server/` | Leeres Verzeichnis-Skelett (nur `src/schemas/`, keine Dateien) — Rest des früheren Jarvis-MCP-Servers wurde entfernt (Stand 2026-07-02) |
+| `jarvis-mcp-server/src/` | Leeres Unterverzeichnis des Skeletts (enthält nur `schemas/`, keine Dateien) |
 | `video-studio/` | Lokales Remotion-Studio zum Rendern von Werbevideos (9:16, Kampagnen-Creatives) |
 | `video-studio/render.mjs` | Node.js-Render-Script: ruft Remotion auf und schreibt MP4-Ausgaben nach `out/` |
 | `video-studio/ensure.mjs` | Node.js-Helper-Script: stellt vor dem Render sicher, dass Remotion-Abhängigkeiten und Ausgabeverzeichnisse bereitstehen |
