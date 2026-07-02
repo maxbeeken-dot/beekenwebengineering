@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script>try{var _t=localStorage.getItem('bwe_theme');if(_t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
+  <title>Warum ist meine Website langsam? 3 Ursachen &amp; Lösungen | Beeken Web Engineering</title>
+  <meta name="description" content="Ihre Website lädt langsam? Die 3 häufigsten Ursachen – zu große Bilder, zu viele Skripte, kein Caching – einfach erklärt, mit konkreten Lösungen zum Nachmachen.">
+  <meta name="keywords" content="Website langsam, Ladezeit verbessern, PageSpeed, Core Web Vitals, Website Performance, Webdesign Bad Homburg">
+  <meta name="theme-color" content="#0d0c12">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large">
+  <link rel="canonical" href="https://beekenwebengineering.com/blog/warum-website-langsam.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://beekenwebengineering.com/blog/warum-website-langsam.html">
+  <meta property="og:site_name" content="Beeken Web Engineering">
+  <meta property="og:locale" content="de_DE">
+  <meta property="og:title" content="Warum ist meine Website langsam? 3 Ursachen &amp; Lösungen">
+  <meta property="og:description" content="Die 3 häufigsten Ursachen für langsame Websites – einfach erklärt, mit konkreten Lösungen.">
+  <meta property="og:image" content="https://beekenwebengineering.com/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Warum ist meine Website langsam? 3 Ursachen &amp; Lösungen">
+  <meta name="twitter:image" content="https://beekenwebengineering.com/og-image.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/logo-96.png">
+  <link rel="preload" href="/fonts/bricolage-grotesque-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/epilogue-var.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/blog/blog.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": "Warum ist meine Website langsam? 3 Ursachen und Lösungen",
+    "description": "Die 3 häufigsten Ursachen für langsame Websites – zu große Bilder, zu viele Skripte, kein Caching – mit konkreten Lösungen.",
+    "image": "https://beekenwebengineering.com/og-image.png",
+    "datePublished": "2026-07-02",
+    "dateModified": "2026-07-02",
+    "inLanguage": "de-DE",
+    "author": { "@type": "Person", "name": "Max Beeken" },
+    "publisher": { "@type": "Organization", "name": "Beeken Web Engineering", "logo": { "@type": "ImageObject", "url": "https://beekenwebengineering.com/logo-96.png" } },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": "https://beekenwebengineering.com/blog/warum-website-langsam.html" }
+  }
+  </script>
+</head>
+<body>
+  <a href="#main" class="skip">Zum Inhalt springen</a>
+  <header class="nav">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="/" class="nav__logo"><img src="/logo-96.png" alt="" width="34" height="34"> Beeken Web Engineering</a>
+        <ul class="nav__links" role="list">
+          <li><a href="/#services">Leistungen</a></li>
+          <li><a href="/#arbeiten">Arbeiten</a></li>
+          <li><a href="/blog/" aria-current="page">Blog</a></li>
+          <li><a href="/#contact">Kontakt</a></li>
+        </ul>
+        <a href="/#contact" class="nav__cta">Projekt starten</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <article class="article">
+      <div class="container">
+        <div class="article__head">
+          <p class="breadcrumb"><a href="/blog/">Blog</a> / Performance</p>
+          <h1>Warum ist meine Website langsam? 3 Ursachen &amp; Lösungen</h1>
+          <div class="article__meta"><span>Performance</span><span class="dot"></span><span>7 Min. Lesezeit</span><span class="dot"></span><span>von Max Beeken</span></div>
+        </div>
+
+        <div class="prose">
+          <p class="lead">Eine langsame Website kostet Sie bares Geld – noch bevor ein Besucher überhaupt liest, was Sie anbieten. Studien zeigen: Lädt eine Seite länger als drei Sekunden, springt rund die Hälfte der Nutzer wieder ab. Und Google wertet langsame Seiten in den Suchergebnissen ab. Die gute Nachricht: In fast allen Fällen stecken nur drei Ursachen dahinter – und alle drei lassen sich beheben.</p>
+
+          <h2>1. Zu große Bilder</h2>
+          <p>Die mit Abstand häufigste Bremse. Ein Foto direkt aus der Handykamera ist schnell 4–8&nbsp;Megabyte groß – für eine Website ist das dramatisch zu viel. Auf dem Bildschirm wird das Bild ohnehin auf wenige hundert Pixel Breite dargestellt; die volle Auflösung lädt trotzdem im Hintergrund und blockiert alles andere.</p>
+          <p><strong>Die Lösung:</strong></p>
+          <ul>
+            <li>Bilder auf die tatsächlich benötigte Größe verkleinern (ein Vorschaubild braucht keine 4000&nbsp;Pixel Breite).</li>
+            <li>Moderne Formate wie <strong>WebP</strong> oder <strong>AVIF</strong> nutzen – sie sind bei gleicher Qualität oft 60–80&nbsp;% kleiner als JPG.</li>
+            <li>„Lazy Loading" aktivieren: Bilder weiter unten auf der Seite laden erst, wenn der Nutzer dorthin scrollt.</li>
+          </ul>
+          <p>Allein diese drei Schritte machen viele Seiten spürbar schneller – aus mehreren Megabyte werden ein paar hundert Kilobyte.</p>
+
+          <h2>2. Zu viele Skripte und Plugins</h2>
+          <p>Baukasten-Systeme und WordPress mit vielen Plugins laden im Hintergrund oft Dutzende zusätzliche Dateien: Slider, Pop-ups, Chat-Widgets, Cookie-Banner von Drittanbietern, Tracking-Codes. Jedes einzelne davon kostet Ladezeit – und viele werden gar nicht wirklich gebraucht.</p>
+          <div class="callout"><p><strong>Faustregel:</strong> Jedes Skript, das Sie nicht zwingend brauchen, gehört von der Seite. Weniger ist bei Websites fast immer schneller.</p></div>
+          <p><strong>Die Lösung:</strong> Überflüssige Plugins entfernen, Third-Party-Widgets sparsam einsetzen und Code so schlank wie möglich halten. Genau hier liegt der große Vorteil einer <a href="/blog/baukasten-vs-handgemacht.html">handgeschriebenen Website</a>: Es wird nur der Code geladen, der wirklich gebraucht wird – kein Plattform-Ballast.</p>
+
+          <h2>3. Kein Caching &amp; langsames Hosting</h2>
+          <p>Ohne Caching baut der Server die Seite bei jedem Aufruf komplett neu zusammen. Mit Caching wird eine fertige Version zwischengespeichert und blitzschnell ausgeliefert. Dazu kommt der Hosting-Standort: Sitzt der Server weit weg, dauert schon der erste Kontakt spürbar länger.</p>
+          <p><strong>Die Lösung:</strong> Caching aktivieren und – bei internationalem Publikum – ein CDN nutzen, das Ihre Seite weltweit auf schnellen Servern spiegelt. Für lokale Betriebe reicht oft schon ein solides, nahes Hosting mit aktiviertem Caching.</p>
+
+          <h2>So messen Sie Ihre Ladezeit selbst</h2>
+          <p>Sie müssen kein Technik-Profi sein, um Ihren Ist-Zustand zu kennen. Geben Sie Ihre Adresse bei <strong>Google PageSpeed Insights</strong> ein – kostenlos. Achten Sie auf drei Werte, die „Core Web Vitals":</p>
+          <ul>
+            <li><strong>LCP</strong> (Largest Contentful Paint): Wann ist der Hauptinhalt sichtbar? Gut: unter 2,5&nbsp;Sekunden.</li>
+            <li><strong>INP</strong> (Interaction to Next Paint): Wie schnell reagiert die Seite auf Klicks? Gut: unter 200&nbsp;Millisekunden.</li>
+            <li><strong>CLS</strong> (Cumulative Layout Shift): Verspringt das Layout beim Laden? Gut: unter 0,1.</li>
+          </ul>
+          <p>Sind diese Werte im grünen Bereich, ist Ihre Seite schnell genug – für Ihre Besucher und für Google.</p>
+
+          <div class="callout"><p>Handgeschriebene Websites laden im Schnitt <strong>deutlich schneller</strong> als Baukasten- oder Standard-WordPress-Seiten, weil kein überflüssiger Plattform-Code mitgeladen wird – oft in unter zwei Sekunden, auch auf dem Handy.</p></div>
+        </div>
+
+        <div class="cta">
+          <h2>Ist Ihre Seite zu langsam?</h2>
+          <p>Ich prüfe Ihre Website kostenlos und sage Ihnen ehrlich, wo es klemmt – konkret und ohne Fachchinesisch. Für Unternehmen in Bad Homburg, Frankfurt und dem Taunus.</p>
+          <a class="btn-primary" href="/#contact">Kostenlosen Website-Check anfragen →</a>
+        </div>
+      </div>
+    </article>
+
+    <section class="related">
+      <div class="container">
+        <h2>Weiterlesen</h2>
+        <div class="grid" style="padding-top:0">
+          <a class="card" href="/blog/baukasten-vs-handgemacht.html"><span class="card__tag">Entscheidungshilfe</span><div class="card__body"><h2>Baukasten oder handgemacht?</h2><p>Der ehrliche Vergleich – wann sich welcher Weg lohnt.</p><span class="card__more">Artikel lesen →</span></div></a>
+          <a class="card" href="/blog/dsgvo-website-pflichten.html"><span class="card__tag">Recht &amp; DSGVO</span><div class="card__body"><h2>DSGVO: 3 Pflichten gegen Abmahnungen</h2><p>Was jede Unternehmens-Website rechtlich braucht.</p><span class="card__more">Artikel lesen →</span></div></a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <span>© 2026 Beeken Web Engineering · Bad Homburg</span>
+        <ul class="footer__nav" role="list">
+          <li><a href="/">Startseite</a></li><li><a href="/blog/">Blog</a></li><li><a href="/#contact">Kontakt</a></li><li><a href="/legal">Impressum &amp; Datenschutz</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent','default',{ ad_storage:'denied', analytics_storage:'denied' });
+    try{var _p=JSON.parse(localStorage.getItem('bwe_cookie_consent'));if(_p&&_p.analytics)gtag('consent','update',{analytics_storage:'granted'});}catch(e){}
+    gtag('js', new Date());
+    gtag('config','G-8TF95LBYRV', { anonymize_ip: true });
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TF95LBYRV"></script>
+</body>
+</html>
