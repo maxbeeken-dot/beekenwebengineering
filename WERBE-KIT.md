@@ -3,11 +3,8 @@
 Einheitliche Daten & Texte für **alle** kostenlosen Kanäle (Google-Unternehmensprofil, Branchenverzeichnisse, organische Posts).
 **Wichtig für SEO:** NAP (Name/Adresse/Telefon) muss überall **identisch** sein — sonst leidet die lokale Sichtbarkeit. Erst finalisieren, dann überall gleich eintragen.
 
-## ⚠️ Fehlt noch (nur diese 2 Angaben blockieren das Veröffentlichen)
-1. **Einzugsgebiet / Stadt** — Servicegebiet-Business (deutschlandweit, remote) **oder** feste Stadt/Adresse? (bestimmt, welche lokalen Portale + GBP-Modus)
-2. **Telefonnummer** — die meisten Verzeichnisse + Google verlangen eine. (Handy oder z. B. eine kostenlose Business-Nummer.)
-
-Alles Übrige unten ist fertig.
+## ✅ NAP vollständig (aus Impressum, 2026-07-02)
+Alle Angaben da — Einträge können 1:1 identisch überall verwendet werden.
 
 ---
 
@@ -18,8 +15,9 @@ Alles Übrige unten ist fertig.
 | Inhaber | Max Beeken |
 | Website | https://beekenwebengineering.com |
 | E-Mail | maxbeeken@beekenwebengineering.com |
-| Telefon | _(offen — siehe oben)_ |
-| Adresse / Gebiet | _(offen — Servicegebiet vs. Adresse)_ |
+| Telefon | +49 163 7025361 |
+| Adresse | Alte Mauergasse 5, 61348 Bad Homburg, Deutschland |
+| Einzugsgebiet | Bad Homburg + Rhein-Main (Frankfurt, Taunus) |
 | Kategorie (primär) | Webdesigner |
 | Kategorien (weitere) | Website-Designer · Internetagentur · Webentwicklung · Marketingagentur |
 | Öffnungszeiten | Nach Vereinbarung (Mo–Fr) · Verfügbar ab Juli 2026 |

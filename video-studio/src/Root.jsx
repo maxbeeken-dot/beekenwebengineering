@@ -28,6 +28,7 @@ import {POVLogoGroesser} from './comps/POVLogoGroesser.jsx';
 import {WowOkReaction} from './comps/WowOkReaction.jsx';
 import {WelcherFehler} from './comps/WelcherFehler.jsx';
 import {VARCheck} from './comps/VARCheck.jsx';
+import {DeutschlandSpiel} from './comps/DeutschlandSpiel.jsx';
 import {WebsiteCheck5} from './comps/WebsiteCheck5.jsx';
 
 export const RemotionRoot = () => {
@@ -269,6 +270,14 @@ export const RemotionRoot = () => {
         id="VARCheck"
         component={VARCheck}
         durationInFrames={540}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="DeutschlandSpiel"
+        component={DeutschlandSpiel}
+        durationInFrames={545}
         fps={30}
         width={1080}
         height={1920}
