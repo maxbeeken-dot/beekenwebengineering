@@ -59,6 +59,7 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `CONTENT-PLAN.md` | Wochen-Content-Plan für Social-Media-Uploads (Status pro Tag/Slot/Plattform) |
 | `VIDEO-IDEAS.md` | Ideenbank für nicht-werbliche, organische Video-Formate rund um Websites/Webdev (Stand Juni 2026) |
 | `WERBE-KIT.md` | Komplettes Werbe-Material-Kit: NAP-Daten, Unternehmens-Beschreibungen (4 Längen), Leistungsliste, Keywords, 12 beste kostenlose Portale + Organik-Posts |
+| `WERBUNG-PRO-ACCOUNT.md` | Fertige organische Werbe-Bausteine pro Social-Account (YouTube, X, Pinterest u.a.): Bios, Pinned Posts, CTAs — zugeschnitten auf Zielkunden im Rhein-Main-Gebiet (Stand 2026-07-02) |
 | `CNAME` | Custom-Domain für **GitHub Pages** (`beekenwebengineering.com`) |
 | `robots.txt` | SEO-Crawling-Steuerung |
 | `sitemap.xml` | XML-Sitemap für Suchmaschinen |
