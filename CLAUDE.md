@@ -50,21 +50,17 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `fonts/bricolage-grotesque-var.woff2` | Variable WOFF2-Font: Bricolage Grotesque (Display-Schrift) |
 | `fonts/epilogue-var.woff2` | Variable WOFF2-Font: Epilogue (Body-Schrift) |
 | `og-image.png` | Social-Sharing-Bild 1200×630 (Open Graph / Twitter) |
-| `index_deploy.html` | Staging-/Deploy-Testversion, nicht live |
 | `signatur-kopieren.html` | E-Mail-Signatur-Generator, lokal genutzt |
-| `dashboard.html` | J.A.R.V.I.S. Business-Dashboard — lokales HUD mit Aufgaben, Projekten, Leads und Analytics (nicht live) |
 | `vercel.json` | Altlast aus Vercel-Zeit — von GitHub Pages **ignoriert** (kein aktives Deployment) |
-| `.vercelignore` | Altlast aus Vercel-Zeit — von GitHub Pages **ignoriert** |
-| `.htaccess` | Apache-Konfiguration (Weiterleitungen, Caching) |
 | `.gitignore` | Git-Ausschlussliste |
 | `.mcp.json` | MCP-Server-Konfiguration (21st.dev Magic) |
 | `CLAUDE.md` | Projektdokumentation für Claude Code |
 | `PRODUCT.md` | Produktbeschreibung / Feature-Dokumentation |
 | `CONTENT-PLAN.md` | Wochen-Content-Plan für Social-Media-Uploads (Status pro Tag/Slot/Plattform) |
 | `VIDEO-IDEAS.md` | Ideenbank für nicht-werbliche, organische Video-Formate rund um Websites/Webdev (Stand Juni 2026) |
+| `WERBE-KIT.md` | Komplettes Werbe-Material-Kit: NAP-Daten, Unternehmens-Beschreibungen (4 Längen), Leistungsliste, Keywords, 12 beste kostenlose Portale + Organik-Posts |
 | `CNAME` | Custom-Domain für **GitHub Pages** (`beekenwebengineering.com`) |
 | `robots.txt` | SEO-Crawling-Steuerung |
-| `llms.txt` | Kontextdatei für AI-Systeme (llmstxt.org-Standard) zur besseren AI-Sichtbarkeit |
 | `sitemap.xml` | XML-Sitemap für Suchmaschinen |
 | `google9fc278bb26ec797c.html` | Google-Search-Console-Verifizierungsdatei (muss live bleiben) |
 | `skills-lock.json` | Claude-Skills-Versionsdatei |
@@ -82,14 +78,11 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `Müll/skills-lock.json` | Archivierte Skills-Versionsdatei |
 | `Müll/LICENSE.txt` | Archivierte Lizenzdatei |
 | `.env.ads` | Lokale Ads-Agent API-Keys (gitignored, nie committen) |
-| `.env.ads.example` | Template für Ads-Agent API-Keys (→ `.env.ads` lokal, nie committen) |
 | `package.json` | npm-Manifest im Hauptverzeichnis (Abhängigkeiten des Projekts) |
 | `package-lock.json` | npm-Sperrdatei im Hauptverzeichnis (exakte Abhängigkeitsversionen) |
-| `render-creatives.mjs` | Node.js-Script zum Rendern von Werbe-Creatives (lokal ausgeführt) |
 | `ads-log.json` | Automatisches Upload-Log des Ads-Agenten (gitignored) |
 | `ads-videos/` | Gerenderte Werbevideos (gitignored) |
 | `ads-videos/kampagne-launch-2026/` | Kampagnen-Unterordner mit Creatives, Scripts, Copy und Briefing für die Launch-Kampagne 2026 |
-| `ads-videos/accounts/` | Social-Media-Account-Daten und Assets für den Ads-Agenten |
 | `.agents/` | Claude Code Agent-Aufgabendateien (automatisch erzeugt) |
 | `.vscode/` | VS Code Editor-Konfiguration |
 | `node_modules/` | npm-Abhängigkeiten (automatisch installiert, nicht committet) |
