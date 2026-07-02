@@ -26,6 +26,7 @@ import {WebsiteTyp} from './comps/WebsiteTyp.jsx';
 import {WebsiteVersusAB} from './comps/WebsiteVersusAB.jsx';
 import {POVLogoGroesser} from './comps/POVLogoGroesser.jsx';
 import {WowOkReaction} from './comps/WowOkReaction.jsx';
+import {WebsiteCheck5} from './comps/WebsiteCheck5.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -242,6 +243,14 @@ export const RemotionRoot = () => {
         id="WowOkReaction"
         component={WowOkReaction}
         durationInFrames={560}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WebsiteCheck5"
+        component={WebsiteCheck5}
+        durationInFrames={600}
         fps={30}
         width={1080}
         height={1920}
