@@ -29,6 +29,7 @@ import {WowOkReaction} from './comps/WowOkReaction.jsx';
 import {WelcherFehler} from './comps/WelcherFehler.jsx';
 import {VARCheck} from './comps/VARCheck.jsx';
 import {DeutschlandSpiel} from './comps/DeutschlandSpiel.jsx';
+import {ElfmeterDuell} from './comps/ElfmeterDuell.jsx';
 import {WebsiteCheck5} from './comps/WebsiteCheck5.jsx';
 
 export const RemotionRoot = () => {
@@ -278,6 +279,14 @@ export const RemotionRoot = () => {
         id="DeutschlandSpiel"
         component={DeutschlandSpiel}
         durationInFrames={545}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="ElfmeterDuell"
+        component={ElfmeterDuell}
+        durationInFrames={660}
         fps={30}
         width={1080}
         height={1920}
