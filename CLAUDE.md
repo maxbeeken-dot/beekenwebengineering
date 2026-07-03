@@ -46,6 +46,9 @@ GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorag
 | `index.html` | **Masterdatei & Live-Homepage** unter `/` — die einzige Quelldatei, direkt hier editieren |
 | `legal.html` | Impressum & Datenschutz — live unter `/legal` |
 | `404.html` | Markenkonforme Fehlerseite (GitHub Pages nutzt sie automatisch) |
+| `blog/` | **Live-Blog (SEO-Werbemaschine)** unter `/blog/` — Startseite + 7 SEO-Artikel (Ladezeit, DSGVO, Baukasten-vs-Code, Preise, Handwerker, Gastronomie, 5 Fehler). Gemeinsames Stylesheet `blog/blog.css` (erbt Design-Tokens/Fonts von index.html). Jede Seite: BlogPosting-Schema, OG/Twitter, lokale Keywords (Bad Homburg/Rhein-Main), CTA zu `/#contact`. In Haupt-Nav + `sitemap.xml`. Neue Artikel = wachsende Google-Longtail-Reichweite. |
+| `WERBE-KIT.md` | Einheitliche NAP + Beschreibungen + Portal-Liste für Gratis-Verzeichnisse/GBP (NAP: Alte Mauergasse 5, 61348 Bad Homburg, +49 163 7025361) |
+| `WERBUNG-PRO-ACCOUNT.md` | Passgenaue Werbung pro Social-/Verzeichnis-Account (Bios, Pinned-Tweet, Boards, GBP-Texte) |
 | `fonts/` | Selbst gehostete variable WOFF2-Fonts (Bricolage Grotesque, Epilogue — DSGVO) |
 | `fonts/bricolage-grotesque-var.woff2` | Variable WOFF2-Font: Bricolage Grotesque (Display-Schrift) |
 | `fonts/epilogue-var.woff2` | Variable WOFF2-Font: Epilogue (Body-Schrift) |
