@@ -30,6 +30,8 @@ import {WelcherFehler} from './comps/WelcherFehler.jsx';
 import {VARCheck} from './comps/VARCheck.jsx';
 import {DeutschlandSpiel} from './comps/DeutschlandSpiel.jsx';
 import {ElfmeterDuell} from './comps/ElfmeterDuell.jsx';
+import {RoteKarte} from './comps/RoteKarte.jsx';
+import {WebsiteTinder} from './comps/WebsiteTinder.jsx';
 import {WebsiteCheck5} from './comps/WebsiteCheck5.jsx';
 
 export const RemotionRoot = () => {
@@ -252,6 +254,14 @@ export const RemotionRoot = () => {
         height={1920}
       />
       <Composition
+        id="RoteKarte"
+        component={RoteKarte}
+        durationInFrames={694}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
         id="WebsiteCheck5"
         component={WebsiteCheck5}
         durationInFrames={600}
@@ -287,6 +297,14 @@ export const RemotionRoot = () => {
         id="ElfmeterDuell"
         component={ElfmeterDuell}
         durationInFrames={660}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WebsiteTinder"
+        component={WebsiteTinder}
+        durationInFrames={524}
         fps={30}
         width={1080}
         height={1920}
