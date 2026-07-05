@@ -32,6 +32,10 @@ import {DeutschlandSpiel} from './comps/DeutschlandSpiel.jsx';
 import {ElfmeterDuell} from './comps/ElfmeterDuell.jsx';
 import {RoteKarte} from './comps/RoteKarte.jsx';
 import {WebsiteTinder} from './comps/WebsiteTinder.jsx';
+import {WebsiteAufstellung} from './comps/WebsiteAufstellung.jsx';
+import {WebsiteBingo} from './comps/WebsiteBingo.jsx';
+import {DreiSekundenTest} from './comps/DreiSekundenTest.jsx';
+import {WebsiteAmpel} from './comps/WebsiteAmpel.jsx';
 import {WebsiteCheck5} from './comps/WebsiteCheck5.jsx';
 
 export const RemotionRoot = () => {
@@ -305,6 +309,38 @@ export const RemotionRoot = () => {
         id="WebsiteTinder"
         component={WebsiteTinder}
         durationInFrames={524}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WebsiteAufstellung"
+        component={WebsiteAufstellung}
+        durationInFrames={506}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WebsiteBingo"
+        component={WebsiteBingo}
+        durationInFrames={430}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="DreiSekundenTest"
+        component={DreiSekundenTest}
+        durationInFrames={518}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WebsiteAmpel"
+        component={WebsiteAmpel}
+        durationInFrames={496}
         fps={30}
         width={1080}
         height={1920}
