@@ -7,10 +7,10 @@
   <script>try{var _t=localStorage.getItem('bwe_theme');if(_t==='light')document.documentElement.setAttribute('data-theme','light');}catch(e){}</script>
 
   <!-- Sicherheit: CSP per Meta-Tag (GitHub Pages erlaubt keine eigenen Server-Header) -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://cdn.jsdelivr.net; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; font-src 'self'; img-src 'self' data: https://*.google-analytics.com https://*.googletagmanager.com; connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; upgrade-insecure-requests">
   <meta name="referrer" content="strict-origin-when-cross-origin">
-  <title>Beeken Web Engineering | Barrierefreie Websites, handgemacht</title>
-  <meta name="description" content="Wir bauen Ihre Website komplett von Hand: kein Baukastensystem, kein vorgefertigtes Design. Blitzschnell, für alle nutzbar, dauerhaft Ihr Eigentum.">
+  <title>Webdesign Bad Homburg &amp; Rhein-Main — handgemacht | Beeken Web Engineering</title>
+  <meta name="description" content="Handgemachte, barrierefreie Websites aus Bad Homburg fürs Rhein-Main-Gebiet: kein Baukasten, blitzschnell, DSGVO-konform — und die Website gehört Ihnen.">
   <meta name="theme-color" content="#0d0c12">
   <meta name="author" content="Max Beeken">
   <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -21,8 +21,8 @@
   <meta property="og:url" content="https://beekenwebengineering.com/">
   <meta property="og:site_name" content="Beeken Web Engineering">
   <meta property="og:locale" content="de_DE">
-  <meta property="og:title" content="Beeken Web Engineering | Barrierefreie Websites, handgemacht">
-  <meta property="og:description" content="Wir bauen Ihre Website komplett von Hand: kein Baukastensystem, kein vorgefertigtes Design. Blitzschnell, für alle nutzbar, dauerhaft Ihr Eigentum.">
+  <meta property="og:title" content="Webdesign Bad Homburg &amp; Rhein-Main — handgemacht | Beeken Web Engineering">
+  <meta property="og:description" content="Handgemachte, barrierefreie Websites aus Bad Homburg fürs Rhein-Main-Gebiet: kein Baukasten, blitzschnell, DSGVO-konform — und die Website gehört Ihnen.">
   <meta property="og:image" content="https://beekenwebengineering.com/og-image.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -30,8 +30,8 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Beeken Web Engineering | Barrierefreie Websites, handgemacht">
-  <meta name="twitter:description" content="Wir bauen Ihre Website komplett von Hand: kein Baukastensystem, kein vorgefertigtes Design. Blitzschnell, für alle nutzbar, dauerhaft Ihr Eigentum.">
+  <meta name="twitter:title" content="Webdesign Bad Homburg &amp; Rhein-Main — handgemacht | Beeken Web Engineering">
+  <meta name="twitter:description" content="Handgemachte, barrierefreie Websites aus Bad Homburg fürs Rhein-Main-Gebiet: kein Baukasten, blitzschnell, DSGVO-konform — und die Website gehört Ihnen.">
   <meta name="twitter:image" content="https://beekenwebengineering.com/og-image.png">
 
   <!-- Favicons -->
@@ -128,7 +128,7 @@
             "name": "Was kostet eine handgemachte Website bei Beeken Web Engineering?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Beeken Web Engineering erstellt individuelle Websites ohne Baukastensystem. Die fertige Website gehört vollständig dem Auftraggeber, kein Mietmodell. Der Preis richtet sich nach Umfang und Komplexität des Projekts. Anfragen ab Juli 2026 möglich."
+              "text": "Beeken Web Engineering erstellt individuelle Websites ohne Baukastensystem. Die fertige Website gehört vollständig dem Auftraggeber, kein Mietmodell. Der Preis richtet sich nach Umfang und Komplexität des Projekts. Anfragen sind ab sofort möglich."
             }
           },
           {
@@ -160,7 +160,7 @@
             "name": "Wann ist Beeken Web Engineering für neue Projekte verfügbar?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Beeken Web Engineering nimmt ab Juli 2026 neue Projekte an. Anfragen können bereits jetzt per E-Mail an maxbeeken@beekenwebengineering.com gestellt werden. Die Antwortzeit beträgt in der Regel unter 24 Stunden."
+              "text": "Beeken Web Engineering nimmt ab sofort neue Projekte an. Anfragen können über das Kontaktformular oder per E-Mail an maxbeeken@beekenwebengineering.com gestellt werden. Die Antwortzeit beträgt in der Regel unter 24 Stunden."
             }
           }
         ]
@@ -212,11 +212,11 @@
   </script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-8TF95LBYRV"></script>
 
-  <!-- Motion (Framer Motion vanilla) — importierbar via `import { animate, scroll, inView } from "motion"` -->
+  <!-- Motion (Framer Motion vanilla) — selbst gehostet, kein CDN-Drittkontakt (DSGVO + Supply-Chain) -->
   <script type="importmap">
   {
     "imports": {
-      "motion": "https://cdn.jsdelivr.net/npm/motion@12/+esm"
+      "motion": "/js/vendor/motion-12.42.2.esm.min.js"
     }
   }
   </script>
@@ -3017,7 +3017,7 @@
                 <a href="mailto:maxbeeken@beekenwebengineering.com">maxbeeken@beekenwebengineering.com</a>
               </p>
               <p class="contact__detail">Antwortzeit: in der Regel innerhalb von 24 Stunden</p>
-              <p class="contact__detail">Verfügbar ab Juli 2026 für neue Projekte</p>
+              <p class="contact__detail">Ab sofort verfügbar für neue Projekte</p>
             </div>
           </div>
 
@@ -3025,6 +3025,7 @@
             aria-label="Kontaktformular">
             <input type="hidden" name="_subject" value="Neue Anfrage über beekenwebengineering.com">
             <input type="hidden" name="_language" value="de">
+            <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none !important" value="">
             <div class="form__row">
               <div class="form__field">
                 <label for="f-name" class="form__label">Name *</label>
