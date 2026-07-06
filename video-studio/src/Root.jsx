@@ -37,6 +37,9 @@ import {WebsiteBingo} from './comps/WebsiteBingo.jsx';
 import {DreiSekundenTest} from './comps/DreiSekundenTest.jsx';
 import {WebsiteAmpel} from './comps/WebsiteAmpel.jsx';
 import {WebsiteKORunde} from './comps/WebsiteKORunde.jsx';
+import {WebsiteMythos} from './comps/WebsiteMythos.jsx';
+import {BesucherFunnel} from './comps/BesucherFunnel.jsx';
+import {WebsiteNotaufnahme} from './comps/WebsiteNotaufnahme.jsx';
 import {WebsiteCheck5} from './comps/WebsiteCheck5.jsx';
 
 export const RemotionRoot = () => {
@@ -350,6 +353,30 @@ export const RemotionRoot = () => {
         id="WebsiteKORunde"
         component={WebsiteKORunde}
         durationInFrames={604}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WebsiteMythos"
+        component={WebsiteMythos}
+        durationInFrames={552}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="BesucherFunnel"
+        component={BesucherFunnel}
+        durationInFrames={580}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WebsiteNotaufnahme"
+        component={WebsiteNotaufnahme}
+        durationInFrames={476}
         fps={30}
         width={1080}
         height={1920}
