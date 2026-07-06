@@ -1337,7 +1337,7 @@
     .toggle input:checked ~ .toggle__thumb { transform: translateX(18px); }
 
     /* content-visibility: off-screen sections skip layout+paint until needed */
-    .services, .work2, .versus, .process, .play, .proof, .contact {
+    .services, .work2, .versus, .process, .play, .proof, .faq, .contact {
       content-visibility: auto;
       contain-intrinsic-size: auto 700px;
     }
@@ -2301,6 +2301,39 @@
       .vicon [stroke] { stroke-dashoffset: 0 !important; }
       .proof__fill { transform: scaleX(1) !important; transition: none !important; }
     }
+
+    /* ── FAQ — accordion, mirrors the FAQPage schema ── */
+    .faq { padding-bottom: var(--section-gap); position: relative; }
+    .faq__head { max-width: 720px; margin-bottom: clamp(2rem, 4vw, 3rem); }
+    .faq__sub { color: var(--ink-muted); max-width: 52ch; }
+    .faq__sub a { color: var(--primary-hi); text-decoration: underline; text-underline-offset: 3px; }
+    .faq__sub a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 2px; }
+    .faq__list { max-width: 860px; border-top: 1px solid var(--border); }
+    .faq__item { border-bottom: 1px solid var(--border); }
+    .faq__q {
+      display: flex; align-items: center; justify-content: space-between; gap: 1.5rem;
+      padding: 1.15rem 0.25rem;
+      font-family: var(--font-display); font-weight: 600;
+      font-size: clamp(1rem, 0.95rem + 0.3vw, 1.15rem);
+      color: var(--ink); cursor: pointer; list-style: none;
+      transition: color 0.2s ease;
+    }
+    .faq__q::-webkit-details-marker { display: none; }
+    .faq__q:hover { color: var(--primary-hi); }
+    .faq__q:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 4px; }
+    .faq__icon { flex: 0 0 auto; color: var(--ink-dim); transition: transform 0.35s var(--ease-expo), color 0.2s ease; }
+    .faq__item[open] .faq__icon { transform: rotate(45deg); color: var(--primary-hi); }
+    .faq__q:hover .faq__icon { color: var(--primary-hi); }
+    .faq__a { padding: 0.1rem 0.25rem 1.35rem; color: var(--ink-muted); max-width: 62ch; }
+    .faq__a a { color: var(--primary-hi); text-decoration: underline; text-underline-offset: 3px; }
+    .faq__a a:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; border-radius: 2px; }
+    @media (prefers-reduced-motion: no-preference) {
+      .faq__a { animation: faqIn 0.4s var(--ease-expo) both; }
+      @keyframes faqIn { from { opacity: 0; transform: translateY(-4px); } }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .faq__icon { transition: none; }
+    }
   </style>
 
   <noscript>
@@ -2996,6 +3029,74 @@
     </section>
 
     <!-- ╔══════════════════════════════════════
+         FAQ — sichtbares Gegenstück zum FAQPage-Schema im <head>
+    ══════════════════════════════════════╗ -->
+    <section class="faq" id="faq" aria-labelledby="faq-h2">
+      <div class="container">
+        <div class="faq__head">
+          <span class="eyebrow reveal">Häufige Fragen</span>
+          <h2 id="faq-h2" class="t-heading reveal reveal-d1">Was Sie wissen wollen, bevor Sie anfragen</h2>
+          <p class="t-body faq__sub reveal reveal-d2">
+            Kurz und ehrlich beantwortet. Alles Weitere klären wir
+            im&nbsp;Gespräch — <a href="#contact">schreiben Sie einfach</a>.
+          </p>
+        </div>
+
+        <div class="faq__list reveal reveal-d2">
+          <details class="faq__item">
+            <summary class="faq__q">
+              <span>Was kostet eine handgemachte Website bei Beeken Web Engineering?</span>
+              <svg class="faq__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="faq__a t-body">
+              <p>Beeken Web Engineering erstellt individuelle Websites ohne Baukastensystem. Die fertige Website gehört vollständig dem Auftraggeber, kein Mietmodell. Der Preis richtet sich nach Umfang und Komplexität des Projekts. Anfragen sind ab sofort möglich.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">
+              <span>Warum ist eine handgeschriebene Website besser als WordPress oder Wix?</span>
+              <svg class="faq__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="faq__a t-body">
+              <p>Handgeschriebene Websites sind im Schnitt 3–10× schneller als WordPress- oder Wix-Seiten, weil kein überschüssiger Plattformcode geladen wird. Sie laden auf jedem Handy in unter zwei Sekunden, erreichen einen Google PageSpeed Score von 90+, und sind unabhängig von fremden Plattformen.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">
+              <span>Sind Websites von Beeken Web Engineering barrierefrei?</span>
+              <svg class="faq__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="faq__a t-body">
+              <p>Ja. Alle Websites von Beeken Web Engineering erfüllen WCAG AA, den Standard für Barrierefreiheit im Web, der in Deutschland für viele Unternehmen gesetzlich vorgeschrieben ist. Das bedeutet: Kompatibilität mit Sprachausgaben, vollständige Tastaturbedienbarkeit und geprüfte Farbkontraste.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">
+              <span>Wie läuft die Zusammenarbeit mit Beeken Web Engineering ab?</span>
+              <svg class="faq__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="faq__a t-body">
+              <p>Der Prozess läuft in vier Schritten: (1) Gespräch zur Klärung von Zielen und Anforderungen, (2) Konzept und Design mit Wireframes, (3) Entwicklung des handgeschriebenen Codes, (4) Veröffentlichung und Übergabe. Die fertige Website gehört danach vollständig dem Auftraggeber.</p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary class="faq__q">
+              <span>Wann ist Beeken Web Engineering für neue Projekte verfügbar?</span>
+              <svg class="faq__icon" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M8 2v12M2 8h12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
+            </summary>
+            <div class="faq__a t-body">
+              <p>Beeken Web Engineering nimmt ab sofort neue Projekte an. Anfragen können über das <a href="#contact">Kontaktformular</a> oder per E-Mail an <a href="mailto:maxbeeken@beekenwebengineering.com">maxbeeken@beekenwebengineering.com</a> gestellt werden. Die Antwortzeit beträgt in der Regel unter 24 Stunden.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ╔══════════════════════════════════════
          CONTACT
     ══════════════════════════════════════╗ -->
     <section class="contact" id="contact" aria-labelledby="contact-h2">
@@ -3167,7 +3268,9 @@
           <a href="#arbeiten">Arbeiten</a>
           <a href="#vergleich">Vergleich</a>
           <a href="#process">Prozess</a>
+          <a href="#faq">FAQ</a>
           <a href="#contact">Kontakt</a>
+          <a href="/blog/webdesign-bad-homburg.html">Webdesign Bad Homburg</a>
         </nav>
         <a href="legal.html" class="footer__copy footer__link">Impressum & Datenschutz</a>
         <button onclick="window.openCookieSettings()" class="footer__copy footer__link">Cookie-Einstellungen</button>
