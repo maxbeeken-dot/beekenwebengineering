@@ -1,6 +1,6 @@
 # BWE — Beeken Web Engineering
 
-**Inhaber:** Max Beeken · **Domain:** beekenwebengineering.com (Registrar: Squarespace) · **Hosting:** GitHub Pages · **Verfügbar:** ab Juli 2026
+**Inhaber:** Max Beeken · **Domain:** beekenwebengineering.com (Registrar: Squarespace) · **Hosting:** GitHub Pages · **Verfügbar:** ab sofort (seit Juli 2026)
 
 ## Hauptdatei & Live-Seite
 **Masterdatei: `index.html`** — die EINZIGE Quelldatei der Homepage, direkt hier editieren. GitHub Pages liefert sie unter `/` aus. (`codeform.html` wurde am 2026-06-11 abgeschafft — es gibt keinen Kopier-/Sync-Schritt mehr.) `legal.html` → `/legal` · `404.html` → Fehlerseite. Andere HTML-Dateien sind nicht live.
@@ -37,7 +37,7 @@ Präzise · Vertrauenswürdig · Modern · Zeigen statt erzählen · **Anti-Patt
 **Angebot/Positionierung:** Die fertige Website gehört dem Kunden (kein Mietmodell). **Aber:** es gibt einen **optionalen monatlichen Service** (Pflege/Betreuung). Deshalb in der Copy **niemals** mit „keine monatlichen Gebühren / für immer kostenlos" o.ä. werben — das widerspricht dem Service. Eigentum ja, „nie monatlich zahlen" nein.
 
 ## Keys
-GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorage `bwe_cookie_consent` · 21st.dev `89b85c03f38207003d959ae937154b04e93288e41b4fdb94910fd2a70c56b2fd`
+GA4 `G-8TF95LBYRV` · Formspree `https://formspree.io/f/xaqzwzja` · localStorage `bwe_cookie_consent` · 21st.dev-Key: NUR lokal in `.mcp.json` (gitignored) — **niemals in dieses öffentliche Repo committen!** (Alter Key wurde 2026-07-06 exponiert → rotieren)
 
 ## Dateien auf einen Blick
 
