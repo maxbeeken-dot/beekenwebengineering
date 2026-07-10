@@ -42,6 +42,11 @@ import {BesucherFunnel} from './comps/BesucherFunnel.jsx';
 import {WebsiteNotaufnahme} from './comps/WebsiteNotaufnahme.jsx';
 import {WebsiteCheck5} from './comps/WebsiteCheck5.jsx';
 import {AuraCheck} from './comps/AuraCheck.jsx';
+import {RateDieZahl} from './comps/RateDieZahl.jsx';
+import {BewerberDuell} from './comps/BewerberDuell.jsx';
+import {SchlafenderVerkaeufer} from './comps/SchlafenderVerkaeufer.jsx';
+import {SagMirOhne} from './comps/SagMirOhne.jsx';
+import {DreiVonVier} from './comps/DreiVonVier.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -386,6 +391,46 @@ export const RemotionRoot = () => {
         id="AuraCheck"
         component={AuraCheck}
         durationInFrames={552}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="RateDieZahl"
+        component={RateDieZahl}
+        durationInFrames={555}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="BewerberDuell"
+        component={BewerberDuell}
+        durationInFrames={540}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="SchlafenderVerkaeufer"
+        component={SchlafenderVerkaeufer}
+        durationInFrames={540}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="SagMirOhne"
+        component={SagMirOhne}
+        durationInFrames={540}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="DreiVonVier"
+        component={DreiVonVier}
+        durationInFrames={510}
         fps={30}
         width={1080}
         height={1920}
