@@ -41,6 +41,7 @@ import {WebsiteMythos} from './comps/WebsiteMythos.jsx';
 import {BesucherFunnel} from './comps/BesucherFunnel.jsx';
 import {WebsiteNotaufnahme} from './comps/WebsiteNotaufnahme.jsx';
 import {WebsiteCheck5} from './comps/WebsiteCheck5.jsx';
+import {AuraCheck} from './comps/AuraCheck.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -377,6 +378,14 @@ export const RemotionRoot = () => {
         id="WebsiteNotaufnahme"
         component={WebsiteNotaufnahme}
         durationInFrames={476}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="AuraCheck"
+        component={AuraCheck}
+        durationInFrames={552}
         fps={30}
         width={1080}
         height={1920}
