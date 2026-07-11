@@ -47,6 +47,12 @@ import {BewerberDuell} from './comps/BewerberDuell.jsx';
 import {SchlafenderVerkaeufer} from './comps/SchlafenderVerkaeufer.jsx';
 import {SagMirOhne} from './comps/SagMirOhne.jsx';
 import {DreiVonVier} from './comps/DreiVonVier.jsx';
+import {GemieteterBoden} from './comps/GemieteterBoden.jsx';
+import {WerAbbiegt} from './comps/WerAbbiegt.jsx';
+import {NaeheRadar} from './comps/NaeheRadar.jsx';
+import {FehlerSuchbild} from './comps/FehlerSuchbild.jsx';
+import {BlickHeatmap} from './comps/BlickHeatmap.jsx';
+import {Rueckspulen} from './comps/Rueckspulen.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -431,6 +437,54 @@ export const RemotionRoot = () => {
         id="DreiVonVier"
         component={DreiVonVier}
         durationInFrames={510}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="GemieteterBoden"
+        component={GemieteterBoden}
+        durationInFrames={555}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="WerAbbiegt"
+        component={WerAbbiegt}
+        durationInFrames={555}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="NaeheRadar"
+        component={NaeheRadar}
+        durationInFrames={570}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="FehlerSuchbild"
+        component={FehlerSuchbild}
+        durationInFrames={570}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="BlickHeatmap"
+        component={BlickHeatmap}
+        durationInFrames={560}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Rueckspulen"
+        component={Rueckspulen}
+        durationInFrames={555}
         fps={30}
         width={1080}
         height={1920}
