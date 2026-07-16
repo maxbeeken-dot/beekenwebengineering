@@ -53,6 +53,15 @@ import {NaeheRadar} from './comps/NaeheRadar.jsx';
 import {FehlerSuchbild} from './comps/FehlerSuchbild.jsx';
 import {BlickHeatmap} from './comps/BlickHeatmap.jsx';
 import {Rueckspulen} from './comps/Rueckspulen.jsx';
+import {CookieFalle} from './comps/CookieFalle.jsx';
+import {TuerFuerAlle} from './comps/TuerFuerAlle.jsx';
+import {SchlechtErklaert} from './comps/SchlechtErklaert.jsx';
+import {DeluluCheck} from './comps/DeluluCheck.jsx';
+import {LeuchtturmImNebel} from './comps/LeuchtturmImNebel.jsx';
+import {DunklesSchaufenster} from './comps/DunklesSchaufenster.jsx';
+import {Pulsschlag} from './comps/Pulsschlag.jsx';
+import {VorhangAuf} from './comps/VorhangAuf.jsx';
+import {Magnetfeld} from './comps/Magnetfeld.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -485,6 +494,78 @@ export const RemotionRoot = () => {
         id="Rueckspulen"
         component={Rueckspulen}
         durationInFrames={555}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="CookieFalle"
+        component={CookieFalle}
+        durationInFrames={555}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="TuerFuerAlle"
+        component={TuerFuerAlle}
+        durationInFrames={555}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="SchlechtErklaert"
+        component={SchlechtErklaert}
+        durationInFrames={570}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="DeluluCheck"
+        component={DeluluCheck}
+        durationInFrames={570}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="LeuchtturmImNebel"
+        component={LeuchtturmImNebel}
+        durationInFrames={660}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="DunklesSchaufenster"
+        component={DunklesSchaufenster}
+        durationInFrames={630}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Pulsschlag"
+        component={Pulsschlag}
+        durationInFrames={600}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="VorhangAuf"
+        component={VorhangAuf}
+        durationInFrames={600}
+        fps={30}
+        width={1080}
+        height={1920}
+      />
+      <Composition
+        id="Magnetfeld"
+        component={Magnetfeld}
+        durationInFrames={630}
         fps={30}
         width={1080}
         height={1920}

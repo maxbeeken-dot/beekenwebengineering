@@ -22,10 +22,10 @@ const caretOn = (f) => Math.floor(f / 7) % 2 === 0;
 
 // Selbst-Ausreden: schwarz getippt → durchgestrichen → teal überschrieben (gleiche Zeile)
 const AUSREDEN = [
-  {excuse: '„Kunden finden mich auch ohne Website."', reality: 'Sie googeln dich zuerst.', emoji: '🔎'},
-  {excuse: '„Meine Instagram-Seite reicht doch."', reality: 'Ohne eigene Seite? Halb unsichtbar.', emoji: ''},
-  {excuse: '„Mundpropaganda genügt mir."', reality: 'Empfohlen — und trotzdem gegoogelt.', emoji: ''},
-  {excuse: '„Ob’s am Handy läuft, ist egal."', reality: '8 von 10 Besuchern sind mobil.', emoji: '📱'},
+  {excuse: '„Kunden finden mich auch ohne Website.“', reality: 'Sie googeln dich zuerst.', emoji: '🔎'},
+  {excuse: '„Meine Instagram-Seite reicht doch.“', reality: 'Ohne eigene Seite? Halb unsichtbar.', emoji: ''},
+  {excuse: '„Mundpropaganda genügt mir.“', reality: 'Empfohlen — und trotzdem gegoogelt.', emoji: ''},
+  {excuse: '„Ob’s am Handy läuft, ist egal.“', reality: '8 von 10 Besuchern sind mobil.', emoji: '📱'},
 ];
 
 const HookScene = () => {

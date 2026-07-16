@@ -22,7 +22,7 @@ const BASE_TOP = 560, DEPTH_OFFSET = 86;
 const CARDS = [
   {q: 'Ein Zettel im Internet, den Fremde finden, wenn sie dich googeln.', sub: '(= bei Google gefunden werden)', emoji: '🔎', accent: C.teal},
   {q: 'Ein Verkäufer, der nie schläft und nie krankfeiert.', sub: '(= verkauft rund um die Uhr)', emoji: '🌙', accent: C.violet},
-  {q: 'Der Händedruck, bevor du ‚Hallo' sagst — auch für Bewerber.', sub: '(= Vertrauen + zieht Fachkräfte an)', emoji: '🤝', accent: C.gold},
+  {q: 'Der Händedruck, bevor du „Hallo“ sagst — auch für Bewerber.', sub: '(= Vertrauen + zieht Fachkräfte an)', emoji: '🤝', accent: C.gold},
   {q: 'Zu langsam? Kunde weg, bevor sie geladen hat.', sub: '(= Ladezeit = Umsatz)', emoji: '⚡', accent: C.red},
 ];
 
@@ -54,7 +54,7 @@ const StackCard = ({i, f, data}) => {
       boxShadow: isFront ? `0 26px 70px rgba(0,0,0,0.55), 0 0 40px ${data.accent}22` : '0 18px 44px rgba(0,0,0,0.5)',
     }}>
       <div style={{fontSize: 43, fontWeight: 800, color: C.ink, lineHeight: 1.22, letterSpacing: '-0.01em'}}>
-        „{data.q}"
+        „{data.q}“
       </div>
       <div style={{display: 'flex', alignItems: 'center', gap: 12, marginTop: 20}}>
         <div style={{fontSize: 30}}>{data.emoji}</div>
