@@ -62,6 +62,16 @@ import {DunklesSchaufenster} from './comps/DunklesSchaufenster.jsx';
 import {Pulsschlag} from './comps/Pulsschlag.jsx';
 import {VorhangAuf} from './comps/VorhangAuf.jsx';
 import {Magnetfeld} from './comps/Magnetfeld.jsx';
+import {DerGarten} from './comps/DerGarten.jsx';
+import {DasFundament} from './comps/DasFundament.jsx';
+import {AngezogenVomLicht} from './comps/AngezogenVomLicht.jsx';
+import {DerSpiegel} from './comps/DerSpiegel.jsx';
+import {SignalImRauschen} from './comps/SignalImRauschen.jsx';
+import {Zuendung} from './comps/Zuendung.jsx';
+import {HandInHand} from './comps/HandInHand.jsx';
+import {Eisberg} from './comps/Eisberg.jsx';
+import {RoterFaden} from './comps/RoterFaden.jsx';
+import {Sanduhr} from './comps/Sanduhr.jsx';
 
 export const RemotionRoot = () => {
   return (
@@ -570,6 +580,16 @@ export const RemotionRoot = () => {
         width={1080}
         height={1920}
       />
+      <Composition id="DerGarten" component={DerGarten} durationInFrames={630} fps={30} width={1080} height={1920} />
+      <Composition id="DasFundament" component={DasFundament} durationInFrames={600} fps={30} width={1080} height={1920} />
+      <Composition id="AngezogenVomLicht" component={AngezogenVomLicht} durationInFrames={600} fps={30} width={1080} height={1920} />
+      <Composition id="DerSpiegel" component={DerSpiegel} durationInFrames={600} fps={30} width={1080} height={1920} />
+      <Composition id="SignalImRauschen" component={SignalImRauschen} durationInFrames={600} fps={30} width={1080} height={1920} />
+      <Composition id="Zuendung" component={Zuendung} durationInFrames={600} fps={30} width={1080} height={1920} />
+      <Composition id="HandInHand" component={HandInHand} durationInFrames={570} fps={30} width={1080} height={1920} />
+      <Composition id="Eisberg" component={Eisberg} durationInFrames={600} fps={30} width={1080} height={1920} />
+      <Composition id="RoterFaden" component={RoterFaden} durationInFrames={570} fps={30} width={1080} height={1920} />
+      <Composition id="Sanduhr" component={Sanduhr} durationInFrames={570} fps={30} width={1080} height={1920} />
     </>
   );
 };
