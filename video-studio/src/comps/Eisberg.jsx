@@ -65,6 +65,13 @@ const Caption = ({top, kicker, main, o = 1, ty = 0, kcol = C.teal}) => (
   </div>
 );
 
+// Titel-Scrim: dunkles Deckband oben, damit die aufsteigenden Eisberg-Labels
+// hinter der Caption abgedunkelt werden (Lesbarkeit) — wirkt wie Title-Card-Tiefe.
+const TopScrim = () => (
+  <div style={{position: 'absolute', top: 0, left: 0, right: 0, height: 400, zIndex: 35, pointerEvents: 'none',
+    background: 'linear-gradient(180deg, rgba(6,16,25,0.92) 0%, rgba(6,16,25,0.74) 50%, rgba(6,16,25,0) 100%)'}} />
+);
+
 const HookScene = () => {
   const f = useCurrentFrame();
   const a = spring({frame: f, fps: 30, config: {damping: 14}});
@@ -85,6 +92,7 @@ const DiveScene = () => {
     <AbsoluteFill>
       <World camY={camY} labelGlow={interpolate(f, [40, 180], [0, 0.4], {extrapolateLeft: 'clamp', extrapolateRight: 'clamp'})} f={f} />
       <Bubbles f={f} />
+      <TopScrim />
       <Caption top={140} kicker="UNTER DER WASSERLINIE" main={<>Darunter liegt<br /><span style={{color: C.teal}}>die echte Arbeit.</span></>} o={lab} ty={(1 - lab) * 16} />
     </AbsoluteFill>
   );
@@ -98,6 +106,7 @@ const ProofScene = () => {
     <AbsoluteFill>
       <World camY={640} labelGlow={glow} f={f} />
       <Bubbles f={f} />
+      <TopScrim />
       <Caption top={150} kicker="9 VON 10 SIEHT NIEMAND" main={<>Aber jeder Kunde<br /><span style={{color: C.teal}}>spürt es.</span></>} o={lab} ty={(1 - lab) * 16} />
     </AbsoluteFill>
   );
@@ -111,7 +120,8 @@ const PullScene = () => {
     <AbsoluteFill>
       <World camY={camY} labelGlow={1.1} f={f} />
       <Bubbles f={f} />
-      <div style={{position: 'absolute', top: 130, left: 0, right: 0, textAlign: 'center', opacity: a, transform: `translateY(${(1 - a) * 16}px)`}}>
+      <TopScrim />
+      <div style={{position: 'absolute', top: 130, left: 0, right: 0, textAlign: 'center', opacity: a, transform: `translateY(${(1 - a) * 16}px)`, zIndex: 40}}>
         <div style={{fontSize: 58, fontWeight: 900, color: C.ink, lineHeight: 1.14, textShadow: '0 2px 20px rgba(0,0,0,0.6)'}}>Wir bauen den<br /><span style={{color: C.teal}}>ganzen Eisberg</span>.</div>
       </div>
     </AbsoluteFill>

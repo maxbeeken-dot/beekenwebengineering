@@ -116,8 +116,8 @@ const GoalScene = () => {
       <Thread p={1} />
       <Steps p={1} />
       <div style={{position: 'absolute', left: 540 - 150, top: 1660 - 46, width: 300, height: 92, borderRadius: 18, background: C.violet, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: 34, fontWeight: 900, transform: `scale(${0.8 + a * 0.2})`, boxShadow: `0 0 40px ${C.violet}`}}>ANFRAGE ✓</div>
-      <div style={{position: 'absolute', top: 300, left: 0, right: 0, opacity: a, padding: '0 62px'}}>
-        <div style={{fontSize: 54, fontWeight: 900, color: C.ink, lineHeight: 1.14}}>Jeder Klick führt näher<br />zum <span style={{color: C.teal}}>Kontakt</span>.</div>
+      <div style={{position: 'absolute', top: 120, left: 0, right: 0, opacity: a, padding: '0 62px', zIndex: 40}}>
+        <div style={{fontSize: 54, fontWeight: 900, color: C.ink, lineHeight: 1.14, textShadow: '0 2px 16px rgba(0,0,0,0.7)'}}>Jeder Klick führt näher<br />zum <span style={{color: C.teal}}>Kontakt</span>.</div>
       </div>
     </AbsoluteFill>
   );
