@@ -31,3 +31,6 @@ ads-videos/
 video-studio/.env
 video-studio/out/
 video-studio/node_modules/
+
+# Separates Produkt-Projekt — gehört NICHT ins öffentliche BWE-Website-Repo
+autonomous-recruiter/
