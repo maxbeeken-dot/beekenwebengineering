@@ -1,5 +1,7 @@
 import {Composition} from 'remotion';
 import {Cover916, Cover169} from './comps/Cover.jsx';
+import {StilleLeitung} from './comps/StilleLeitung.jsx';
+import {AntwortRennen} from './comps/AntwortRennen.jsx';
 import {SterneLuecke} from './comps/SterneLuecke.jsx';
 import {BewerbungsUhr} from './comps/BewerbungsUhr.jsx';
 import {WebsiteGlowUp} from './comps/WebsiteGlowUp.jsx';
@@ -595,6 +597,8 @@ export const RemotionRoot = () => {
       <Composition id="Sanduhr" component={Sanduhr} durationInFrames={570} fps={30} width={1080} height={1920} />
           <Composition id="BewerbungsUhr" component={BewerbungsUhr} durationInFrames={600} fps={30} width={1080} height={1920} />
       <Composition id="SterneLuecke" component={SterneLuecke} durationInFrames={600} fps={30} width={1080} height={1920} />
+      <Composition id="AntwortRennen" component={AntwortRennen} durationInFrames={600} fps={30} width={1080} height={1920} />
+      <Composition id="StilleLeitung" component={StilleLeitung} durationInFrames={600} fps={30} width={1080} height={1920} />
       <Composition id="Cover916" component={Cover916} durationInFrames={1} fps={30} width={1080} height={1920}
         defaultProps={{headline:"Headline", kicker:"", accent:"violet", badge:""}} />
       <Composition id="Cover169" component={Cover169} durationInFrames={1} fps={30} width={1280} height={720}
