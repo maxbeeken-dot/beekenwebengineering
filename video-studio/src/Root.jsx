@@ -1,5 +1,6 @@
 import {Composition} from 'remotion';
 import {Cover916, Cover169} from './comps/Cover.jsx';
+import {FloskelDecoder} from './comps/FloskelDecoder.jsx';
 import {HundertDreiUndSiebzig} from './comps/HundertDreiUndSiebzig.jsx';
 import {StilleLeitung} from './comps/StilleLeitung.jsx';
 import {AntwortRennen} from './comps/AntwortRennen.jsx';
@@ -601,6 +602,7 @@ export const RemotionRoot = () => {
       <Composition id="AntwortRennen" component={AntwortRennen} durationInFrames={600} fps={30} width={1080} height={1920} />
       <Composition id="StilleLeitung" component={StilleLeitung} durationInFrames={600} fps={30} width={1080} height={1920} />
       <Composition id="HundertDreiUndSiebzig" component={HundertDreiUndSiebzig} durationInFrames={600} fps={30} width={1080} height={1920} />
+      <Composition id="FloskelDecoder" component={FloskelDecoder} durationInFrames={600} fps={30} width={1080} height={1920} />
       <Composition id="Cover916" component={Cover916} durationInFrames={1} fps={30} width={1080} height={1920}
         defaultProps={{headline:"Headline", kicker:"", accent:"violet", badge:""}} />
       <Composition id="Cover169" component={Cover169} durationInFrames={1} fps={30} width={1280} height={720}
