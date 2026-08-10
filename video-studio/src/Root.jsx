@@ -3,6 +3,7 @@ import {Cover916, Cover169} from './comps/Cover.jsx';
 import {FloskelDecoder} from './comps/FloskelDecoder.jsx';
 import {VierzehnSekunden} from './comps/VierzehnSekunden.jsx';
 import {DieDoku} from './comps/DieDoku.jsx';
+import {DasEcho} from './comps/DasEcho.jsx';
 import {HundertDreiUndSiebzig} from './comps/HundertDreiUndSiebzig.jsx';
 import {StilleLeitung} from './comps/StilleLeitung.jsx';
 import {AntwortRennen} from './comps/AntwortRennen.jsx';
@@ -607,6 +608,7 @@ export const RemotionRoot = () => {
       <Composition id="FloskelDecoder" component={FloskelDecoder} durationInFrames={600} fps={30} width={1080} height={1920} />
       <Composition id="VierzehnSekunden" component={VierzehnSekunden} durationInFrames={600} fps={30} width={1080} height={1920} />
       <Composition id="DieDoku" component={DieDoku} durationInFrames={600} fps={30} width={1080} height={1920} />
+      <Composition id="DasEcho" component={DasEcho} durationInFrames={1950} fps={30} width={1080} height={1920} />
       <Composition id="Cover916" component={Cover916} durationInFrames={1} fps={30} width={1080} height={1920}
         defaultProps={{headline:"Headline", kicker:"", accent:"violet", badge:""}} />
       <Composition id="Cover169" component={Cover169} durationInFrames={1} fps={30} width={1280} height={720}

@@ -6,7 +6,13 @@ import path from 'path';
 import {fileURLToPath} from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const SR = 44100, DUR = 30, CH = 2;
+// Aufruf: node make-music.mjs [sekunden] [dateiname]
+// Ohne Argumente: 30s -> brand-bed.wav (Standardbett der 20-s-Videos, nicht überschreiben,
+// solange kein Grund besteht). Längere Videos brauchen ein eigenes, längeres Bett, weil
+// <Audio> in Remotion 4.0.290 kein loop-Prop hat und ein Loop-Schnitt hörbar klicken würde.
+const DUR = Number(process.argv[2]) || 30;
+const OUT_NAME = process.argv[3] || 'brand-bed.wav';
+const SR = 44100, CH = 2;
 const N = SR * DUR;
 const midi = (m) => 440 * Math.pow(2, (m - 69) / 12);
 
@@ -87,6 +93,6 @@ for (let i = 0; i < N; i++) {
 }
 const outDir = path.join(__dirname, 'public', 'music');
 fs.mkdirSync(outDir, {recursive: true});
-const out = path.join(outDir, 'brand-bed.wav');
+const out = path.join(outDir, OUT_NAME);
 fs.writeFileSync(out, buf);
 console.log(`✓ ${out}  ${(buf.length/1e6).toFixed(2)}MB  ${DUR}s  peak~${peak.toFixed(2)} RMS~${Math.sqrt(rms/N).toFixed(3)}`);
