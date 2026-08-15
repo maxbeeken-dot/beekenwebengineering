@@ -11,6 +11,8 @@ import {DerErsteTag} from './comps/DerErsteTag.jsx';
 import {DieSuchleiste} from './comps/DieSuchleiste.jsx';
 import {DieEmpfehlung} from './comps/DieEmpfehlung.jsx';
 import {DieGabelung} from './comps/DieGabelung.jsx';
+import {DerFilter} from './comps/DerFilter.jsx';
+import {DerDaumen} from './comps/DerDaumen.jsx';
 import {HundertDreiUndSiebzig} from './comps/HundertDreiUndSiebzig.jsx';
 import {StilleLeitung} from './comps/StilleLeitung.jsx';
 import {AntwortRennen} from './comps/AntwortRennen.jsx';
@@ -623,6 +625,8 @@ export const RemotionRoot = () => {
       <Composition id="DieSuchleiste" component={DieSuchleiste} durationInFrames={600} fps={30} width={1080} height={1920} />
       <Composition id="DieEmpfehlung" component={DieEmpfehlung} durationInFrames={600} fps={30} width={1080} height={1920} />
       <Composition id="DieGabelung" component={DieGabelung} durationInFrames={600} fps={30} width={1080} height={1920} />
+      <Composition id="DerFilter" component={DerFilter} durationInFrames={600} fps={30} width={1080} height={1920} />
+      <Composition id="DerDaumen" component={DerDaumen} durationInFrames={600} fps={30} width={1080} height={1920} />
       <Composition id="Cover916" component={Cover916} durationInFrames={1} fps={30} width={1080} height={1920}
         defaultProps={{headline:"Headline", kicker:"", accent:"violet", badge:""}} />
       <Composition id="Cover169" component={Cover169} durationInFrames={1} fps={30} width={1280} height={720}
