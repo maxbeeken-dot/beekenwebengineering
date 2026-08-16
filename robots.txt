@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+# Probefilme entstehen aus dem Bildmaterial einzelner Gastgeber und sind nur für
+# den jeweiligen Rechteinhaber bestimmt — nicht indexieren.
+Disallow: /probefilm/
+
 Sitemap: https://beekenwebengineering.com/sitemap.xml
