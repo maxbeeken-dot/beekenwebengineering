@@ -33,10 +33,13 @@
   .panel h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.35rem;margin:0 0 .75rem}
   .panel p{margin:0 0 1rem;color:var(--ink-muted)}
   .panel p strong{color:var(--ink);font-weight:600}
-  .price{display:flex;align-items:baseline;gap:.6rem;margin:1.5rem 0 .35rem;
-    font-family:'Bricolage Grotesque',system-ui,sans-serif}
-  .price b{font-size:2.4rem;line-height:1;letter-spacing:-.02em}
-  .price span{color:var(--ink-muted);font-size:.95rem}
+  .pakete{list-style:none;margin:1.5rem 0 .5rem;padding:0;display:grid;gap:.75rem}
+  .pakete li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+    padding:.85rem 1rem;border:1px solid var(--border);border-radius:12px;background:rgb(255 255 255/.02)}
+  .pakete .was{color:var(--ink);font-weight:600}
+  .pakete .was small{display:block;color:var(--ink-muted);font-weight:400;font-size:.85rem;margin-top:.15rem}
+  .pakete .preis{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.5rem;
+    font-weight:700;letter-spacing:-.02em;white-space:nowrap}
   .cta{display:inline-block;margin-top:1.25rem;background:var(--primary);color:#fff;text-decoration:none;
     font-weight:600;padding:.85rem 1.5rem;border-radius:12px;
     transition:background .2s var(--ease-expo),transform .2s var(--ease-expo)}
@@ -72,9 +75,18 @@
       <p>Gedacht ist er für Instagram und TikTok, als Kopfbereich Ihrer eigenen Seite und
         als Antwort an Gäste, die noch zwischen zwei Häusern schwanken.</p>
 
-      <div class="price"><b>490 €</b><span>einmalig, fertiger Film</span></div>
-      <p style="font-size:.92rem">Sie zahlen erst, wenn Sie ihn einsetzen wollen. Gefällt er Ihnen nicht,
-        ist die Sache damit erledigt — und der Film wird gelöscht.</p>
+      <ul class="pakete">
+        <li>
+          <span class="was">Kurzfilm für Social Media<small>ca. 20 Sekunden, hochkant für Reels und TikTok</small></span>
+          <span class="preis">125&nbsp;€</span>
+        </li>
+        <li>
+          <span class="was">Ganze Raumtour<small>Rundgang durch das Objekt, für Website und Anfragen</small></span>
+          <span class="preis">225&nbsp;€</span>
+        </li>
+      </ul>
+      <p style="font-size:.92rem">Einmalig, kein Abo. Sie zahlen erst, wenn Sie den Film einsetzen wollen —
+        gefällt er Ihnen nicht, ist die Sache damit erledigt und der Film wird gelöscht.</p>
 
       <a class="cta" href="mailto:maxbeeken@beekenwebengineering.com?subject=Probefilm%20Modernes%20Alpenchalet">Antworten</a>
     </div>
