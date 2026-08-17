@@ -33,10 +33,16 @@
   .panel h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.35rem;margin:0 0 .75rem}
   .panel p{margin:0 0 1rem;color:var(--ink-muted)}
   .panel p strong{color:var(--ink);font-weight:600}
-  .price{display:flex;align-items:baseline;gap:.6rem;margin:1.5rem 0 .35rem;
-    font-family:'Bricolage Grotesque',system-ui,sans-serif}
-  .price b{font-size:2.4rem;line-height:1;letter-spacing:-.02em}
-  .price span{color:var(--ink-muted);font-size:.95rem}
+  .pakete{list-style:none;margin:1.5rem 0 .5rem;padding:0;display:grid;gap:.75rem}
+  .pakete li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+    padding:.85rem 1rem;border:1px solid var(--border);border-radius:12px;background:rgb(255 255 255/.02)}
+  .pakete .was{color:var(--ink);font-weight:600}
+  .pakete .was small{display:block;color:var(--ink-muted);font-weight:400;font-size:.85rem;margin-top:.15rem}
+  .pakete .preis{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.5rem;
+    font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+  .weiter{margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+  .weiter h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.1rem;margin:0 0 .6rem;color:var(--ink)}
+  .weiter p{margin:0 0 .85rem;color:var(--ink-muted);font-size:.95rem}
   .cta{display:inline-block;margin-top:1.25rem;background:var(--primary);color:#fff;text-decoration:none;
     font-weight:600;padding:.85rem 1.5rem;border-radius:12px;
     transition:background .2s var(--ease-expo),transform .2s var(--ease-expo)}
@@ -72,11 +78,26 @@
       <p>Gedacht ist er für Instagram und TikTok, als Kopfbereich Ihrer eigenen Seite und
         als Antwort an Gäste, die noch zwischen zwei Häusern schwanken.</p>
 
-      <div class="price"><b>490 €</b><span>einmalig, fertiger Film</span></div>
-      <p style="font-size:.92rem">Sie zahlen erst, wenn Sie ihn einsetzen wollen. Gefällt er Ihnen nicht,
-        ist die Sache damit erledigt — und der Film wird gelöscht.</p>
+      <ul class="pakete">
+        <li><span class="was">Kurzfilm für Social Media<small>ca. 20 Sekunden, hochkant für Reels und TikTok</small></span><span class="preis">125&nbsp;€</span></li>
+        <li><span class="was">Ganze Raumtour<small>Rundgang durchs Haus, für Website und Anfragen</small></span><span class="preis">300&nbsp;€</span></li>
+      </ul>
+      <p style="font-size:.92rem">Einmalig, kein Abo. Sie zahlen erst, wenn Sie den Film einsetzen wollen —
+        gefällt er Ihnen nicht, ist die Sache damit erledigt und der Film wird gelöscht.</p>
+      <p style="font-size:.92rem">Es geht auch ausführlicher: <strong>längere Touren</strong> über mehrere
+        Räume, Aussenanlagen und Jahreszeiten — oder mehrere Objekte in einer Reihe. Was sinnvoll ist,
+        hängt vom Haus ab; das bespreche ich gerne mit Ihnen.</p>
 
-      <a class="cta" href="mailto:maxbeeken@beekenwebengineering.com?subject=Probefilm%20The%20One%20Sylt">Antworten</a>
+      <div class="weiter">
+        <h3>Wie es weitergeht</h3>
+        <p>Das hier ist ein erster Durchgang aus dem, was Ihr Inserat hergibt — noch nicht das
+          fertige Ergebnis. Schreiben Sie mir, was Ihnen auffällt: eine Reihenfolge, die nicht
+          stimmt, ein Tempo, das zu schnell ist, ein Raum, der fehlt.</p>
+        <p>Daraus wird dann ein Film, der zu Ihrem Haus passt — Bildauswahl, Schnitt und Musik
+          abgestimmt, auf Wunsch mit Aufnahmen, die gar nicht im Inserat stehen. Erst wenn das
+          Ergebnis für Sie überzeugend ist, wird daraus ein Auftrag.</p>
+        <a class="cta" href="mailto:maxbeeken@beekenwebengineering.com?subject=Probefilm%20The%20One%20Sylt">Antworten</a>
+      </div>
     </div>
   </div>
 
