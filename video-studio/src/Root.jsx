@@ -16,6 +16,8 @@ import {DerDaumen} from './comps/DerDaumen.jsx';
 import {DieWaage} from './comps/DieWaage.jsx';
 import {DasPreisschild} from './comps/DasPreisschild.jsx';
 import {DieRangliste} from './comps/DieRangliste.jsx';
+import {DieAnfrage} from './comps/DieAnfrage.jsx';
+import {DasZeitfenster} from './comps/DasZeitfenster.jsx';
 import {HundertDreiUndSiebzig} from './comps/HundertDreiUndSiebzig.jsx';
 import {StilleLeitung} from './comps/StilleLeitung.jsx';
 import {AntwortRennen} from './comps/AntwortRennen.jsx';
@@ -633,6 +635,8 @@ export const RemotionRoot = () => {
       <Composition id="DieWaage" component={DieWaage} durationInFrames={600} fps={30} width={1080} height={1920} />
       <Composition id="DasPreisschild" component={DasPreisschild} durationInFrames={750} fps={30} width={1080} height={1920} />
       <Composition id="DieRangliste" component={DieRangliste} durationInFrames={650} fps={30} width={1080} height={1920} />
+      <Composition id="DieAnfrage" component={DieAnfrage} durationInFrames={685} fps={30} width={1080} height={1920} />
+      <Composition id="DasZeitfenster" component={DasZeitfenster} durationInFrames={640} fps={30} width={1080} height={1920} />
       <Composition id="Cover916" component={Cover916} durationInFrames={1} fps={30} width={1080} height={1920}
         defaultProps={{headline:"Headline", kicker:"", accent:"violet", badge:""}} />
       <Composition id="Cover169" component={Cover169} durationInFrames={1} fps={30} width={1280} height={720}
