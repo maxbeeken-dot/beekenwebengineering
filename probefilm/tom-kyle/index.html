@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="de" data-page="probefilm">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<title>Probefilm — Tom Kyle</title>
+<link rel="icon" href="/logo-96.png">
+<style>
+  :root{
+    --bg:oklch(0.08 0 0); --surface:oklch(0.13 0.010 280);
+    --ink:oklch(0.96 0.004 280); --ink-muted:oklch(0.56 0.010 280);
+    --primary:oklch(0.60 0.200 280); --primary-hi:oklch(0.66 0.188 280);
+    --accent:oklch(0.74 0.148 195); --border:oklch(0.22 0.012 280);
+    --ease-expo:cubic-bezier(0.16,1,0.3,1); --pad:clamp(1.25rem,5vw,3rem);
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Epilogue',system-ui,-apple-system,'Segoe UI',sans-serif;line-height:1.6;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1080px;margin:0 auto;padding:var(--pad)}
+  header{display:flex;align-items:center;gap:.75rem;padding-block:1.5rem 2.5rem;flex-wrap:wrap}
+  .chip{font-size:.72rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;
+    color:var(--accent);border:1.5px solid var(--accent);border-radius:999px;padding:.4rem .8rem}
+  h1{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:clamp(2rem,6vw,3.4rem);
+    line-height:1.05;margin:0 0 .5rem;letter-spacing:-.02em}
+  .sub{color:var(--ink-muted);margin:0 0 2.5rem;font-size:clamp(1rem,2.4vw,1.15rem)}
+  .stage{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:clamp(1.5rem,4vw,3rem);align-items:start}
+  @media(max-width:760px){.stage{grid-template-columns:1fr}}
+  video{width:100%;aspect-ratio:9/16;border-radius:18px;display:block;background:#000;
+    border:1px solid var(--border);box-shadow:0 24px 60px -20px rgb(0 0 0/.8)}
+  .panel{background:var(--surface);border:1px solid var(--border);border-radius:18px;padding:clamp(1.25rem,3vw,2rem)}
+  .panel h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.35rem;margin:0 0 .75rem}
+  .panel p{margin:0 0 1rem;color:var(--ink-muted)}
+  .panel p strong{color:var(--ink);font-weight:600}
+  .pakete{list-style:none;margin:1.5rem 0 .5rem;padding:0;display:grid;gap:.75rem}
+  .pakete li{display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+    padding:.85rem 1rem;border:1px solid var(--border);border-radius:12px;background:rgb(255 255 255/.02)}
+  .pakete .was{color:var(--ink);font-weight:600}
+  .pakete .was small{display:block;color:var(--ink-muted);font-weight:400;font-size:.85rem;margin-top:.15rem}
+  .pakete .preis{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.5rem;
+    font-weight:700;letter-spacing:-.02em;white-space:nowrap}
+  .weiter{margin-top:1.75rem;padding-top:1.5rem;border-top:1px solid var(--border)}
+  .weiter h3{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:1.1rem;margin:0 0 .6rem;color:var(--ink)}
+  .weiter p{margin:0 0 .85rem;color:var(--ink-muted);font-size:.95rem}
+  .cta{display:inline-block;margin-top:1.25rem;background:var(--primary);color:#fff;text-decoration:none;
+    font-weight:600;padding:.85rem 1.5rem;border-radius:12px;
+    transition:background .2s var(--ease-expo),transform .2s var(--ease-expo)}
+  .cta:hover{background:var(--primary-hi);transform:translateY(-2px)}
+  .cta:focus-visible{outline:2px solid var(--primary);outline-offset:3px}
+  .note{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--border);color:var(--ink-muted);font-size:.88rem}
+  footer{padding:3rem 0 2rem;color:var(--ink-muted);font-size:.85rem}
+  footer a{color:var(--accent)}
+  @media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <header>
+    <span class="chip">Probefilm</span>
+    <span style="color:var(--ink-muted);font-size:.85rem">unverbindlich · nicht veröffentlicht</span>
+  </header>
+
+  <h1>Tom Kyle</h1>
+  <p class="sub">Wenningstedt, Sylt — aus den Fotos Ihres eigenen Inserats.</p>
+
+  <div class="stage">
+    <video controls playsinline preload="metadata" poster="poster.jpg">
+      <source src="film.mp4" type="video/mp4">
+      Ihr Browser kann dieses Video nicht abspielen.
+    </video>
+
+    <div class="panel">
+      <h2>Was Sie hier sehen</h2>
+      <p>Diesen Film habe ich aus den Bildern gebaut, die ohnehin in Ihrem Inserat stehen —
+        <strong>ohne neues Shooting, ohne Anreise</strong>. Kamerafahrten, Licht, Ton.
+        Er ist als <strong>Probefilm</strong> gekennzeichnet und nirgends veröffentlicht.</p>
+      <p>Gedacht ist er für Instagram und TikTok, als Kopfbereich Ihrer eigenen Seite und
+        als Antwort an Gäste, die noch zwischen zwei Häusern schwanken.</p>
+
+      <ul class="pakete">
+        <li><span class="was">Kurzfilm für Social Media<small>ca. 20 Sekunden, hochkant für Reels und TikTok</small></span><span class="preis">125&nbsp;€</span></li>
+        <li><span class="was">Ganze Raumtour<small>Rundgang durchs Haus, für Website und Anfragen</small></span><span class="preis">300&nbsp;€</span></li>
+      </ul>
+      <p style="font-size:.92rem">Einmalig, kein Abo. Sie zahlen erst, wenn Sie den Film einsetzen wollen —
+        gefällt er Ihnen nicht, ist die Sache damit erledigt und der Film wird gelöscht.</p>
+      <p style="font-size:.92rem">Es geht auch ausführlicher: <strong>längere Touren</strong> über mehrere
+        Räume, Aussenanlagen und Jahreszeiten — oder mehrere Objekte in einer Reihe. Was sinnvoll ist,
+        hängt vom Haus ab; das bespreche ich gerne mit Ihnen.</p>
+
+      <div class="weiter">
+        <h3>Wie es weitergeht</h3>
+        <p>Das hier ist ein erster Durchgang aus dem, was Ihr Inserat hergibt — noch nicht das
+          fertige Ergebnis. Schreiben Sie mir, was Ihnen auffällt: eine Reihenfolge, die nicht
+          stimmt, ein Tempo, das zu schnell ist, ein Raum, der fehlt.</p>
+        <p>Daraus wird dann ein Film, der zu Ihrem Haus passt — Bildauswahl, Schnitt und Musik
+          abgestimmt, auf Wunsch mit Aufnahmen, die gar nicht im Inserat stehen. Erst wenn das
+          Ergebnis für Sie überzeugend ist, wird daraus ein Auftrag.</p>
+        <a class="cta" href="mailto:maxbeeken@beekenwebengineering.com?subject=Probefilm%20Tom%20Kyle">Antworten</a>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">Die Bildrechte liegen bei Ihnen. Ich habe die Fotos ausschließlich verwendet, um Ihnen
+    diesen Vorschlag zu Ihrem eigenen Objekt zu zeigen. Die Seite ist nicht verlinkt und für
+    Suchmaschinen gesperrt. Ein Wort von Ihnen, und Film und Seite sind sofort gelöscht.</p>
+
+  <footer>Beeken Web Engineering · Max Beeken ·
+    <a href="https://beekenwebengineering.com">beekenwebengineering.com</a></footer>
+</main>
+</body>
+</html>
